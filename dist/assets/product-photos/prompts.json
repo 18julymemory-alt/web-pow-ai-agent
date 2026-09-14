@@ -1,0 +1,58 @@
+{
+  "tool": "Built-in imagegen",
+  "type": "Illustrative generated product imagery",
+  "briefs": [
+    [
+      "ads",
+      "Multi-channel digital advertising: a premium commercial photography still life of a large monitor showing a polished visual search ad layout, smartphone showing a cinematic product video ad, compact camera, and campaign storyboard printouts. Tangible dark desk, sophisticated blue-grey studio, realistic materials. Focus on the advertising media, no readable small text."
+    ],
+    [
+      "commerce",
+      "E-commerce operations: premium commercial photography still life of carefully packaged skincare and lifestyle products, cardboard shipping boxes, a tablet displaying a refined online product catalog with product photography, and a barcode scanner on a neat dark studio desk. Realistic, tactile, restrained warm lighting."
+    ],
+    [
+      "web",
+      "Website design and development: premium product photography of a large thin desktop screen and smartphone showing matching elegant editorial business websites with real product photography, refined navigation and modular page sections. No floating text. Graphite desk and navy studio, clean soft cyan rim light, believable glass and aluminum."
+    ],
+    [
+      "social",
+      "Social media content production: premium commercial photograph of an arranged creative production desk with camera and lens, portrait-format smartphone on a small tripod showing an attractive lifestyle video, editorial moodboard prints and carefully arranged beauty product. Restrained dusty mauve accents, dark studio, tangible professional equipment."
+    ],
+    [
+      "ai",
+      "Enterprise AI agent software: premium realistic product visualization of a sleek transparent glass computing core with illuminated neural connections, beside a thin laptop showing a clean task-oriented assistant workspace with connected app thumbnails and a microphone. Believable metallic hardware, dark navy desk, restrained pale violet lighting. No humanoid robot, no cartoon, no dense text."
+    ],
+    [
+      "data",
+      "CRM and data analytics: premium realistic product photography of an ultrawide monitor displaying a beautifully organized CRM pipeline and abstract analytical charts, a second tablet displaying a customer journey, notebooks on a dark navy desk. Refined teal accents, no numerical performance claims or legible fake customer data."
+    ],
+    [
+      "seo",
+      "Search engine optimization: premium conceptual product photography of a tablet displaying elegant search results and a structured website, a large optical magnifying glass inspecting the screen, tasteful stacked page cards arranged beside it. Physical glass and metal textures, dark navy professional studio, subtle blue lighting."
+    ],
+    [
+      "strategy",
+      "Business strategy consulting: premium editorial photograph close-up of a professional planning table with physical roadmap cards, clean architectural blocks arranged as a progression, notebook with a simple journey diagram, and a tablet displaying a strategic plan. No people or hands, no stock handshake, dark sophisticated neutral palette, warm soft side light."
+    ],
+    [
+      "academy",
+      "Digital marketing education: premium editorial photograph of an elegant professional learning workstation with open laptop showing a visual lesson player, quality notebook, pen, headphones, printed practical worksheets and a tablet showing a marketing exercise. No students or people. Soft sage lighting on a dark navy desk, welcoming but professional."
+    ],
+    [
+      "ai-chatbot",
+      "a close-up premium smartphone and tablet with a clean customer support messaging interface, voice waveform indicator and tiny non-legible message shapes, placed on a polished dark desk, focus on conversation and customer support, no humanoid robot"
+    ],
+    [
+      "ai-sales",
+      "a premium laptop and portrait tablet on an elegant sales workstation, on screen a polished visual customer pipeline with contact profile cards and planned follow-up calendar, tasteful notebook and pen, no real names or measurable sales statistics"
+    ],
+    [
+      "ai-content",
+      "an editorial content creation workstation with a premium monitor displaying a visual content editor, page layouts, image thumbnails and a creative moodboard, camera lens and printed editorial pages nearby"
+    ],
+    [
+      "ai-workflow",
+      "a realistic high-end transparent modular computing device with carefully organized illuminated circuit connections between distinct modules, with a laptop displaying a visual workflow of linked task nodes, strong visual metaphor for controlled business process automation"
+    ]
+  ]
+}

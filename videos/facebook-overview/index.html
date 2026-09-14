@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>body{margin:0;background:#07131e}#root{position:relative;width:1280px;height:720px;overflow:hidden}.clip,.video-scene{position:absolute;inset:0}
+    @font-face{font-family:'Segoe UI';src:url('assets/fonts/segoeui.ttf') format('truetype');font-weight:100 900;font-style:normal}
+    #fb-goal{position:relative;width:100%;height:100%;overflow:hidden;color:#edf6fa;font-family:'Segoe UI',sans-serif}
+    #fb-goal *{box-sizing:border-box}
+    #fb-goal-bg{position:absolute;inset:0;background:#07131e}
+    #fb-goal-kicker{position:absolute;left:56px;top:40px;font-size:20px;font-weight:700;color:#a8e9f7;letter-spacing:2px}
+    #fb-goal-title{position:absolute;left:56px;top:80px;margin:0;width:1168px;font-size:48px;line-height:1.17;font-weight:700}
+    #fb-goal-choices{position:absolute;left:56px;top:178px;width:480px}
+    .fb-goal-choice{height:88px;margin-bottom:14px;border:1px solid #344957;border-radius:14px;display:flex;align-items:center;padding:0 24px;gap:20px;background:#102330;font-size:28px;font-weight:600;position:relative}
+    .fb-goal-dot{width:24px;height:24px;border:2px solid #a8e9f7;border-radius:50%;flex-shrink:0}
+    #fb-goal-selected{position:absolute;inset:0;border:3px solid #a8e9f7;border-radius:14px;pointer-events:none}
+    #fb-goal-check{width:12px;height:12px;border-radius:50%;background:#a8e9f7;margin:4px}
+    #fb-goal-example{position:absolute;left:56px;top:488px;width:480px;font-size:24px;line-height:1.4;color:#a8e9f7}
+    #fb-goal-panel{position:absolute;left:580px;top:178px;width:644px;height:344px;border-radius:18px;background:#edf6fa;padding:26px 30px;color:#07131e}
+    #fb-goal-panel-title{font-size:20px;font-weight:700;margin-bottom:18px;letter-spacing:1px;color:#304753}
+    .fb-goal-step{display:flex;align-items:center;gap:16px;height:74px;border-top:1px solid #c3d3dc}
+    .fb-goal-number{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#07131e;color:#edf6fa;font-size:20px;font-weight:700;flex-shrink:0}
+    .fb-goal-step-copy{font-size:27px;font-weight:700;line-height:1.1}
+    .fb-goal-step-sub{display:block;font-size:18px;font-weight:400;margin-top:5px;color:#304753}
+    #fb-goal-step3 .fb-goal-number{background:#1877f2}
+    #fb-goal-note{position:absolute;left:580px;top:544px;width:644px;font-size:19px;line-height:1.35;color:#a8e9f7}
+  
+    @font-face { font-family: 'Segoe UI'; src: url('assets/fonts/segoeui.ttf') format('truetype'); font-weight: 400 800; }
+    #fb-ad { position:absolute; inset:0; width:100%; height:100%; font-family:'Segoe UI',sans-serif; color:#edf6fa; overflow:hidden; }
+    .fb-ad-bg { position:absolute; inset:0; background:#07131e; }
+    .fb-ad-kicker { position:absolute; top:38px; left:54px; color:#a8e9f7; font-size:20px; font-weight:700; letter-spacing:2px; }
+    .fb-ad-left { position:absolute; top:99px; left:54px; width:362px; }
+    .fb-ad-title { font-size:48px; font-weight:700; line-height:1.12; margin:0 0 30px; }
+    .fb-ad-audience { padding:21px; background:#112838; border:1px solid #365568; border-radius:18px; }
+    .fb-ad-small { font-size:18px; color:#a8e9f7; margin:0 0 9px; }
+    .fb-ad-body { font-size:24px; line-height:1.35; margin:0; }
+    .fb-ad-divider { height:1px; background:#365568; margin:18px 0; }
+    .fb-ad-note { margin-top:22px; font-size:22px; line-height:1.4; color:#b9ceda; }
+    .fb-ad-feed-wrap { position:absolute; top:70px; left:458px; width:492px; }
+    .fb-ad-placement { font-size:20px; font-weight:700; margin-bottom:12px; color:#a8e9f7; }
+    .fb-ad-feed { background:#edf6fa; color:#102432; border-radius:17px; padding:20px; height:457px; box-sizing:border-box; }
+    .fb-ad-header { display:flex; gap:12px; align-items:center; }
+    .fb-ad-avatar { width:44px; height:44px; border-radius:50%; background:#1877f2; color:#fff; display:flex; align-items:center; justify-content:center; font-size:23px; font-weight:700; }
+    .fb-ad-shop { font-size:22px; font-weight:700; line-height:1.15; }
+    .fb-ad-sponsored { font-size:18px; margin-top:4px; color:#405765; }
+    .fb-ad-copy { font-size:22px; margin:17px 0 12px; line-height:1.3; }
+    .fb-ad-product { height:191px; background:#d6ecf1; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:18px; }
+    .fb-ad-product-label { width:181px; font-size:25px; line-height:1.25; font-weight:700; }
+    .fb-ad-cta { margin-top:16px; height:55px; background:#1877f2; color:#fff; border-radius:10px; font-size:24px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:12px; }
+    .fb-ad-reels-wrap { position:absolute; top:70px; left:977px; width:244px; }
+    .fb-ad-reels { width:216px; height:384px; background:#143349; border:2px solid #45687c; border-radius:20px; box-sizing:border-box; position:relative; overflow:hidden; }
+    .fb-ad-reel-heading { position:absolute; top:20px; left:18px; font-size:22px; font-weight:700; }
+    .fb-ad-reel-svg { position:absolute; top:79px; left:34px; width:148px; height:172px; }
+    .fb-ad-reel-copy { position:absolute; bottom:59px; left:18px; right:18px; font-size:21px; line-height:1.25; font-weight:700; }
+    .fb-ad-reel-cta { position:absolute; bottom:15px; left:14px; right:14px; height:34px; border-radius:7px; background:#1877f2; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; }
+    .fb-ad-reel-note { width:220px; font-size:20px; line-height:1.3; color:#b9ceda; margin-top:17px; }
+    .fb-ad-summary { position:absolute; left:54px; right:54px; top:634px; border-top:1px solid #365568; padding-top:19px; font-size:24px; color:#a8e9f7; }
+  
+    @font-face{font-family:'FbResultSegoe';src:url('assets/fonts/segoeui.ttf') format('truetype');font-weight:100 900;}
+    #fb-result{position:relative;width:100%;height:100%;overflow:hidden;color:#edf6fa;font-family:'FbResultSegoe',sans-serif;}
+    #fb-result *{box-sizing:border-box;}
+    #fb-result-ground{position:absolute;inset:0;background:#07131e;}
+    #fb-result-copy{position:absolute;left:64px;top:64px;width:425px;}
+    .fb-result-eyebrow{font-size:18px;font-weight:700;letter-spacing:2px;color:#a8e9f7;margin-bottom:18px;}
+    #fb-result-title{font-size:48px;line-height:1.12;font-weight:700;margin:0 0 20px;}
+    #fb-result-intro{font-size:24px;line-height:1.4;margin:0;color:#c1d3df;}
+    #fb-result-record{position:absolute;left:64px;top:326px;width:425px;border:1px solid #527185;border-radius:18px;padding:22px;background:#112534;}
+    #fb-result-record h3{font-size:24px;margin:0 0 16px;color:#a8e9f7;}
+    .fb-result-detail{font-size:20px;line-height:1.5;margin:5px 0;}
+    .fb-result-detail strong{color:#edf6fa;}
+    #fb-result-state{font-size:18px;margin-top:15px;display:inline-block;background:#a8e9f7;color:#07131e;border-radius:20px;padding:7px 13px;font-weight:700;}
+    #fb-result-chat{position:absolute;left:547px;top:60px;width:669px;height:442px;background:#edf6fa;color:#07131e;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px #0004;}
+    #fb-result-chathead{height:80px;padding:17px 24px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #cad7e0;}
+    #fb-result-avatar{display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:#1877f2;border-radius:50%;color:white;font-size:24px;font-weight:700;}
+    #fb-result-chatname{font-size:24px;font-weight:700;}
+    #fb-result-chatlabel{font-size:18px;color:#4a6070;}
+    #fb-result-bubbles{padding:18px 22px;display:flex;flex-direction:column;gap:14px;}
+    .fb-result-bubble{font-size:22px;line-height:1.32;padding:13px 18px;border-radius:18px;max-width:540px;}
+    #fb-result-b1,#fb-result-b3{background:#dce5ec;align-self:flex-start;}
+    #fb-result-b2{background:#1877f2;color:white;align-self:flex-end;}
+    #fb-result-path{position:absolute;left:547px;top:527px;width:669px;display:flex;gap:11px;align-items:center;font-size:18px;}
+    .fb-result-step{border:1px solid #527185;border-radius:12px;padding:13px 14px;line-height:1.3;}
+    #fb-result-qualified{background:#a8e9f7;color:#07131e;border-color:#a8e9f7;font-weight:700;}
+    #fb-result-sale{flex:1;color:#c1d3df;}
+    #fb-result-sale strong{display:block;color:#edf6fa;font-size:19px;}
+    #fb-result-end{position:absolute;left:64px;right:64px;bottom:45px;border-top:1px solid #345063;padding-top:21px;font-size:26px;color:#a8e9f7;}
+  </style></head><body><div data-hf-id="hf-0zr1" id="root" data-composition-id="main" data-width="1280" data-height="720" data-duration="40"><div data-hf-id="hf-94iq" id="video-content" class="clip" data-start="0" data-duration="40" data-track-index="1"><section data-hf-id="hf-ukef" id="scene-fb-goal" class="video-scene"><div data-hf-id="hf-1yto" id="fb-goal" data-width="1280" data-height="720">
+    <div data-hf-id="hf-l5h5" id="fb-goal-bg"></div>
+    <div data-hf-id="hf-0vky" id="fb-goal-kicker">01 / CHỌN MỤC TIÊU</div>
+    <h1 data-hf-id="hf-u9bc" id="fb-goal-title">Bạn muốn khách làm gì?</h1>
+    <div data-hf-id="hf-1aaw" id="fb-goal-choices">
+      <div data-hf-id="hf-9tvj" id="fb-goal-choice1" class="fb-goal-choice"><span data-hf-id="hf-a4vh" class="fb-goal-dot"><span data-hf-id="hf-omii" id="fb-goal-check" style="display:block"></span></span><span data-hf-id="hf-8vna">Nhắn tin tư vấn</span><div data-hf-id="hf-ovmb" id="fb-goal-selected"></div></div>
+      <div data-hf-id="hf-yydw" id="fb-goal-choice2" class="fb-goal-choice"><span data-hf-id="hf-sdlt" class="fb-goal-dot"></span><span data-hf-id="hf-kdvp">Điền thông tin</span></div>
+      <div data-hf-id="hf-zq1p" id="fb-goal-choice3" class="fb-goal-choice"><span data-hf-id="hf-tkiw" class="fb-goal-dot"></span><span data-hf-id="hf-xm5x">Mua trên website</span></div>
+    </div>
+    <div data-hf-id="hf-9k7h" id="fb-goal-example">Ví dụ: shop tai nghe cần khách hỏi qua Messenger.</div>
+    <div data-hf-id="hf-ooey" id="fb-goal-panel">
+      <div data-hf-id="hf-dkvj" id="fb-goal-panel-title">THIẾT LẬP MINH HỌA</div>
+      <div data-hf-id="hf-g7jz" id="fb-goal-step1" class="fb-goal-step"><span data-hf-id="hf-4ck6" class="fb-goal-number">1</span><div data-hf-id="hf-yvyg" class="fb-goal-step-copy">Engagement<span data-hf-id="hf-525w" class="fb-goal-step-sub">Mục tiêu tương tác</span></div></div>
+      <div data-hf-id="hf-7jo4" id="fb-goal-step2" class="fb-goal-step"><span data-hf-id="hf-4qv7" class="fb-goal-number">2</span><div data-hf-id="hf-lbm7" class="fb-goal-step-copy">Messaging apps<span data-hf-id="hf-pa56" class="fb-goal-step-sub">Ứng dụng nhắn tin</span></div></div>
+      <div data-hf-id="hf-8bbx" id="fb-goal-step3" class="fb-goal-step"><span data-hf-id="hf-5568" class="fb-goal-number">3</span><div data-hf-id="hf-2vxi" class="fb-goal-step-copy">Messenger<span data-hf-id="hf-cwmq" class="fb-goal-step-sub">Nơi nhận cuộc trò chuyện</span></div></div>
+    </div>
+    <div data-hf-id="hf-q98q" id="fb-goal-note">Tên và tùy chọn có thể khác theo tài khoản, khu vực.</div>
+  </div></section><section data-hf-id="hf-0xk5" id="scene-fb-ad" class="video-scene"><div data-hf-id="hf-2pca" id="fb-ad" data-width="1280" data-height="720">
+    <div data-hf-id="hf-o520" class="clip fb-ad-bg"></div>
+    <div data-hf-id="hf-uh4v" id="fb-ad-kicker" class="fb-ad-kicker">02 / KHÁCH HÀNG &amp; QUẢNG CÁO</div>
+    <div data-hf-id="hf-lijs" class="fb-ad-left">
+      <h1 data-hf-id="hf-nyum" id="fb-ad-title" class="fb-ad-title">Đúng người.<br data-hf-id="hf-x5px">Rõ lời mời.</h1>
+      <div data-hf-id="hf-16ia" id="fb-ad-audience" class="fb-ad-audience">
+        <p data-hf-id="hf-svaz" class="fb-ad-small">KHU VỰC PHỤC VỤ</p>
+        <p data-hf-id="hf-204v" class="fb-ad-body">TP. Hồ Chí Minh</p>
+        <div data-hf-id="hf-xwyi" class="fb-ad-divider"></div>
+        <div data-hf-id="hf-s3be" id="fb-ad-customer">
+          <p data-hf-id="hf-ie1c" class="fb-ad-small">KHÁCH HÀNG PHÙ HỢP</p>
+          <p data-hf-id="hf-rq1z" class="fb-ad-body">Người cần tai nghe để gọi điện, làm việc</p>
+        </div>
+      </div>
+      <div data-hf-id="hf-e4je" id="fb-ad-note" class="fb-ad-note">Chọn phạm vi bạn có thể giao hàng và hỗ trợ.</div>
+    </div>
+    <div data-hf-id="hf-l6su" id="fb-ad-feed-wrap" class="fb-ad-feed-wrap">
+      <div data-hf-id="hf-4ut5" class="fb-ad-placement">BẢNG FEED</div>
+      <div data-hf-id="hf-ezcf" class="fb-ad-feed">
+        <div data-hf-id="hf-wp6o" class="fb-ad-header"><div data-hf-id="hf-qi2w" class="fb-ad-avatar">T</div><div data-hf-id="hf-yeow"><div data-hf-id="hf-6rf6" class="fb-ad-shop">Tiệm Tai Nghe</div><div data-hf-id="hf-udaz" class="fb-ad-sponsored">Được tài trợ · Minh họa</div></div></div>
+        <div data-hf-id="hf-xlph" id="fb-ad-copy" class="fb-ad-copy">Cần tai nghe cho cuộc gọi công việc? Nhắn tiệm để được tư vấn.</div>
+        <div data-hf-id="hf-5v52" id="fb-ad-product" class="fb-ad-product">
+          <svg data-hf-id="hf-j4ec" width="197" height="185" viewBox="0 0 200 190" role="img" aria-label="Tai nghe có micro"><path data-hf-id="hf-eqwy" d="M39 107V80a61 61 0 0 1 122 0v27" fill="none" stroke="#102432" stroke-width="18" stroke-linecap="round" /><path data-hf-id="hf-tlkf" d="M49 80a51 51 0 0 1 102 0" fill="none" stroke="#1877f2" stroke-width="7" /><rect data-hf-id="hf-kwde" x="25" y="92" width="34" height="65" rx="15" fill="#102432" /><rect data-hf-id="hf-0c87" x="141" y="92" width="34" height="65" rx="15" fill="#102432" /><rect data-hf-id="hf-9kly" x="49" y="98" width="13" height="54" rx="6" fill="#1877f2" /><rect data-hf-id="hf-5hd5" x="138" y="98" width="13" height="54" rx="6" fill="#1877f2" /><path data-hf-id="hf-rt1d" d="M157 154q-9 20-40 20" fill="none" stroke="#102432" stroke-width="7" stroke-linecap="round" /><rect data-hf-id="hf-evrh" x="96" y="167" width="27" height="13" rx="6" fill="#1877f2" /></svg>
+          <div data-hf-id="hf-91bl" class="fb-ad-product-label">Tai nghe cho ngày làm việc</div>
+        </div>
+        <div data-hf-id="hf-l0df" id="fb-ad-cta" class="fb-ad-cta"><svg data-hf-id="hf-i8cj" width="25" height="25" viewBox="0 0 24 24" aria-hidden="true"><path data-hf-id="hf-37vj" d="M3 3h18v14H9l-6 4z" fill="none" stroke="white" stroke-width="2" /><path data-hf-id="hf-dvte" d="M7 9h10M7 13h6" stroke="white" stroke-width="2" /></svg>Gửi tin nhắn</div>
+      </div>
+    </div>
+    <div data-hf-id="hf-qdwy" id="fb-ad-reels-wrap" class="fb-ad-reels-wrap">
+      <div data-hf-id="hf-otfg" class="fb-ad-placement">REELS · 9:16</div>
+      <div data-hf-id="hf-9dq2" class="fb-ad-reels">
+        <div data-hf-id="hf-ledl" class="fb-ad-reel-heading">Tiệm Tai Nghe</div>
+        <svg data-hf-id="hf-3nm2" class="fb-ad-reel-svg" viewBox="0 0 200 220" role="img" aria-label="Tai nghe trong quảng cáo dọc"><path data-hf-id="hf-x0ee" d="M37 119V82a63 63 0 0 1 126 0v37" fill="none" stroke="#a8e9f7" stroke-width="21" stroke-linecap="round" /><rect data-hf-id="hf-eopt" x="23" y="103" width="41" height="81" rx="18" fill="#1877f2" /><rect data-hf-id="hf-mhz6" x="136" y="103" width="41" height="81" rx="18" fill="#1877f2" /><path data-hf-id="hf-6ktn" d="M158 182q-9 20-45 20" fill="none" stroke="#a8e9f7" stroke-width="8" stroke-linecap="round" /><rect data-hf-id="hf-9nz6" x="88" y="195" width="29" height="14" rx="7" fill="#edf6fa" /></svg>
+        <div data-hf-id="hf-0vxn" class="fb-ad-reel-copy">Tư vấn tai nghe cho công việc</div>
+        <div data-hf-id="hf-2ukh" class="fb-ad-reel-cta">Gửi tin nhắn</div>
+      </div>
+      <div data-hf-id="hf-u2in" class="fb-ad-reel-note">Điều chỉnh bố cục cho từng vị trí.</div>
+    </div>
+    <div data-hf-id="hf-rfnn" id="fb-ad-summary" class="fb-ad-summary">Hình ảnh rõ sản phẩm. Nút hành động dẫn khách đến cuộc trò chuyện.</div>
+  </div></section><section data-hf-id="hf-tarl" id="scene-fb-result" class="video-scene"><div data-hf-id="hf-4k0m" id="fb-result" data-width="1280" data-height="720">
+    <div data-hf-id="hf-bpgn" id="fb-result-ground"></div>
+    <div data-hf-id="hf-etql" id="fb-result-copy">
+      <div data-hf-id="hf-wzx7" class="fb-result-eyebrow">03 / THEO DÕI SAU QUẢNG CÁO</div>
+      <h2 data-hf-id="hf-o5pb" id="fb-result-title">Từ tin nhắn đến nhu cầu thật</h2>
+      <p data-hf-id="hf-8m2e" id="fb-result-intro">Hỏi thêm, ghi nhận nhu cầu và tiếp tục tư vấn.</p>
+    </div>
+    <div data-hf-id="hf-vodg" id="fb-result-chat">
+      <div data-hf-id="hf-8e7e" id="fb-result-chathead"><div data-hf-id="hf-63xz" id="fb-result-avatar">T</div><div data-hf-id="hf-y7yw"><div data-hf-id="hf-74b8" id="fb-result-chatname">Tiệm Tai Nghe</div><div data-hf-id="hf-8w9d" id="fb-result-chatlabel">Messenger · Hội thoại minh họa</div></div></div>
+      <div data-hf-id="hf-pccn" id="fb-result-bubbles">
+        <div data-hf-id="hf-m7t4" id="fb-result-b1" class="fb-result-bubble">Mình cần tai nghe để họp online khi làm việc.</div>
+        <div data-hf-id="hf-fh2j" id="fb-result-b2" class="fb-result-bubble">Bạn dùng laptop hay điện thoại? Có cần micro lọc tiếng ồn không?</div>
+        <div data-hf-id="hf-vfoy" id="fb-result-b3" class="fb-result-bubble">Mình dùng laptop, cần micro rõ vì văn phòng khá ồn.</div>
+      </div>
+    </div>
+    <div data-hf-id="hf-8j8l" id="fb-result-record">
+      <h3 data-hf-id="hf-5hi7">Ghi nhận nhu cầu</h3>
+      <p data-hf-id="hf-jl1b" class="fb-result-detail"><strong data-hf-id="hf-qlxk">Mục đích:</strong> họp online</p>
+      <p data-hf-id="hf-7m33" class="fb-result-detail"><strong data-hf-id="hf-60f5">Thiết bị:</strong> laptop</p>
+      <p data-hf-id="hf-1r9z" class="fb-result-detail"><strong data-hf-id="hf-zhxp">Ưu tiên:</strong> micro lọc tiếng ồn</p>
+      <div data-hf-id="hf-loui" id="fb-result-state">Cần tư vấn sản phẩm phù hợp</div>
+    </div>
+    <div data-hf-id="hf-y1sr" id="fb-result-path">
+      <div data-hf-id="hf-ul0a" id="fb-result-conversation" class="fb-result-step">Hội thoại</div><span data-hf-id="hf-p70p">→</span>
+      <div data-hf-id="hf-9u57" id="fb-result-qualified" class="fb-result-step">Rõ nhu cầu</div><span data-hf-id="hf-v3ct">→</span>
+      <div data-hf-id="hf-33nh" id="fb-result-sale" class="fb-result-step"><strong data-hf-id="hf-yofs">Đơn hàng</strong>Chỉ ghi khi khách đặt thật</div>
+    </div>
+    <div data-hf-id="hf-jxmo" id="fb-result-end">Mở từng mục bên dưới để xem cách làm.</div>
+  </div></section></div></div><script>window.__timelines={};const main=gsap.timeline({paused:true});{
+    (() => {
+      const tl = gsap.timeline({paused:false});
+      tl.fromTo('#fb-goal-kicker',{opacity:0,y:8},{opacity:1,y:0,duration:.35},0);
+      tl.fromTo('#fb-goal-title',{opacity:0,y:14},{opacity:1,y:0,duration:.5,ease:'power2.out'},.1);
+      tl.fromTo('#fb-goal-choice1',{opacity:0,x:-20},{opacity:1,x:0,duration:.45,ease:'power2.out'},.75);
+      tl.fromTo('#fb-goal-choice2',{opacity:0,x:-20},{opacity:1,x:0,duration:.45,ease:'power2.out'},1.65);
+      tl.fromTo('#fb-goal-choice3',{opacity:0,x:-20},{opacity:1,x:0,duration:.45,ease:'power2.out'},2.55);
+      tl.fromTo('#fb-goal-selected',{opacity:0},{opacity:1,duration:.4},3.55);
+      tl.fromTo('#fb-goal-check',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.35},3.55);
+      tl.fromTo('#fb-goal-example',{opacity:0,y:8},{opacity:1,y:0,duration:.45},3.75);
+      tl.fromTo('#fb-goal-panel',{opacity:0,x:24},{opacity:1,x:0,duration:.5,ease:'power2.out'},4.7);
+      tl.fromTo('#fb-goal-step1',{opacity:0,y:12},{opacity:1,y:0,duration:.4},5.15);
+      tl.fromTo('#fb-goal-step2',{opacity:0,y:12},{opacity:1,y:0,duration:.4},6.75);
+      tl.fromTo('#fb-goal-step3',{opacity:0,y:12},{opacity:1,y:0,duration:.4},8.35);
+      tl.fromTo('#fb-goal-note',{opacity:0,y:6},{opacity:1,y:0,duration:.4},10);
+      main.add(tl,0);
+    })();
+  }{
+    (() => {
+      const tl = gsap.timeline({ paused:false });
+      tl.fromTo('#fb-ad-kicker', {opacity:0,y:10}, {opacity:1,y:0,duration:0.4}, 0);
+      tl.fromTo('#fb-ad-title', {opacity:0,y:16}, {opacity:1,y:0,duration:0.5}, 0.1);
+      tl.fromTo('#fb-ad-audience', {opacity:0,y:18}, {opacity:1,y:0,duration:0.5}, 0.7);
+      tl.fromTo('#fb-ad-customer', {opacity:0,y:12}, {opacity:1,y:0,duration:0.5}, 1.8);
+      tl.fromTo('#fb-ad-note', {opacity:0,y:10}, {opacity:1,y:0,duration:0.5}, 2.8);
+      tl.fromTo('#fb-ad-feed-wrap', {opacity:0,x:25}, {opacity:1,x:0,duration:0.6}, 3.6);
+      tl.fromTo('#fb-ad-copy', {opacity:0,y:10}, {opacity:1,y:0,duration:0.5}, 4.7);
+      tl.fromTo('#fb-ad-product', {opacity:0,scale:0.96}, {opacity:1,scale:1,duration:0.6}, 5.7);
+      tl.fromTo('#fb-ad-reels-wrap', {opacity:0,x:18}, {opacity:1,x:0,duration:0.6}, 7.2);
+      tl.fromTo('#fb-ad-cta', {opacity:0,y:9}, {opacity:1,y:0,duration:0.5}, 9.1);
+      tl.fromTo('#fb-ad-cta', {scale:1}, {scale:1.035,duration:0.3}, 10.1);
+      tl.to('#fb-ad-cta', {scale:1,duration:0.35}, 10.4);
+      tl.fromTo('#fb-ad-summary', {opacity:0,y:12}, {opacity:1,y:0,duration:0.5}, 11.3);
+      main.add(tl,12);
+    })();
+  }{
+    (function(){
+      const tl=gsap.timeline({paused:false});
+      tl.fromTo('#fb-result-copy',{opacity:0,y:14},{opacity:1,y:0,duration:.45,ease:'power2.out'},0);
+      tl.fromTo('#fb-result-chat',{opacity:0,y:18},{opacity:1,y:0,duration:.5,ease:'power2.out'},0);
+      tl.fromTo('#fb-result-b1',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},.6);
+      tl.fromTo('#fb-result-b2',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},2.5);
+      tl.fromTo('#fb-result-b3',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},4.8);
+      tl.fromTo('#fb-result-record',{opacity:0,y:16},{opacity:1,y:0,duration:.5,ease:'power2.out'},7);
+      tl.fromTo('#fb-result-path',{opacity:0,y:12},{opacity:1,y:0,duration:.5,ease:'power2.out'},9.2);
+      tl.fromTo('#fb-result-end',{opacity:0,y:8},{opacity:1,y:0,duration:.4,ease:'power2.out'},11.6);
+      window.__timelines=window.__timelines||{};
+      main.add(tl,26);
+    })();
+  }main.fromTo('#scene-fb-goal',{opacity:0},{opacity:1,duration:0.01},0);main.to('#scene-fb-goal',{opacity:0,duration:0.01},12);main.fromTo('#scene-fb-ad',{opacity:0},{opacity:1,duration:0.01},12);main.to('#scene-fb-ad',{opacity:0,duration:0.01},26);main.fromTo('#scene-fb-result',{opacity:0},{opacity:1,duration:0.01},26);window.__timelines.main=main;</script></body></html>

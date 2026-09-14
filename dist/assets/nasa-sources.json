@@ -1,0 +1,5 @@
+[
+  {"local":"./assets/cupola-earth.jpg","label":"Cửa sổ Cupola · ISS","credit":"NASA","position":"50% 50%","source":"https://www.nasa.gov/image-article/view-from-stations-cupola/","original":"https://images-assets.nasa.gov/image/iss040e046846/iss040e046846~orig.jpg","description":"View from the ISS Cupola above Polynesia, Expedition 40, July 6, 2014."},
+  {"local":"./assets/iss-earth.jpg","label":"ISS nhìn từ Endeavour","credit":"NASA","position":"50% 50%","source":"https://www.nasa.gov/international-space-station/space-station-facts-and-figures/","original":"https://images-assets.nasa.gov/image/s130e006575/s130e006575~orig.jpg","description":"ISS photographed from Endeavour during STS-130 rendezvous, February 2010."},
+  {"local":"./assets/orbital-sunrise.jpg","label":"Bình minh trên Trái Đất","credit":"NASA","position":"50% 50%","source":"https://www.nasa.gov/image-article/sunrise-across-our-world/","original":"https://images-assets.nasa.gov/image/iss066e172499/iss066e172499~orig.jpg","description":"Orbital sunrise above the South China Sea, photograph ISS066-E-172499."}
+]

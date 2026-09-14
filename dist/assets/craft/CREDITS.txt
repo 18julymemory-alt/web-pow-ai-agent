@@ -1,0 +1,8 @@
+Spacecraft: NASA 3D Resources
+https://github.com/nasa/NASA-3D-Resources
+ISS (B), Space Shuttle (A), Voyager Probe (A).
+These historical 3D models are arranged for exploration, not current mission positions.
+Object sizes and distances are adjusted for viewing. Shuttle is a historical vehicle.
+Moon map: Three.js r170 examples/textures/planets/moon_1024.jpg.
+GLTFLoader, DRACOLoader, BufferGeometryUtils: Three.js r170 (MIT).
+Draco decoder: Google Draco distributed with Three.js (Apache 2.0).

@@ -1,0 +1,76 @@
+<template>
+  <style>
+    @font-face{font-family:'FbResultSegoe';src:url('assets/fonts/segoeui.ttf') format('truetype');font-weight:100 900;}
+    #fb-result{position:relative;width:100%;height:100%;overflow:hidden;color:#edf6fa;font-family:'FbResultSegoe',sans-serif;}
+    #fb-result *{box-sizing:border-box;}
+    #fb-result-ground{position:absolute;inset:0;background:#07131e;}
+    #fb-result-copy{position:absolute;left:64px;top:64px;width:425px;}
+    .fb-result-eyebrow{font-size:18px;font-weight:700;letter-spacing:2px;color:#a8e9f7;margin-bottom:18px;}
+    #fb-result-title{font-size:48px;line-height:1.12;font-weight:700;margin:0 0 20px;}
+    #fb-result-intro{font-size:24px;line-height:1.4;margin:0;color:#c1d3df;}
+    #fb-result-record{position:absolute;left:64px;top:326px;width:425px;border:1px solid #527185;border-radius:18px;padding:22px;background:#112534;}
+    #fb-result-record h3{font-size:24px;margin:0 0 16px;color:#a8e9f7;}
+    .fb-result-detail{font-size:20px;line-height:1.5;margin:5px 0;}
+    .fb-result-detail strong{color:#edf6fa;}
+    #fb-result-state{font-size:18px;margin-top:15px;display:inline-block;background:#a8e9f7;color:#07131e;border-radius:20px;padding:7px 13px;font-weight:700;}
+    #fb-result-chat{position:absolute;left:547px;top:60px;width:669px;height:442px;background:#edf6fa;color:#07131e;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px #0004;}
+    #fb-result-chathead{height:80px;padding:17px 24px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #cad7e0;}
+    #fb-result-avatar{display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:#1877f2;border-radius:50%;color:white;font-size:24px;font-weight:700;}
+    #fb-result-chatname{font-size:24px;font-weight:700;}
+    #fb-result-chatlabel{font-size:18px;color:#4a6070;}
+    #fb-result-bubbles{padding:18px 22px;display:flex;flex-direction:column;gap:14px;}
+    .fb-result-bubble{font-size:22px;line-height:1.32;padding:13px 18px;border-radius:18px;max-width:540px;}
+    #fb-result-b1,#fb-result-b3{background:#dce5ec;align-self:flex-start;}
+    #fb-result-b2{background:#1877f2;color:white;align-self:flex-end;}
+    #fb-result-path{position:absolute;left:547px;top:527px;width:669px;display:flex;gap:11px;align-items:center;font-size:18px;}
+    .fb-result-step{border:1px solid #527185;border-radius:12px;padding:13px 14px;line-height:1.3;}
+    #fb-result-qualified{background:#a8e9f7;color:#07131e;border-color:#a8e9f7;font-weight:700;}
+    #fb-result-sale{flex:1;color:#c1d3df;}
+    #fb-result-sale strong{display:block;color:#edf6fa;font-size:19px;}
+    #fb-result-end{position:absolute;left:64px;right:64px;bottom:45px;border-top:1px solid #345063;padding-top:21px;font-size:26px;color:#a8e9f7;}
+  </style>
+  <div data-hf-id="hf-mxuj" id="fb-result" data-composition-id="fb-result" data-width="1280" data-height="720" data-duration="14">
+    <div data-hf-id="hf-g6bt" id="fb-result-ground" class="clip" data-start="0" data-duration="14" data-track-index="0"></div>
+    <div data-hf-id="hf-etql" id="fb-result-copy">
+      <div data-hf-id="hf-wzx7" class="fb-result-eyebrow">03 / THEO DÕI SAU QUẢNG CÁO</div>
+      <h2 data-hf-id="hf-o5pb" id="fb-result-title">Từ tin nhắn đến nhu cầu thật</h2>
+      <p data-hf-id="hf-8m2e" id="fb-result-intro">Hỏi thêm, ghi nhận nhu cầu và tiếp tục tư vấn.</p>
+    </div>
+    <div data-hf-id="hf-vodg" id="fb-result-chat">
+      <div data-hf-id="hf-8e7e" id="fb-result-chathead"><div data-hf-id="hf-63xz" id="fb-result-avatar">T</div><div data-hf-id="hf-yeow"><div data-hf-id="hf-74b8" id="fb-result-chatname">Tiệm Tai Nghe</div><div data-hf-id="hf-8w9d" id="fb-result-chatlabel">Messenger · Hội thoại minh họa</div></div></div>
+      <div data-hf-id="hf-pccn" id="fb-result-bubbles">
+        <div data-hf-id="hf-m7t4" id="fb-result-b1" class="fb-result-bubble">Mình cần tai nghe để họp online khi làm việc.</div>
+        <div data-hf-id="hf-fh2j" id="fb-result-b2" class="fb-result-bubble">Bạn dùng laptop hay điện thoại? Có cần micro lọc tiếng ồn không?</div>
+        <div data-hf-id="hf-vfoy" id="fb-result-b3" class="fb-result-bubble">Mình dùng laptop, cần micro rõ vì văn phòng khá ồn.</div>
+      </div>
+    </div>
+    <div data-hf-id="hf-8j8l" id="fb-result-record">
+      <h3 data-hf-id="hf-5hi7">Ghi nhận nhu cầu</h3>
+      <p data-hf-id="hf-jl1b" class="fb-result-detail"><strong data-hf-id="hf-qlxk">Mục đích:</strong> họp online</p>
+      <p data-hf-id="hf-7m33" class="fb-result-detail"><strong data-hf-id="hf-60f5">Thiết bị:</strong> laptop</p>
+      <p data-hf-id="hf-1r9z" class="fb-result-detail"><strong data-hf-id="hf-zhxp">Ưu tiên:</strong> micro lọc tiếng ồn</p>
+      <div data-hf-id="hf-loui" id="fb-result-state">Cần tư vấn sản phẩm phù hợp</div>
+    </div>
+    <div data-hf-id="hf-y1sr" id="fb-result-path">
+      <div data-hf-id="hf-ul0a" id="fb-result-conversation" class="fb-result-step">Hội thoại</div><span data-hf-id="hf-p70p">→</span>
+      <div data-hf-id="hf-9u57" id="fb-result-qualified" class="fb-result-step">Rõ nhu cầu</div><span data-hf-id="hf-v3ct">→</span>
+      <div data-hf-id="hf-33nh" id="fb-result-sale" class="fb-result-step"><strong data-hf-id="hf-yofs">Đơn hàng</strong>Chỉ ghi khi khách đặt thật</div>
+    </div>
+    <div data-hf-id="hf-jxmo" id="fb-result-end">Mở từng mục bên dưới để xem cách làm.</div>
+  </div>
+  <script>
+    (function(){
+      const tl=gsap.timeline({paused:true});
+      tl.fromTo('#fb-result-copy',{opacity:0,y:14},{opacity:1,y:0,duration:.45,ease:'power2.out'},0);
+      tl.fromTo('#fb-result-chat',{opacity:0,y:18},{opacity:1,y:0,duration:.5,ease:'power2.out'},0);
+      tl.fromTo('#fb-result-b1',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},.6);
+      tl.fromTo('#fb-result-b2',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},2.5);
+      tl.fromTo('#fb-result-b3',{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},4.8);
+      tl.fromTo('#fb-result-record',{opacity:0,y:16},{opacity:1,y:0,duration:.5,ease:'power2.out'},7);
+      tl.fromTo('#fb-result-path',{opacity:0,y:12},{opacity:1,y:0,duration:.5,ease:'power2.out'},9.2);
+      tl.fromTo('#fb-result-end',{opacity:0,y:8},{opacity:1,y:0,duration:.4,ease:'power2.out'},11.6);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['fb-result']=tl;
+    })();
+  </script>
+</template>

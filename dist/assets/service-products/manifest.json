@@ -1,0 +1,1402 @@
+[
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Google Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/google-ads/",
+    "key": "quang-cao-da-kenh--google-ads",
+    "mode": "search",
+    "subtitle": "Xuất hiện đúng nhu cầu",
+    "labels": [
+      "Từ khóa tìm kiếm",
+      "Mẫu quảng cáo",
+      "Trang đích",
+      "Yêu cầu tư vấn"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Facebook Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/facebook-ads/",
+    "key": "quang-cao-da-kenh--facebook-ads",
+    "mode": "social",
+    "subtitle": "Quảng cáo trên bảng tin",
+    "labels": [
+      "Nhóm đối tượng",
+      "Bài quảng cáo",
+      "Nội dung thử nghiệm",
+      "Tin nhắn tư vấn"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Instagram Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/instagram-ads/",
+    "key": "quang-cao-da-kenh--instagram-ads",
+    "mode": "social",
+    "subtitle": "Hình ảnh tạo sự chú ý",
+    "labels": [
+      "Instagram Feed",
+      "Story dọc",
+      "Bộ ảnh thương hiệu",
+      "Khám phá sản phẩm"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "TikTok Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/tiktok-ads/",
+    "key": "quang-cao-da-kenh--tiktok-ads",
+    "mode": "video",
+    "subtitle": "Video bắt đầu cuộc trò chuyện",
+    "labels": [
+      "Mở đầu video",
+      "Nội dung ngắn",
+      "Lời kêu gọi",
+      "Trang đích"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "YouTube Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/youtube-ads/",
+    "key": "quang-cao-da-kenh--youtube-ads",
+    "mode": "video",
+    "subtitle": "Kể câu chuyện bằng video",
+    "labels": [
+      "Video ngang",
+      "Kịch bản thương hiệu",
+      "Nhóm người xem",
+      "Hành động tiếp theo"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Zalo Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/zalo-ads/",
+    "key": "quang-cao-da-kenh--zalo-ads",
+    "mode": "chat",
+    "subtitle": "Kết nối qua Zalo",
+    "labels": [
+      "Nội dung quảng cáo",
+      "Khách quan tâm",
+      "Yêu cầu tư vấn",
+      "Nhân viên tiếp nhận"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Remarketing",
+    "href": "/dich-vu/quang-cao-da-kenh/remarketing/",
+    "key": "quang-cao-da-kenh--remarketing",
+    "mode": "journey",
+    "subtitle": "Tiếp tục từ điểm đã quan tâm",
+    "labels": [
+      "Xem sản phẩm",
+      "Nhóm quan tâm",
+      "Thông điệp tiếp nối",
+      "Quay lại trang"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Performance Marketing",
+    "href": "/dich-vu/quang-cao-da-kenh/performance-marketing/",
+    "key": "quang-cao-da-kenh--performance-marketing",
+    "mode": "dashboard",
+    "subtitle": "Kết nối hiệu quả đa kênh",
+    "labels": [
+      "Search",
+      "Social",
+      "Video",
+      "Chuyển đổi"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
+    "title": "Tối ưu chuyển đổi quảng cáo",
+    "href": "/dich-vu/quang-cao-da-kenh/toi-uu-chuyen-doi-quang-cao/",
+    "key": "quang-cao-da-kenh--toi-uu-chuyen-doi-quang-cao",
+    "mode": "compare",
+    "subtitle": "Thử nghiệm để cải thiện",
+    "labels": [
+      "Trang đích A",
+      "Trang đích B",
+      "Biểu mẫu",
+      "Hành động chính"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Shopee",
+    "href": "/dich-vu/thuong-mai-dien-tu/shopee/",
+    "key": "thuong-mai-dien-tu--shopee",
+    "mode": "shop",
+    "subtitle": "Gian hàng Shopee",
+    "labels": [
+      "Ảnh sản phẩm",
+      "Danh mục",
+      "Thông tin sản phẩm",
+      "Đơn hàng"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "TikTok Shop",
+    "href": "/dich-vu/thuong-mai-dien-tu/tiktok-shop/",
+    "key": "thuong-mai-dien-tu--tiktok-shop",
+    "mode": "video",
+    "subtitle": "Từ video đến giỏ hàng",
+    "labels": [
+      "Video sản phẩm",
+      "Giỏ hàng",
+      "Thông tin mua hàng",
+      "Đơn hàng"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Lazada",
+    "href": "/dich-vu/thuong-mai-dien-tu/lazada/",
+    "key": "thuong-mai-dien-tu--lazada",
+    "mode": "shop",
+    "subtitle": "Gian hàng Lazada",
+    "labels": [
+      "Bộ sưu tập",
+      "Danh mục sản phẩm",
+      "Chi tiết sản phẩm",
+      "Giỏ hàng"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Website bán hàng",
+    "href": "/dich-vu/thuong-mai-dien-tu/website-ban-hang/",
+    "key": "thuong-mai-dien-tu--website-ban-hang",
+    "mode": "shop",
+    "subtitle": "Cửa hàng của thương hiệu",
+    "labels": [
+      "Danh mục",
+      "Chi tiết sản phẩm",
+      "Giỏ hàng",
+      "Thanh toán"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Thiết lập gian hàng",
+    "href": "/dich-vu/thuong-mai-dien-tu/thiet-lap-gian-hang/",
+    "key": "thuong-mai-dien-tu--thiet-lap-gian-hang",
+    "mode": "checklist",
+    "subtitle": "Thiết lập gian hàng bài bản",
+    "labels": [
+      "Hồ sơ cửa hàng",
+      "Danh mục",
+      "Chính sách",
+      "Thông tin vận chuyển"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Tối ưu sản phẩm",
+    "href": "/dich-vu/thuong-mai-dien-tu/toi-uu-san-pham/",
+    "key": "thuong-mai-dien-tu--toi-uu-san-pham",
+    "mode": "compare",
+    "subtitle": "Trang sản phẩm rõ ràng",
+    "labels": [
+      "Ảnh sản phẩm",
+      "Tiêu đề",
+      "Thuộc tính",
+      "Mô tả lợi ích"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Quảng cáo sàn",
+    "href": "/dich-vu/thuong-mai-dien-tu/quang-cao-san/",
+    "key": "thuong-mai-dien-tu--quang-cao-san",
+    "mode": "dashboard",
+    "subtitle": "Quảng cáo đúng sản phẩm",
+    "labels": [
+      "Sản phẩm",
+      "Từ khóa",
+      "Ngân sách",
+      "Đo lường"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Vận hành gian hàng",
+    "href": "/dich-vu/thuong-mai-dien-tu/van-hanh-gian-hang/",
+    "key": "thuong-mai-dien-tu--van-hanh-gian-hang",
+    "mode": "pipeline",
+    "subtitle": "Theo dõi vận hành gian hàng",
+    "labels": [
+      "Đơn mới",
+      "Xác nhận",
+      "Đóng gói",
+      "Bàn giao"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Livestream bán hàng",
+    "href": "/dich-vu/thuong-mai-dien-tu/livestream-ban-hang/",
+    "key": "thuong-mai-dien-tu--livestream-ban-hang",
+    "mode": "video",
+    "subtitle": "Phiên live có kịch bản",
+    "labels": [
+      "Sản phẩm lên sóng",
+      "Kịch bản live",
+      "Tư vấn trực tiếp",
+      "Giỏ hàng"
+    ]
+  },
+  {
+    "group": "thuong-mai-dien-tu",
+    "title": "Content thương mại điện tử",
+    "href": "/dich-vu/thuong-mai-dien-tu/content-thuong-mai-dien-tu/",
+    "key": "thuong-mai-dien-tu--content-thuong-mai-dien-tu",
+    "mode": "editor",
+    "subtitle": "Nội dung giúp hiểu sản phẩm",
+    "labels": [
+      "Thông tin gốc",
+      "Mô tả sản phẩm",
+      "Ảnh & video",
+      "Kiểm tra nội dung"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Website doanh nghiệp",
+    "href": "/dich-vu/website-landing-page/website-doanh-nghiep/",
+    "key": "website-landing-page--website-doanh-nghiep",
+    "mode": "website",
+    "subtitle": "Website thể hiện năng lực",
+    "labels": [
+      "Giới thiệu",
+      "Giải pháp",
+      "Dự án",
+      "Liên hệ"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Website bán hàng",
+    "href": "/dich-vu/website-landing-page/website-ban-hang/",
+    "key": "website-landing-page--website-ban-hang",
+    "mode": "shop",
+    "subtitle": "Trải nghiệm mua hàng",
+    "labels": [
+      "Danh mục",
+      "Chi tiết",
+      "Giỏ hàng",
+      "Thanh toán"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Landing Page",
+    "href": "/dich-vu/website-landing-page/landing-page/",
+    "key": "website-landing-page--landing-page",
+    "mode": "website",
+    "subtitle": "Một trang, một hành động",
+    "labels": [
+      "Thông điệp",
+      "Lợi ích",
+      "Bằng chứng",
+      "Gửi yêu cầu"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "WordPress",
+    "href": "/dich-vu/website-landing-page/wordpress/",
+    "key": "website-landing-page--wordpress",
+    "mode": "editor",
+    "subtitle": "Quản trị nội dung WordPress",
+    "labels": [
+      "Trang",
+      "Bài viết",
+      "Thư viện",
+      "Xuất bản"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Website theo yêu cầu",
+    "href": "/dich-vu/website-landing-page/website-theo-yeu-cau/",
+    "key": "website-landing-page--website-theo-yeu-cau",
+    "mode": "flow",
+    "subtitle": "Thiết kế theo nghiệp vụ",
+    "labels": [
+      "Yêu cầu",
+      "Module riêng",
+      "Kiểm thử",
+      "Bàn giao"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "UI/UX",
+    "href": "/dich-vu/website-landing-page/ui-ux/",
+    "key": "website-landing-page--ui-ux",
+    "mode": "wireframe",
+    "subtitle": "Thiết kế hành trình sử dụng",
+    "labels": [
+      "Nghiên cứu",
+      "Luồng thao tác",
+      "Prototype",
+      "Kiểm thử"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "CRO – tối ưu chuyển đổi",
+    "href": "/dich-vu/website-landing-page/cro-toi-uu-chuyen-doi/",
+    "key": "website-landing-page--cro-toi-uu-chuyen-doi",
+    "mode": "compare",
+    "subtitle": "Kiểm tra trải nghiệm chuyển đổi",
+    "labels": [
+      "Phiên bản A",
+      "Phiên bản B",
+      "Hành vi",
+      "Giả thuyết"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Bảo trì Website",
+    "href": "/dich-vu/website-landing-page/bao-tri-website/",
+    "key": "website-landing-page--bao-tri-website",
+    "mode": "checklist",
+    "subtitle": "Website luôn được chăm sóc",
+    "labels": [
+      "Sao lưu",
+      "Cập nhật",
+      "Kiểm tra lỗi",
+      "Khôi phục"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Tối ưu tốc độ",
+    "href": "/dich-vu/website-landing-page/toi-uu-toc-do/",
+    "key": "website-landing-page--toi-uu-toc-do",
+    "mode": "speed",
+    "subtitle": "Tối ưu từng bước tải trang",
+    "labels": [
+      "Ảnh",
+      "Mã nguồn",
+      "Bộ nhớ đệm",
+      "Kiểm tra tải"
+    ]
+  },
+  {
+    "group": "website-landing-page",
+    "title": "Tích hợp hệ thống",
+    "href": "/dich-vu/website-landing-page/tich-hop-he-thong/",
+    "key": "website-landing-page--tich-hop-he-thong",
+    "mode": "flow",
+    "subtitle": "Website kết nối vận hành",
+    "labels": [
+      "Biểu mẫu",
+      "CRM",
+      "API",
+      "Thông báo"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Quản trị Fanpage",
+    "href": "/dich-vu/social-media/quan-tri-fanpage/",
+    "key": "social-media--quan-tri-fanpage",
+    "mode": "social",
+    "subtitle": "Quản trị trang thương hiệu",
+    "labels": [
+      "Hồ sơ trang",
+      "Bài đăng",
+      "Hộp thư",
+      "Bình luận"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Facebook Content",
+    "href": "/dich-vu/social-media/facebook-content/",
+    "key": "social-media--facebook-content",
+    "mode": "editor",
+    "subtitle": "Bài Facebook có mục tiêu",
+    "labels": [
+      "Góc nội dung",
+      "Bản nháp",
+      "Thiết kế",
+      "Phê duyệt"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "TikTok Content",
+    "href": "/dich-vu/social-media/tiktok-content/",
+    "key": "social-media--tiktok-content",
+    "mode": "video",
+    "subtitle": "Nội dung TikTok theo kịch bản",
+    "labels": [
+      "Mở đầu",
+      "Cảnh quay",
+      "Phụ đề",
+      "Kết thúc"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Content Plan",
+    "href": "/dich-vu/social-media/content-plan/",
+    "key": "social-media--content-plan",
+    "mode": "calendar",
+    "subtitle": "Kế hoạch nội dung có nhịp",
+    "labels": [
+      "Chủ đề",
+      "Định dạng",
+      "Người phụ trách",
+      "Lịch đăng"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Thiết kế Social Media",
+    "href": "/dich-vu/social-media/thiet-ke-social-media/",
+    "key": "social-media--thiet-ke-social-media",
+    "mode": "design",
+    "subtitle": "Bộ thiết kế nhận diện social",
+    "labels": [
+      "Bài vuông",
+      "Story dọc",
+      "Ảnh bìa",
+      "Bảng màu"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Reels",
+    "href": "/dich-vu/social-media/reels/",
+    "key": "social-media--reels",
+    "mode": "video",
+    "subtitle": "Reels gọn, đúng thông điệp",
+    "labels": [
+      "Video dọc",
+      "Điểm nhấn",
+      "Phụ đề",
+      "Nhạc nền"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Short Video",
+    "href": "/dich-vu/social-media/short-video/",
+    "key": "social-media--short-video",
+    "mode": "video",
+    "subtitle": "Video ngắn kể một ý",
+    "labels": [
+      "Kịch bản",
+      "Cảnh quay",
+      "Dựng video",
+      "Kiểm tra"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Community Management",
+    "href": "/dich-vu/social-media/community-management/",
+    "key": "social-media--community-management",
+    "mode": "chat",
+    "subtitle": "Chăm sóc cộng đồng",
+    "labels": [
+      "Câu hỏi",
+      "Bình luận",
+      "Phản hồi",
+      "Chuyển hỗ trợ"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Lịch đăng nội dung",
+    "href": "/dich-vu/social-media/lich-dang-noi-dung/",
+    "key": "social-media--lich-dang-noi-dung",
+    "mode": "calendar",
+    "subtitle": "Đúng nội dung, đúng lịch",
+    "labels": [
+      "Soạn thảo",
+      "Chờ duyệt",
+      "Lên lịch",
+      "Đã đăng"
+    ]
+  },
+  {
+    "group": "social-media",
+    "title": "Xây dựng kênh Social Media",
+    "href": "/dich-vu/social-media/xay-dung-kenh-social-media/",
+    "key": "social-media--xay-dung-kenh-social-media",
+    "mode": "journey",
+    "subtitle": "Xây kênh theo định hướng",
+    "labels": [
+      "Định vị",
+      "Trụ cột nội dung",
+      "Sản xuất",
+      "Đánh giá"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Agent",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-agent/",
+    "key": "ai-tu-dong-hoa--ai-agent",
+    "mode": "agent",
+    "subtitle": "Trợ lý thực hiện tác vụ",
+    "labels": [
+      "Yêu cầu",
+      "Kho kiến thức",
+      "Công cụ được cấp",
+      "Kết quả kiểm tra"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Chatbot",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-chatbot/",
+    "key": "ai-tu-dong-hoa--ai-chatbot",
+    "mode": "chat",
+    "subtitle": "Hỏi đáp từ kho kiến thức",
+    "labels": [
+      "Câu hỏi",
+      "Tra cứu tài liệu",
+      "Câu trả lời",
+      "Chuyển nhân viên"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Sales",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-sales/",
+    "key": "ai-tu-dong-hoa--ai-sales",
+    "mode": "pipeline",
+    "subtitle": "Hỗ trợ đội ngũ bán hàng",
+    "labels": [
+      "Nhu cầu mới",
+      "Phân loại",
+      "Chuẩn bị tư vấn",
+      "Nhắc theo dõi"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Customer Care",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-customer-care/",
+    "key": "ai-tu-dong-hoa--ai-customer-care",
+    "mode": "support",
+    "subtitle": "Xử lý yêu cầu chăm sóc",
+    "labels": [
+      "Yêu cầu hỗ trợ",
+      "Mức ưu tiên",
+      "Gợi ý trả lời",
+      "Chuyển chuyên viên"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Content",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-content/",
+    "key": "ai-tu-dong-hoa--ai-content",
+    "mode": "editor",
+    "subtitle": "Soạn nội dung, có người duyệt",
+    "labels": [
+      "Brief nội dung",
+      "Bản nháp AI",
+      "Chỉnh sửa",
+      "Phê duyệt"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Marketing",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-marketing/",
+    "key": "ai-tu-dong-hoa--ai-marketing",
+    "mode": "campaign",
+    "subtitle": "AI hỗ trợ chiến dịch",
+    "labels": [
+      "Mục tiêu",
+      "Nhóm đối tượng",
+      "Ý tưởng thông điệp",
+      "Kiểm tra thử nghiệm"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "Marketing Automation",
+    "href": "/dich-vu/ai-tu-dong-hoa/marketing-automation/",
+    "key": "ai-tu-dong-hoa--marketing-automation",
+    "mode": "journey",
+    "subtitle": "Chăm sóc theo điều kiện",
+    "labels": [
+      "Đăng ký",
+      "Phân nhóm",
+      "Gửi nội dung",
+      "Chuyển tư vấn"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "Workflow Automation",
+    "href": "/dich-vu/ai-tu-dong-hoa/workflow-automation/",
+    "key": "ai-tu-dong-hoa--workflow-automation",
+    "mode": "flow",
+    "subtitle": "Tác vụ chạy theo quy tắc",
+    "labels": [
+      "Điểm kích hoạt",
+      "Điều kiện",
+      "Thực hiện",
+      "Xử lý lỗi"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "CRM Automation",
+    "href": "/dich-vu/ai-tu-dong-hoa/crm-automation/",
+    "key": "ai-tu-dong-hoa--crm-automation",
+    "mode": "pipeline",
+    "subtitle": "CRM tự động nhắc việc",
+    "labels": [
+      "Khách mới",
+      "Phân công",
+      "Cập nhật hồ sơ",
+      "Nhắc chăm sóc"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "API Integration",
+    "href": "/dich-vu/ai-tu-dong-hoa/api-integration/",
+    "key": "ai-tu-dong-hoa--api-integration",
+    "mode": "code",
+    "subtitle": "Kết nối hệ thống qua API",
+    "labels": [
+      "Yêu cầu API",
+      "Xác thực",
+      "Ánh xạ dữ liệu",
+      "Nhật ký"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "Tự động hóa báo cáo",
+    "href": "/dich-vu/ai-tu-dong-hoa/tu-dong-hoa-bao-cao/",
+    "key": "ai-tu-dong-hoa--tu-dong-hoa-bao-cao",
+    "mode": "dashboard",
+    "subtitle": "Tổng hợp báo cáo theo lịch",
+    "labels": [
+      "Nguồn dữ liệu",
+      "Kiểm tra",
+      "Tổng hợp",
+      "Gửi báo cáo"
+    ]
+  },
+  {
+    "group": "ai-tu-dong-hoa",
+    "title": "AI Agent nội bộ doanh nghiệp",
+    "href": "/dich-vu/ai-tu-dong-hoa/ai-agent-noi-bo-doanh-nghiep/",
+    "key": "ai-tu-dong-hoa--ai-agent-noi-bo-doanh-nghiep",
+    "mode": "agent",
+    "subtitle": "Trợ lý cho đội ngũ nội bộ",
+    "labels": [
+      "Vai trò nhân sự",
+      "Tài liệu nội bộ",
+      "Quyền truy cập",
+      "Nguồn tham khảo"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "GA4",
+    "href": "/dich-vu/du-lieu-phan-tich/ga4/",
+    "key": "du-lieu-phan-tich--ga4",
+    "mode": "dashboard",
+    "subtitle": "Đọc hành vi với GA4",
+    "labels": [
+      "Sự kiện",
+      "Nguồn truy cập",
+      "Hành trình",
+      "Chuyển đổi"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Google Tag Manager",
+    "href": "/dich-vu/du-lieu-phan-tich/google-tag-manager/",
+    "key": "du-lieu-phan-tich--google-tag-manager",
+    "mode": "code",
+    "subtitle": "Quản lý thẻ đo lường",
+    "labels": [
+      "Tags",
+      "Triggers",
+      "Variables",
+      "Preview"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Conversion Tracking",
+    "href": "/dich-vu/du-lieu-phan-tich/conversion-tracking/",
+    "key": "du-lieu-phan-tich--conversion-tracking",
+    "mode": "journey",
+    "subtitle": "Ghi nhận hành động quan trọng",
+    "labels": [
+      "Xem trang",
+      "Gửi biểu mẫu",
+      "Sự kiện",
+      "Đối soát"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Server-side Tracking",
+    "href": "/dich-vu/du-lieu-phan-tich/server-side-tracking/",
+    "key": "du-lieu-phan-tich--server-side-tracking",
+    "mode": "flow",
+    "subtitle": "Dữ liệu qua máy chủ",
+    "labels": [
+      "Trình duyệt",
+      "Máy chủ",
+      "Kiểm tra",
+      "Đích dữ liệu"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Ads Tracking",
+    "href": "/dich-vu/du-lieu-phan-tich/ads-tracking/",
+    "key": "du-lieu-phan-tich--ads-tracking",
+    "mode": "dashboard",
+    "subtitle": "Từ chiến dịch đến chuyển đổi",
+    "labels": [
+      "Chiến dịch",
+      "UTM",
+      "Sự kiện",
+      "Đối soát"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Looker Studio",
+    "href": "/dich-vu/du-lieu-phan-tich/looker-studio/",
+    "key": "du-lieu-phan-tich--looker-studio",
+    "mode": "dashboard",
+    "subtitle": "Báo cáo Looker Studio",
+    "labels": [
+      "Nguồn",
+      "Bộ lọc",
+      "Biểu đồ",
+      "Chia sẻ"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Dashboard",
+    "href": "/dich-vu/du-lieu-phan-tich/dashboard/",
+    "key": "du-lieu-phan-tich--dashboard",
+    "mode": "dashboard",
+    "subtitle": "Một góc nhìn dữ liệu",
+    "labels": [
+      "Chỉ số",
+      "Thời gian",
+      "So sánh",
+      "Ngữ cảnh"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "CRM",
+    "href": "/dich-vu/du-lieu-phan-tich/crm/",
+    "key": "du-lieu-phan-tich--crm",
+    "mode": "pipeline",
+    "subtitle": "Quản lý hành trình khách hàng",
+    "labels": [
+      "Khách mới",
+      "Đang tư vấn",
+      "Theo dõi",
+      "Hoàn tất"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Ads Reporting",
+    "href": "/dich-vu/du-lieu-phan-tich/ads-reporting/",
+    "key": "du-lieu-phan-tich--ads-reporting",
+    "mode": "dashboard",
+    "subtitle": "Báo cáo quảng cáo rõ nguồn",
+    "labels": [
+      "Google",
+      "Meta",
+      "TikTok",
+      "Chất lượng lead"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Data Integration",
+    "href": "/dich-vu/du-lieu-phan-tich/data-integration/",
+    "key": "du-lieu-phan-tich--data-integration",
+    "mode": "flow",
+    "subtitle": "Thống nhất dữ liệu nhiều nguồn",
+    "labels": [
+      "Website",
+      "CRM",
+      "Chuẩn hóa",
+      "Kho dữ liệu"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Phân tích hành vi khách hàng",
+    "href": "/dich-vu/du-lieu-phan-tich/phan-tich-hanh-vi-khach-hang/",
+    "key": "du-lieu-phan-tich--phan-tich-hanh-vi-khach-hang",
+    "mode": "journey",
+    "subtitle": "Tìm điểm rơi trong hành trình",
+    "labels": [
+      "Khám phá",
+      "Xem chi tiết",
+      "Tương tác",
+      "Gửi yêu cầu"
+    ]
+  },
+  {
+    "group": "du-lieu-phan-tich",
+    "title": "Báo cáo tự động",
+    "href": "/dich-vu/du-lieu-phan-tich/bao-cao-tu-dong/",
+    "key": "du-lieu-phan-tich--bao-cao-tu-dong",
+    "mode": "calendar",
+    "subtitle": "Báo cáo đến đúng lịch",
+    "labels": [
+      "Lịch chạy",
+      "Kiểm tra nguồn",
+      "Tạo báo cáo",
+      "Phân phối"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO tổng thể",
+    "href": "/dich-vu/seo/seo-tong-the/",
+    "key": "seo--seo-tong-the",
+    "mode": "audit",
+    "subtitle": "SEO trên toàn hệ thống",
+    "labels": [
+      "Kỹ thuật",
+      "Nội dung",
+      "Cấu trúc",
+      "Đo lường"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO từ khóa",
+    "href": "/dich-vu/seo/seo-tu-khoa/",
+    "key": "seo--seo-tu-khoa",
+    "mode": "search",
+    "subtitle": "Nội dung theo ý định tìm kiếm",
+    "labels": [
+      "Từ khóa",
+      "Ý định",
+      "Trang phù hợp",
+      "Theo dõi"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Technical SEO",
+    "href": "/dich-vu/seo/technical-seo/",
+    "key": "seo--technical-seo",
+    "mode": "code",
+    "subtitle": "Nền tảng kỹ thuật tìm kiếm",
+    "labels": [
+      "Crawl",
+      "Index",
+      "Canonical",
+      "Sitemap"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Content SEO",
+    "href": "/dich-vu/seo/content-seo/",
+    "key": "seo--content-seo",
+    "mode": "editor",
+    "subtitle": "Nội dung đáp ứng câu hỏi",
+    "labels": [
+      "Chủ đề",
+      "Dàn ý",
+      "Biên soạn",
+      "Liên kết"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Local SEO",
+    "href": "/dich-vu/seo/local-seo/",
+    "key": "seo--local-seo",
+    "mode": "map",
+    "subtitle": "Hiện diện tại địa phương",
+    "labels": [
+      "Hồ sơ doanh nghiệp",
+      "Địa chỉ",
+      "Giờ mở cửa",
+      "Chỉ đường"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Entity SEO",
+    "href": "/dich-vu/seo/entity-seo/",
+    "key": "seo--entity-seo",
+    "mode": "network",
+    "subtitle": "Thống nhất thực thể thương hiệu",
+    "labels": [
+      "Tên thương hiệu",
+      "Website",
+      "Hồ sơ",
+      "Thông tin nhất quán"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO Audit",
+    "href": "/dich-vu/seo/seo-audit/",
+    "key": "seo--seo-audit",
+    "mode": "audit",
+    "subtitle": "Rà soát trước khi tối ưu",
+    "labels": [
+      "Thu thập",
+      "Phát hiện",
+      "Ưu tiên",
+      "Khắc phục"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Keyword Research",
+    "href": "/dich-vu/seo/keyword-research/",
+    "key": "seo--keyword-research",
+    "mode": "search",
+    "subtitle": "Nghiên cứu nhu cầu tìm kiếm",
+    "labels": [
+      "Từ khóa gốc",
+      "Câu hỏi",
+      "Nhóm chủ đề",
+      "Ý định"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO Onpage",
+    "href": "/dich-vu/seo/seo-onpage/",
+    "key": "seo--seo-onpage",
+    "mode": "editor",
+    "subtitle": "Tối ưu ngay trên trang",
+    "labels": [
+      "Title",
+      "Heading",
+      "Mô tả",
+      "Liên kết nội bộ"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO Offpage",
+    "href": "/dich-vu/seo/seo-offpage/",
+    "key": "seo--seo-offpage",
+    "mode": "network",
+    "subtitle": "Xây tín hiệu ngoài website",
+    "labels": [
+      "Nội dung hữu ích",
+      "Kênh liên quan",
+      "Đề cập",
+      "Theo dõi"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "Backlink",
+    "href": "/dich-vu/seo/backlink/",
+    "key": "seo--backlink",
+    "mode": "network",
+    "subtitle": "Liên kết có ngữ cảnh",
+    "labels": [
+      "Nguồn liên quan",
+      "Trang tham chiếu",
+      "Trang đích",
+      "Kiểm tra"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO Website",
+    "href": "/dich-vu/seo/seo-website/",
+    "key": "seo--seo-website",
+    "mode": "website",
+    "subtitle": "Website dễ được khám phá",
+    "labels": [
+      "Cấu trúc",
+      "Điều hướng",
+      "Nội dung",
+      "Thu thập dữ liệu"
+    ]
+  },
+  {
+    "group": "seo",
+    "title": "SEO thương mại điện tử",
+    "href": "/dich-vu/seo/seo-thuong-mai-dien-tu/",
+    "key": "seo--seo-thuong-mai-dien-tu",
+    "mode": "shop",
+    "subtitle": "Tìm thấy đúng sản phẩm",
+    "labels": [
+      "Danh mục",
+      "Trang sản phẩm",
+      "Thông tin",
+      "Dữ liệu có cấu trúc"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Marketing Strategy",
+    "href": "/dich-vu/tu-van-chien-luoc/marketing-strategy/",
+    "key": "tu-van-chien-luoc--marketing-strategy",
+    "mode": "strategy",
+    "subtitle": "Kế hoạch từ mục tiêu kinh doanh",
+    "labels": [
+      "Thị trường",
+      "Khách hàng",
+      "Kênh",
+      "Nguồn lực"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Growth Strategy",
+    "href": "/dich-vu/tu-van-chien-luoc/growth-strategy/",
+    "key": "tu-van-chien-luoc--growth-strategy",
+    "mode": "journey",
+    "subtitle": "Tăng trưởng qua thử nghiệm",
+    "labels": [
+      "Giả thuyết",
+      "Ưu tiên",
+      "Thử nghiệm",
+      "Đánh giá"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Digital Strategy",
+    "href": "/dich-vu/tu-van-chien-luoc/digital-strategy/",
+    "key": "tu-van-chien-luoc--digital-strategy",
+    "mode": "strategy",
+    "subtitle": "Định hướng hoạt động số",
+    "labels": [
+      "Hiện trạng",
+      "Điểm chạm",
+      "Công nghệ",
+      "Lộ trình"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Digital Transformation",
+    "href": "/dich-vu/tu-van-chien-luoc/digital-transformation/",
+    "key": "tu-van-chien-luoc--digital-transformation",
+    "mode": "flow",
+    "subtitle": "Chuyển đổi theo từng giai đoạn",
+    "labels": [
+      "Quy trình",
+      "Con người",
+      "Dữ liệu",
+      "Công nghệ"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Brand Strategy",
+    "href": "/dich-vu/tu-van-chien-luoc/brand-strategy/",
+    "key": "tu-van-chien-luoc--brand-strategy",
+    "mode": "design",
+    "subtitle": "Định vị và nhận diện",
+    "labels": [
+      "Khách hàng",
+      "Giá trị",
+      "Thông điệp",
+      "Nhận diện"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Xây dựng hệ thống Marketing",
+    "href": "/dich-vu/tu-van-chien-luoc/xay-dung-he-thong-marketing/",
+    "key": "tu-van-chien-luoc--xay-dung-he-thong-marketing",
+    "mode": "network",
+    "subtitle": "Marketing cùng một hệ thống",
+    "labels": [
+      "Chiến lược",
+      "Nội dung",
+      "Kênh",
+      "Dữ liệu"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Tư vấn tăng trưởng",
+    "href": "/dich-vu/tu-van-chien-luoc/tu-van-tang-truong/",
+    "key": "tu-van-chien-luoc--tu-van-tang-truong",
+    "mode": "strategy",
+    "subtitle": "Tư vấn từ điểm nghẽn",
+    "labels": [
+      "Hiện trạng",
+      "Mục tiêu",
+      "Ưu tiên",
+      "Hành động"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Tối ưu vận hành",
+    "href": "/dich-vu/tu-van-chien-luoc/toi-uu-van-hanh/",
+    "key": "tu-van-chien-luoc--toi-uu-van-hanh",
+    "mode": "flow",
+    "subtitle": "Cải tiến cách vận hành",
+    "labels": [
+      "Đầu vào",
+      "Người phụ trách",
+      "Điểm kiểm tra",
+      "Đầu ra"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Customer Journey",
+    "href": "/dich-vu/tu-van-chien-luoc/customer-journey/",
+    "key": "tu-van-chien-luoc--customer-journey",
+    "mode": "journey",
+    "subtitle": "Nhìn từ hành trình khách hàng",
+    "labels": [
+      "Nhận biết",
+      "Tìm hiểu",
+      "Quyết định",
+      "Đồng hành"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Marketing Funnel",
+    "href": "/dich-vu/tu-van-chien-luoc/marketing-funnel/",
+    "key": "tu-van-chien-luoc--marketing-funnel",
+    "mode": "funnel",
+    "subtitle": "Thiết kế phễu marketing",
+    "labels": [
+      "Tiếp cận",
+      "Quan tâm",
+      "Cân nhắc",
+      "Chuyển đổi"
+    ]
+  },
+  {
+    "group": "tu-van-chien-luoc",
+    "title": "Tư vấn dữ liệu & công nghệ",
+    "href": "/dich-vu/tu-van-chien-luoc/tu-van-du-lieu-cong-nghe/",
+    "key": "tu-van-chien-luoc--tu-van-du-lieu-cong-nghe",
+    "mode": "network",
+    "subtitle": "Chọn nền tảng phù hợp",
+    "labels": [
+      "Bài toán",
+      "Nguồn dữ liệu",
+      "Hệ thống",
+      "Kết nối"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Digital Marketing tổng thể",
+    "href": "/dich-vu/dao-tao-digital-marketing/digital-marketing-tong-the/",
+    "key": "dao-tao-digital-marketing--digital-marketing-tong-the",
+    "mode": "learn",
+    "subtitle": "Nền tảng Digital Marketing",
+    "labels": [
+      "Chiến lược",
+      "Kênh",
+      "Nội dung",
+      "Đo lường"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Google Ads",
+    "href": "/dich-vu/dao-tao-digital-marketing/google-ads/",
+    "key": "dao-tao-digital-marketing--google-ads",
+    "mode": "learn",
+    "subtitle": "Thực hành quảng cáo tìm kiếm",
+    "labels": [
+      "Từ khóa",
+      "Mẫu quảng cáo",
+      "Chiến dịch",
+      "Đọc báo cáo"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Facebook Ads",
+    "href": "/dich-vu/dao-tao-digital-marketing/facebook-ads/",
+    "key": "dao-tao-digital-marketing--facebook-ads",
+    "mode": "learn",
+    "subtitle": "Thực hành Facebook Ads",
+    "labels": [
+      "Đối tượng",
+      "Nội dung",
+      "Thiết lập",
+      "Đánh giá"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "TikTok Ads",
+    "href": "/dich-vu/dao-tao-digital-marketing/tiktok-ads/",
+    "key": "dao-tao-digital-marketing--tiktok-ads",
+    "mode": "learn",
+    "subtitle": "Thực hành TikTok Ads",
+    "labels": [
+      "Video",
+      "Chiến dịch",
+      "Trang đích",
+      "Đo lường"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "SEO",
+    "href": "/dich-vu/dao-tao-digital-marketing/seo/",
+    "key": "dao-tao-digital-marketing--seo",
+    "mode": "learn",
+    "subtitle": "Thực hành tối ưu tìm kiếm",
+    "labels": [
+      "Nghiên cứu",
+      "Onpage",
+      "Kỹ thuật",
+      "Theo dõi"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Content Marketing",
+    "href": "/dich-vu/dao-tao-digital-marketing/content-marketing/",
+    "key": "dao-tao-digital-marketing--content-marketing",
+    "mode": "learn",
+    "subtitle": "Xây nội dung có mục tiêu",
+    "labels": [
+      "Chân dung",
+      "Chủ đề",
+      "Biên soạn",
+      "Đánh giá"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Social Media Marketing",
+    "href": "/dich-vu/dao-tao-digital-marketing/social-media-marketing/",
+    "key": "dao-tao-digital-marketing--social-media-marketing",
+    "mode": "learn",
+    "subtitle": "Vận hành kênh social",
+    "labels": [
+      "Kế hoạch",
+      "Sản xuất",
+      "Cộng đồng",
+      "Báo cáo"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Website Marketing",
+    "href": "/dich-vu/dao-tao-digital-marketing/website-marketing/",
+    "key": "dao-tao-digital-marketing--website-marketing",
+    "mode": "learn",
+    "subtitle": "Website trong marketing",
+    "labels": [
+      "Nội dung",
+      "Trải nghiệm",
+      "Chuyển đổi",
+      "Đo lường"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "GA4 & Tracking",
+    "href": "/dich-vu/dao-tao-digital-marketing/ga4-tracking/",
+    "key": "dao-tao-digital-marketing--ga4-tracking",
+    "mode": "learn",
+    "subtitle": "Đo lường qua bài thực hành",
+    "labels": [
+      "Sự kiện",
+      "Tags",
+      "Kiểm tra",
+      "Báo cáo"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "AI Marketing",
+    "href": "/dich-vu/dao-tao-digital-marketing/ai-marketing/",
+    "key": "dao-tao-digital-marketing--ai-marketing",
+    "mode": "learn",
+    "subtitle": "Ứng dụng AI có kiểm tra",
+    "labels": [
+      "Tác vụ",
+      "Prompt",
+      "Kiểm chứng",
+      "Phê duyệt"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Automation",
+    "href": "/dich-vu/dao-tao-digital-marketing/automation/",
+    "key": "dao-tao-digital-marketing--automation",
+    "mode": "learn",
+    "subtitle": "Thiết kế luồng tự động",
+    "labels": [
+      "Trigger",
+      "Điều kiện",
+      "Hành động",
+      "Xử lý lỗi"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Marketing thực chiến cho doanh nghiệp",
+    "href": "/dich-vu/dao-tao-digital-marketing/marketing-thuc-chien-cho-doanh-nghiep/",
+    "key": "dao-tao-digital-marketing--marketing-thuc-chien-cho-doanh-nghiep",
+    "mode": "learn",
+    "subtitle": "Học trên bài toán doanh nghiệp",
+    "labels": [
+      "Bối cảnh",
+      "Thực hành",
+      "Phản hồi",
+      "Ứng dụng"
+    ]
+  },
+  {
+    "group": "dao-tao-digital-marketing",
+    "title": "Đào tạo đội ngũ Marketing nội bộ",
+    "href": "/dich-vu/dao-tao-digital-marketing/dao-tao-doi-ngu-marketing-noi-bo/",
+    "key": "dao-tao-digital-marketing--dao-tao-doi-ngu-marketing-noi-bo",
+    "mode": "learn",
+    "subtitle": "Nâng năng lực cả đội ngũ",
+    "labels": [
+      "Vai trò",
+      "Kỹ năng",
+      "Workshop",
+      "Đánh giá"
+    ]
+  }
+]

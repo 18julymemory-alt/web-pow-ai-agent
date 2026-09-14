@@ -1,0 +1,554 @@
+{
+  "ok": false,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<div class=\"fb-ad-bg\" data-start=\"0\" data-track-index=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\WEB POW AI AGENT\\videos\\facebook-overview\\compositions\\frames\\02-ad.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#fb-ad-cta\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#fb-ad-cta",
+        "dataAttributes": {},
+        "sourceFile": "D:\\WEB POW AI AGENT\\videos\\facebook-overview\\compositions\\frames\\02-ad.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to the destination vars of each future fromTo, or set a safe resting state with an earlier `tl.set(\"#fb-ad-cta\", { ... }, 0)`. Pre-first-tween seeks must not inherit whichever fromTo call happened to author last."
+      }
+    ],
+    "filesScanned": 4
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 40,
+    "samples": [
+      2.222,
+      6.667,
+      11.111,
+      15.556,
+      20,
+      24.444,
+      28.889,
+      33.333,
+      37.778
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": false,
+    "errorCount": 6,
+    "warningCount": 14,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.92:1; WCAG AA requires 3:1.",
+        "text": "THIẾT LẬP MINH HỌA",
+        "fg": "rgb(48,71,83)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.92,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(80,100,110)",
+        "large": true,
+        "selector": "#fb-goal-panel-title",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 610,
+          "y": 204,
+          "width": 584,
+          "height": 27
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "EngagementMục tiêu tương tác",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(90,98,105)",
+        "large": true,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(2) > div",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 259.25,
+          "width": 151.3125,
+          "height": 54.484375
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.92:1; WCAG AA requires 4.5:1.",
+        "text": "Mục tiêu tương tác",
+        "fg": "rgb(48,71,83)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.92,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(111,127,135)",
+        "large": false,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(2) > div > span",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 293.9375,
+          "width": 151.3125,
+          "height": 19.796875
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Messaging appsỨng dụng nhắn tin",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(90,98,105)",
+        "large": true,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(3) > div",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 333.25,
+          "width": 192.96875,
+          "height": 54.484375
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.92:1; WCAG AA requires 4.5:1.",
+        "text": "Ứng dụng nhắn tin",
+        "fg": "rgb(48,71,83)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.92,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(111,127,135)",
+        "large": false,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(3) > div > span",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 367.9375,
+          "width": 192.96875,
+          "height": 19.796875
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "MessengerNơi nhận cuộc trò chuyện",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(90,98,105)",
+        "large": true,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(4) > div",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 407.25,
+          "width": 205.28125,
+          "height": 54.484375
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.92:1; WCAG AA requires 4.5:1.",
+        "text": "Nơi nhận cuộc trò chuyện",
+        "fg": "rgb(48,71,83)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.92,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(111,127,135)",
+        "large": false,
+        "selector": "div > div > section:nth-of-type(1) > div > div:nth-of-type(5) > div:nth-of-type(4) > div > span",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 662,
+          "y": 441.9375,
+          "width": 205.28125,
+          "height": 19.796875
+        },
+        "time": 11.111
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.18:1; WCAG AA requires 3:1.",
+        "text": "Tiệm Tai Nghe",
+        "fg": "rgb(16,36,50)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.18,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(84,99,109)",
+        "large": true,
+        "selector": "div > div > section:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 534,
+          "y": 129,
+          "width": 184.34375,
+          "height": 25.296875
+        },
+        "time": 20
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.47:1; WCAG AA requires 4.5:1.",
+        "text": "Được tài trợ · Minh họa",
+        "fg": "rgb(64,87,101)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 2.47,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(109,127,137)",
+        "large": false,
+        "selector": "div > div > section:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 534,
+          "y": 158.296875,
+          "width": 184.34375,
+          "height": 24
+        },
+        "time": 20
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.18:1; WCAG AA requires 4.5:1.",
+        "text": "Cần tai nghe cho cuộc gọi công việc? Nhắn tiệm để ",
+        "fg": "rgb(16,36,50)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.18,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(115,127,135)",
+        "large": false,
+        "selector": "#fb-ad-copy",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 478,
+          "y": 199.296875,
+          "width": 452,
+          "height": 57.1875
+        },
+        "time": 20
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.18:1; WCAG AA requires 3:1.",
+        "text": "Tai nghe cho ngày làm việc",
+        "fg": "rgb(16,36,50)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1.18,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(84,99,109)",
+        "large": true,
+        "selector": "div > div > section:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(3) > div",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 721,
+          "y": 332.734375,
+          "width": 181,
+          "height": 62.5
+        },
+        "time": 20
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Tiệm Tai Nghe",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(90,98,105)",
+        "large": true,
+        "selector": "#fb-result-chatname",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 631,
+          "y": 71.5,
+          "width": 253.453125,
+          "height": 32
+        },
+        "time": 28.889
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 2.85:1; WCAG AA requires 4.5:1.",
+        "text": "Messenger · Hội thoại minh họa",
+        "fg": "rgb(74,96,112)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 2.85,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(109,127,139)",
+        "large": false,
+        "selector": "#fb-result-chatlabel",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 631,
+          "y": 103.5,
+          "width": 253.453125,
+          "height": 24
+        },
+        "time": 28.889
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "Mình cần tai nghe để họp online khi làm việc.",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(119,125,131)",
+        "large": false,
+        "selector": "#fb-result-b1",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 569,
+          "y": 158,
+          "width": 476.546875,
+          "height": 55.03125
+        },
+        "time": 28.889
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Tiệm Tai Nghe",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(90,98,105)",
+        "large": true,
+        "selector": "#fb-result-chatname",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 631,
+          "y": 71.5,
+          "width": 253.453125,
+          "height": 32
+        },
+        "time": 37.778
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 2.85:1; WCAG AA requires 4.5:1.",
+        "text": "Messenger · Hội thoại minh họa",
+        "fg": "rgb(74,96,112)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 2.85,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(109,127,139)",
+        "large": false,
+        "selector": "#fb-result-chatlabel",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 631,
+          "y": 103.5,
+          "width": 253.453125,
+          "height": 24
+        },
+        "time": 37.778
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "error",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "Mình cần tai nghe để họp online khi làm việc.",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(119,125,131)",
+        "large": false,
+        "selector": "#fb-result-b1",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 569,
+          "y": 158,
+          "width": 476.546875,
+          "height": 55.03125
+        },
+        "time": 37.778
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "Mình dùng laptop, cần micro rõ vì văn phòng khá ồn",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(119,125,131)",
+        "large": false,
+        "selector": "#fb-result-b3",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 569,
+          "y": 325.09375,
+          "width": 540,
+          "height": 84.0625
+        },
+        "time": 37.778
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "Cần tư vấn sản phẩm phù hợp",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(119,125,131)",
+        "large": false,
+        "selector": "#fb-result-state",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 87,
+          "y": 517,
+          "width": 265.609375,
+          "height": 38
+        },
+        "time": 37.778
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 4.5:1.",
+        "text": "Rõ nhu cầu",
+        "fg": "rgb(7,19,30)",
+        "bg": "rgb(7,19,30)",
+        "ratio": 1,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(119,125,131)",
+        "large": false,
+        "selector": "#fb-result-qualified",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 687.5,
+          "y": 539.34375,
+          "width": 118.875,
+          "height": 51.390625
+        },
+        "time": 37.778
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.222,
+      11.111,
+      20,
+      28.889,
+      37.778
+    ],
+    "checked": 71,
+    "passed": 51
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.8.38",
+    "latestVersion": "0.8.38",
+    "updateAvailable": false
+  }
+}

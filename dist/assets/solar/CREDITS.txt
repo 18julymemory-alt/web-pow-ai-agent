@@ -1,0 +1,3 @@
+Source: https://github.com/sanketsingh24/webgl-textures ; maps credited to Planet Pixel Emporium, http://planetpixelemporium.com/ . These are visualization maps, not live NASA imagery.
+
+Moon and spacecraft sources: ../craft/CREDITS.txt

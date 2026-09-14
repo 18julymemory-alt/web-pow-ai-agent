@@ -1,0 +1,18 @@
+import {services} from '../dist/navigation-data.js';
+import {productPhoto} from '../dist/product-images.js';
+const previews=[
+ ['G','TÌM KIẾM','<div class="ad-searchbar"><span>giải pháp cho doanh nghiệp</span><b>⌕</b></div><div class="search-result"><small>Được tài trợ · doanhnghiep.vn</small><strong>Giải pháp phù hợp với nhu cầu của bạn</strong><p>Thông tin rõ ràng. Tư vấn theo mục tiêu.</p><div>Giới thiệu &nbsp; Dịch vụ &nbsp; Liên hệ</div></div>'],
+ ['f','BẢNG TIN','<div class="social-ad-head"><i>P</i><span>Thương hiệu của bạn<small>Được tài trợ</small></span><b>···</b></div><div class="feed-creative"><strong>Một giải pháp.<br>Nhiều bước tiến.</strong><span>KHÁM PHÁ GIÁ TRỊ ↗</span><i></i></div><div class="feed-bottom">doanhnghiep.vn <b>Tìm hiểu thêm</b></div>'],
+ ['◎','HÌNH ẢNH & STORIES','<div class="insta-creative"><span>YOUR BRAND &nbsp; ···</span><div class="insta-orb"></div><strong>Để thương hiệu<br>được nhớ đến.</strong><small>Câu chuyện qua từng khung hình</small></div><div class="insta-actions">♡ &nbsp; ◇ &nbsp; ↗ <span>Khám phá →</span></div>'],
+ ['♪','VIDEO NGẮN','<div class="short-video"><div class="video-progress"></div><span>VIDEO / 9:16</span><strong>3 giây đầu.<br>Một lý do<br>để ở lại.</strong><div class="video-play">▷</div><small>@thuonghieucuaban</small><b>Khám phá ngay ↗</b></div>'],
+ ['▶','VIDEO QUẢNG CÁO','<div class="youtube-video"><span>THƯƠNG HIỆU CỦA BẠN</span><strong>Kể câu chuyện.<br>Truyền giá trị.</strong><b>▶</b><div class="video-timeline"><i></i></div></div><div class="youtube-caption"><strong>Thông điệp đúng với người xem</strong><small>Video · Nội dung · Hành động</small></div>'],
+ ['Z','TIẾP NHẬN NHU CẦU','<div class="zalo-sample"><div class="zalo-profile"><i>P</i><strong>Doanh nghiệp của bạn<small>Kết nối & tư vấn</small></strong></div><div class="zalo-message">Bạn đang tìm giải pháp cho doanh nghiệp?</div><div class="zalo-reply">Tôi muốn tìm hiểu thêm.</div><span>Gửi yêu cầu tư vấn →</span></div>'],
+ ['↶','KẾT NỐI LẠI','<div class="remarketing-map"><span>Đã quan tâm</span><i>↘</i><span>Nội dung phù hợp</span><i>↙</i><span>Trở lại tìm hiểu</span></div><div class="return-line">Đúng ngữ cảnh · Đúng giai đoạn</div>'],
+ ['↗','PHỐI HỢP ĐA KÊNH','<div class="performance-map"><div><span>Search</span><span>Social</span><span>Video</span></div><i>↓</i><strong>CÙNG MỘT MỤC TIÊU</strong><div class="performance-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><small>Đo lường → Đánh giá → Điều chỉnh</small></div>'],
+ ['⌘','TỐI ƯU CHUYỂN ĐỔI','<div class="cro-comparison"><div><span>PHƯƠNG ÁN A</span><i></i><i></i><i></i><b>Tìm hiểu</b></div><strong>⇄</strong><div><span>PHƯƠNG ÁN B</span><i></i><i></i><b>Nhận tư vấn →</b></div></div><div class="return-line">Thử nghiệm thông điệp & hành động</div>']
+];
+const colors=['#8eb7ff','#85b7f4','#e7b5d0','#9ce5df','#efaaaa','#96cfff','#bfaddc','#99d3b9','#e3c79a'];
+export function adsCatalog(g,c,esc){return `<div class="ads-catalog">${g.children.map((child,j)=>{const [mark,label,art]=previews[j];return `<a class="service-row ad-service-card" href="${child.href}" style="--channel-color:${colors[j]}"><div class="ad-card-top"><span class="channel-mark" aria-hidden="true">${mark}</span><span>${label}</span><b aria-hidden="true">↗</b></div>${productPhoto(0,child.title,j)}<div class="ad-card-copy"><h3>${esc(child.title)}</h3><p>${esc(c.focus[j])}</p><span class="ad-card-cta">Khám phá dịch vụ <b>→</b></span></div></a>`;}).join('')}</div>`;}
+
+export function adsDetailVisual(j){return productPhoto(0,services[0].children[j].title,j);}
+
