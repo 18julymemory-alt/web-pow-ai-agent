@@ -19,6 +19,7 @@
 //   AUDIT_SITE=tiktok-ads AUDIT_TAG=tt node scripts/ga-visual-audit.cjs     (TikTok Ads trio)
 //   AUDIT_SITE=chatgpt-ads AUDIT_TAG=cg node scripts/ga-visual-audit.cjs    (ChatGPT Ads trio)
 //   AUDIT_SITE=remarketing AUDIT_PAGES=p1 node scripts/ga-visual-audit.cjs  (one-page services)
+//   AUDIT_GROUP=website-landing-page AUDIT_SITE=wordpress AUDIT_PAGES=p1 node scripts/ga-visual-audit.cjs
 //
 // Output: .sites-runtime/visual-audit/<tag>/{shots/*.png, report.json, sheet-<page>-<w>-<n>.png}
 const {chromium} = require('C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
@@ -33,10 +34,11 @@ const PAGES = (process.env.AUDIT_PAGES || 'p1,p2,p3').split(',');
 const WIDTHS = (process.env.AUDIT_W || '1440,390').split(',').map(Number);
 const PER_SHEET = 24;
 const SITE = process.env.AUDIT_SITE || 'google-ads';
+const GROUP = process.env.AUDIT_GROUP || 'quang-cao-da-kenh';
 const URLS = {
-  p1: `/dich-vu/quang-cao-da-kenh/${SITE}/`,
-  p2: `/dich-vu/quang-cao-da-kenh/${SITE}/chon-cach-chay/`,
-  p3: `/dich-vu/quang-cao-da-kenh/${SITE}/chi-phi-hieu-qua/`
+  p1: `/dich-vu/${GROUP}/${SITE}/`,
+  p2: `/dich-vu/${GROUP}/${SITE}/chon-cach-chay/`,
+  p3: `/dich-vu/${GROUP}/${SITE}/chi-phi-hieu-qua/`
 };
 
 // Simulations outside a workbench. [selector, tab selector inside it or '']

@@ -56,6 +56,11 @@ const threePages = (base, hints) => [
 // The smaller services are one landing page each (ONE_PAGE_ADS_PLAN.md).
 const onePage = href => [{key: 'one', href, num: '01', label: 'Tổng quan', hint: ''}];
 const MC = '/dich-vu/quang-cao-da-kenh/';
+const WL = '/dich-vu/website-landing-page/';
+const web = (slug, name, accent) => ({
+  name, pages: onePage(WL + slug + '/'), stepsLabel: '', crumb: name, group: [WL, 'Website & Landing Page'],
+  css: ['/one-page-lp.css', '/website-lp.css'], bodyClass: 'op-lp ws-lp', accent, sourceLabel: 'Tài liệu tham khảo:'
+});
 
 // One row per ad channel. The frame, the script and every shared class stay
 // the same; a channel only adds its own stylesheet, body class, labels and
@@ -150,7 +155,19 @@ export const CHANNELS = {
   cro: {
     name: 'Tối ưu chuyển đổi quảng cáo', pages: onePage(MC + 'toi-uu-chuyen-doi-quang-cao/'), stepsLabel: '', crumb: 'Tối ưu chuyển đổi',
     css: ['/one-page-lp.css'], bodyClass: 'op-lp', accent: '#eac897', sourceLabel: 'Tài liệu tham khảo:'
-  }
+  },
+  // Website & Landing Page (WEBSITE_LP_PLAN.md): one landing page per service,
+  // same renderer, plus website-lp.css and the group in the breadcrumb.
+  webCorp: web('website-doanh-nghiep', 'Website doanh nghiệp', '#9fc8ff'),
+  webShop: web('website-ban-hang', 'Website bán hàng', '#ffc59a'),
+  webLanding: web('landing-page', 'Landing Page', '#f3a9c9'),
+  webWp: web('wordpress', 'WordPress', '#a9c4ec'),
+  webCustom: web('website-theo-yeu-cau', 'Website theo yêu cầu', '#b9a8f2'),
+  webUx: web('ui-ux', 'UI/UX', '#e0b3ff'),
+  webCro: web('cro-toi-uu-chuyen-doi', 'CRO – tối ưu chuyển đổi', '#f0d28a'),
+  webCare: web('bao-tri-website', 'Bảo trì Website', '#9fe0c9'),
+  webSpeed: web('toi-uu-toc-do', 'Tối ưu tốc độ', '#8fe3f0'),
+  webIntegrate: web('tich-hop-he-thong', 'Tích hợp hệ thống', '#b8e08f')
 };
 
 export const PAGES = CHANNELS.google.pages;
@@ -191,11 +208,11 @@ export function stepsBar(active, pages = PAGES, label = 'Ba bước tìm hiểu 
   return `<nav class="steps-nav" aria-label="${esc(label)}"><div class="wrap"><div class="steps-bar">${items}</div></div></nav>`;
 }
 
-export function crumbs(current) {
+export function crumbs(current, [groupHref, groupName] = ['/dich-vu/quang-cao-da-kenh/', 'Quảng cáo đa kênh']) {
   return '<nav class="crumbs" aria-label="Đường dẫn">'
     + '<a href="/#gateway">Trang chủ</a><span>/</span>'
     + '<a href="/dich-vu/">Dịch vụ</a><span>/</span>'
-    + '<a href="/dich-vu/quang-cao-da-kenh/">Quảng cáo đa kênh</a><span>/</span>'
+    + `<a href="${groupHref}">${esc(groupName)}</a><span>/</span>`
     + `<b aria-current="page">${esc(current)}</b></nav>`;
 }
 

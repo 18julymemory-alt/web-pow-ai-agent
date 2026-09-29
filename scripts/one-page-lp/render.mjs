@@ -5,7 +5,9 @@
 // Same frame as the three-page channels (hero, sticky chapter index, big
 // chapter numbers, list | text | stage workbench, "Đọc tiếp", contact form),
 // built from the Google Ads kit. Each page module hands over data only;
-// every page gets the same eight chapters.
+// every page gets the same eight chapters. The Website & Landing Page pages
+// (WEBSITE_LP_PLAN.md) reuse it and rename chapters through optional fields:
+// P.toc, *.eyebrow, rollout.lead, measure.sample and P.contact.
 
 import {esc, section, nextBlock, sourceList, icon, CHANNELS} from '../google-ads-lp/shared.mjs';
 import {ratioFrame, charBox, more, funnel as funnelTabs, machine} from '../google-ads-lp/visuals.mjs';
@@ -29,6 +31,8 @@ export const CHAPTERS = [
 ];
 
 export function renderPage(P) {
+  const toc_ = CHAPTERS.map(([id, label]) => [id, (P.toc && P.toc[id]) || label]);
+  const group = CHANNELS[P.channel].group;
   const src = keys => sourceList(P.SOURCES, keys, {label: P.sourceLabel});
   const updated = `<small class="op-upd">${icon('clock')}Cập nhật theo ${esc(P.docName)} ngày ${dateVi(P.checked)}</small>`;
 
@@ -36,7 +40,7 @@ export function renderPage(P) {
   const rungs = P.hero.rungs.map(([ic, name, sub], i) => `<div class="rung3d" data-step="${i}">`
     + `<span class="r3-ico">${icon(ic)}</span><b>${esc(name)}</b><span>${esc(sub)}</span></div>`).join('');
   const hero = heroBlock({
-    crumb: P.name,
+    crumb: P.name, group,
     eyebrow: 'POWAI / ' + P.name.toUpperCase(),
     title: P.name,
     sub: P.hero.sub,
@@ -51,7 +55,7 @@ export function renderPage(P) {
   const fit = (cls, ic, title, list) => `<div class="op-fit ${cls}"><small>${icon(ic)}${esc(title)}</small><ul>`
     + list.map(t => `<li>${icon(ic)}<span>${esc(t)}</span></li>`).join('') + '</ul></div>';
   const ch1 = chapter({
-    id: 'khi-nao', num: 1, eyebrow: 'KHI NÀO NÊN DÙNG', title: W.title, lead: W.lead,
+    id: 'khi-nao', num: 1, eyebrow: W.eyebrow || 'KHI NÀO NÊN DÙNG', title: W.title, lead: W.lead,
     body: flowList(W.journey.map(j => j[1]), W.journey.map(j => j[0]))
       + '<div class="how-io">' + machine({
         inputs: {title: 'Bạn đưa vào', items: W.inputs.map(([ic, label]) => ({icon: ic, label}))},
@@ -84,16 +88,16 @@ export function renderPage(P) {
   const frames = (R.frames || []).map(f => ratioFrame(f)).concat((R.boards || []).map(b => b()));
   const tiles = (R.tiles || []).map(([ic, name, spec]) => specTile(`<span class="sp-ico">${icon(ic)}</span>`, name, spec));
   const ch3 = chapter({
-    id: 'chuan-bi', num: 3, eyebrow: 'CẦN CHUẨN BỊ GÌ', title: R.title, lead: R.lead,
+    id: 'chuan-bi', num: 3, eyebrow: R.eyebrow || 'CẦN CHUẨN BỊ GÌ', title: R.title, lead: R.lead,
     body: `<div class="key-pt rv"><span class="key-pt-ico">${icon('layers')}</span><div><small>NGUYÊN TẮC</small><p>${esc(R.principle)}</p></div></div>`
-      + filesBody({board: blueprint(texts, frames), tiles, folder: assetFolder(R.assets), detail: specDrawer(R.specs)})
+      + filesBody({board: blueprint(texts, frames, R.boardLabel), tiles, folder: assetFolder(R.assets), detail: specDrawer(R.specs)})
       + src(R.src)
   });
 
   /* --------------------------- 04 goals & people ------------------------- */
   const G = P.goals;
   const ch4 = chapter({
-    id: 'muc-tieu', num: 4, eyebrow: 'MỤC TIÊU & ĐỐI TƯỢNG', title: G.title, lead: G.lead,
+    id: 'muc-tieu', num: 4, eyebrow: G.eyebrow || 'MỤC TIÊU & ĐỐI TƯỢNG', title: G.title, lead: G.lead,
     body: workbench(G.items.map(it => ({
       key: 'g-' + it.key, label: it.label, icon: it.icon, group: it.group, groupColor: it.groupColor,
       body: (it.tag ? `<span class="wb-tag">${esc(it.tag)}</span>` : '') + `<h4>${esc(it.label)}</h4>`
@@ -113,9 +117,9 @@ export function renderPage(P) {
       + (M.tips && M.tips[id] ? more(`<p>${esc(M.tips[id])}</p>`, {label: 'Khi con số bất thường, kiểm tra gì'}) : '')
   }));
   const ch5 = chapter({
-    id: 'do-luong', num: 5, eyebrow: 'ĐO LƯỜNG', title: M.title, lead: M.lead,
+    id: 'do-luong', num: 5, eyebrow: M.eyebrow || 'ĐO LƯỜNG', title: M.title, lead: M.lead,
     body: `<div class="sc-funnel rv">${funnelTabs({tiers, label: 'Các tầng của phễu'})}</div>`
-      + '<p class="sc-sample">Số mẫu, không phải kết quả dự kiến. Một tháng giả định, chỉ để minh họa cách đọc.</p>'
+      + `<p class="sc-sample">Số mẫu, không phải kết quả dự kiến. ${esc(M.sample || 'Một tháng giả định, chỉ để minh họa cách đọc.')}</p>`
       + (M.note ? note(M.note) : '')
       + src(M.src)
   });
@@ -124,7 +128,7 @@ export function renderPage(P) {
   const T = P.rollout;
   const ch6 = chapter({
     id: 'trien-khai', num: 6, eyebrow: 'TRIỂN KHAI CÙNG POWAI', title: T.title,
-    lead: 'Mỗi bước kết thúc bằng một thứ có thể xem được. Bên dưới là danh sách kiểm tra trước khi chạy.',
+    lead: T.lead || 'Mỗi bước kết thúc bằng một thứ có thể xem được. Bên dưới là danh sách kiểm tra trước khi chạy.',
     body: rolloutBody({steps: T.steps, icons: T.icons, phases: T.phases})
       + `<div class="sub-block">${checklistBlock(P.slug, T.checks)}</div>`
       + src(T.src)
@@ -139,7 +143,7 @@ export function renderPage(P) {
   });
 
   /* ------------------------------ 08 contact ----------------------------- */
-  const ch8 = contactChapter({goals: P.contactGoals, website: 'Website hoặc trang đích', num: 8});
+  const ch8 = contactChapter({goals: P.contactGoals, website: 'Website hoặc trang đích', num: 8, ...(P.contact || {})});
 
   /* -------------------------------- recap -------------------------------- */
   const sister = ([title, text, href]) => nextBlock({eyebrow: 'XEM THÊM', title, text, href, cta: 'Xem ' + title});
@@ -152,7 +156,7 @@ export function renderPage(P) {
 
   return hero
     + section({id: 'chuong', cls: 'lp-chapters',
-      inner: toc(CHAPTERS, 'Mục lục ' + P.name) + ch1 + ch2 + ch3 + ch4 + ch5 + ch6 + ch7 + ch8})
+      inner: toc(toc_, 'Mục lục ' + P.name) + ch1 + ch2 + ch3 + ch4 + ch5 + ch6 + ch7 + ch8})
     + recap;
 }
 
