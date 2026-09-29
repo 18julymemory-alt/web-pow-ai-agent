@@ -82,11 +82,6 @@ export const services = [
         "href": "/dich-vu/thuong-mai-dien-tu/tiktok-shop/"
       },
       {
-        "title": "Lazada",
-        "slug": "lazada",
-        "href": "/dich-vu/thuong-mai-dien-tu/lazada/"
-      },
-      {
         "title": "Website bán hàng",
         "slug": "website-ban-hang",
         "href": "/dich-vu/thuong-mai-dien-tu/website-ban-hang/"
@@ -110,11 +105,6 @@ export const services = [
         "title": "Vận hành gian hàng",
         "slug": "van-hanh-gian-hang",
         "href": "/dich-vu/thuong-mai-dien-tu/van-hanh-gian-hang/"
-      },
-      {
-        "title": "Livestream bán hàng",
-        "slug": "livestream-ban-hang",
-        "href": "/dich-vu/thuong-mai-dien-tu/livestream-ban-hang/"
       },
       {
         "title": "Content thương mại điện tử",

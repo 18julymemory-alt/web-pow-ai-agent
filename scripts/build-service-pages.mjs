@@ -81,6 +81,8 @@ const ONE_PAGE={'instagram-ads':'instagram','youtube-ads':'youtube','remarketing
 const WEB_PAGE={'website-doanh-nghiep':'doanh-nghiep','website-ban-hang':'ban-hang','landing-page':'landing-page','wordpress':'wordpress','website-theo-yeu-cau':'theo-yeu-cau','ui-ux':'ui-ux','cro-toi-uu-chuyen-doi':'cro','bao-tri-website':'bao-tri','toi-uu-toc-do':'toc-do','tich-hop-he-thong':'tich-hop'};
 // Đào tạo Digital Marketing: one landing page per course (TRAINING_LP_PLAN.md).
 const EDU_PAGE={'digital-marketing-tong-the':'tong-the','google-ads':'google-ads','facebook-ads':'facebook-ads','tiktok-ads':'tiktok-ads','seo':'seo','content-marketing':'content','social-media-marketing':'social','website-marketing':'website','ga4-tracking':'ga4','ai-marketing':'ai','automation':'automation','marketing-thuc-chien-cho-doanh-nghiep':'thuc-chien','dao-tao-doi-ngu-marketing-noi-bo':'doi-ngu'};
+// Thương mại điện tử: one landing page per service (COMMERCE_LP_PLAN.md).
+const ECOM_PAGE={'shopee':'shopee','tiktok-shop':'tiktok-shop','website-ban-hang':'website-ban-hang','thiet-lap-gian-hang':'thiet-lap','toi-uu-san-pham':'toi-uu-san-pham','quang-cao-san':'quang-cao-san','van-hanh-gian-hang':'van-hanh','content-thuong-mai-dien-tu':'content'};
 async function buildOnePage(slug,dir='one-page-lp',file=ONE_PAGE[slug]){
  const {document_}=await import('./google-ads-lp/shared.mjs');
  const {renderPage,channelOf}=await import('./one-page-lp/render.mjs');
@@ -92,6 +94,7 @@ async function buildOnePage(slug,dir='one-page-lp',file=ONE_PAGE[slug]){
 }
 if(process.argv.includes('--onepage-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const slug of Object.keys(ONE_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug);}console.log(`Built ${n} one-page service pages only.`);process.exit(0);}
 if(process.argv.includes('--website-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const [slug,file] of Object.entries(WEB_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug,'website-lp',file);}console.log(`Built ${n} website service pages only.`);process.exit(0);}
+if(process.argv.includes('--commerce-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const [slug,file] of Object.entries(ECOM_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug,'commerce-lp',file);}console.log(`Built ${n} commerce pages only.`);process.exit(0);}
 if(process.argv.includes('--training-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const [slug,file] of Object.entries(EDU_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug,'training-lp',file);}console.log(`Built ${n} training pages only.`);process.exit(0);}
 if(process.argv.includes('--chatgpt-only')){await buildChatGPTAds();console.log('Built ChatGPT Ads only.');process.exit(0);}
 if(process.argv.includes('--zalo-only')){await buildZaloAds();console.log('Built Zalo Ads only.');process.exit(0);}
@@ -118,6 +121,7 @@ for(const [i,g]of services.entries()){
   if(i===0&&child.slug==='chatgpt-ads'){total+=await buildChatGPTAds();continue;}
   if(i===0&&ONE_PAGE[child.slug]){total+=await buildOnePage(child.slug);continue;}
   if(i===0){await save(child.href,shell(child.title,c.focus[j],multichannelPage(child,j)));total++;continue;}
+  if(g.slug==='thuong-mai-dien-tu'&&ECOM_PAGE[child.slug]){total+=await buildOnePage(child.slug,'commerce-lp',ECOM_PAGE[child.slug]);continue;}
   if(g.slug==='dao-tao-digital-marketing'&&EDU_PAGE[child.slug]){total+=await buildOnePage(child.slug,'training-lp',EDU_PAGE[child.slug]);continue;}
   if(g.slug==='website-landing-page'&&WEB_PAGE[child.slug]){total+=await buildOnePage(child.slug,'website-lp',WEB_PAGE[child.slug]);continue;}
   if(i>0){await save(child.href,shell(child.title,c.focus[j],serviceGuide(i,child,j,c)));total++;continue;}

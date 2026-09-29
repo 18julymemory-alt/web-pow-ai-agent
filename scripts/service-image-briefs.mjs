@@ -15,13 +15,11 @@ export const briefs = [
 [
 ['shop','Gian hàng Shopee','Ảnh sản phẩm','Danh mục','Thông tin sản phẩm','Đơn hàng'],
 ['video','Từ video đến giỏ hàng','Video sản phẩm','Giỏ hàng','Thông tin mua hàng','Đơn hàng'],
-['shop','Gian hàng Lazada','Bộ sưu tập','Danh mục sản phẩm','Chi tiết sản phẩm','Giỏ hàng'],
 ['shop','Cửa hàng của thương hiệu','Danh mục','Chi tiết sản phẩm','Giỏ hàng','Thanh toán'],
 ['checklist','Thiết lập gian hàng bài bản','Hồ sơ cửa hàng','Danh mục','Chính sách','Thông tin vận chuyển'],
 ['compare','Trang sản phẩm rõ ràng','Ảnh sản phẩm','Tiêu đề','Thuộc tính','Mô tả lợi ích'],
 ['dashboard','Quảng cáo đúng sản phẩm','Sản phẩm','Từ khóa','Ngân sách','Đo lường'],
 ['pipeline','Theo dõi vận hành gian hàng','Đơn mới','Xác nhận','Đóng gói','Bàn giao'],
-['video','Phiên live có kịch bản','Sản phẩm lên sóng','Kịch bản live','Tư vấn trực tiếp','Giỏ hàng'],
 ['editor','Nội dung giúp hiểu sản phẩm','Thông tin gốc','Mô tả sản phẩm','Ảnh & video','Kiểm tra nội dung']
 ],
 [

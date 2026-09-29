@@ -1,0 +1,90 @@
+// Website bán hàng (nhóm Thương mại điện tử) — one landing page
+// (COMMERCE_LP_PLAN.md). The website-group page of the same name covers the
+// build; this one looks at the site as a sales channel next to marketplaces.
+import {shop} from './shop.mjs';
+import {product, checkout, category, orders, payFail, skuTable, netRevenue, marketSearch} from './mocks.mjs';
+import {CHECKED, sisters} from './sources.mjs';
+export {CHECKED};
+
+export default shop({
+  slug: 'website-ban-hang', channel: 'ecomWebsite', name: 'Website bán hàng', docName: 'tài liệu Google, web.dev và Bộ Công Thương',
+  metaTitle: 'Website bán hàng: kênh bán riêng bên cạnh sàn, sản phẩm, giỏ hàng, thanh toán, tồn kho chung',
+  metaDescription: 'Website bán hàng như một kênh thương mại điện tử của riêng doanh nghiệp: danh mục, trang sản phẩm, giỏ hàng, thanh toán, đơn hàng và tồn kho dùng chung với các sàn.',
+  sub: 'Một cửa hàng <em>của riêng bạn</em>, chạy cùng các sàn.',
+  lead: 'Khách xem được sản phẩm nhưng không rõ phí, tồn kho hoặc cách hoàn tất đơn là lỗi hay gặp ở website bán hàng. POWAI xây cấu trúc sản phẩm, giỏ hàng và bước thanh toán phù hợp doanh nghiệp, '
+    + 'hiển thị chi phí trước xác nhận, thử cả thanh toán thành công và thất bại, và giữ tồn kho khớp với các sàn đang bán.',
+  cta: 'Xem hành trình mua',
+  scene: () => ({main: product(), side: checkout('ship'),
+    calls: [['Trang sản phẩm', 'Giá, biến thể, tồn kho'], ['Giỏ & thanh toán', 'Phí hiện trước khi xác nhận'], ['Tồn kho chung', 'Khớp với các sàn']]}),
+  intro: {q: 'Website bán hàng khác bán trên sàn thế nào?',
+    a: 'Trên sàn, khách đến từ lượt tìm kiếm của sàn và bạn theo quy định của sàn. Website bán hàng là cửa hàng của riêng doanh nghiệp: bạn làm chủ giao diện, dữ liệu khách hàng và chương trình khuyến mãi, '
+      + 'nhưng phải tự mang khách tới và tự vận hành thanh toán, đơn hàng. Hai kênh nên dùng chung bảng SKU để tồn kho không lệch.',
+    facts: [['Làm chủ', 'Giao diện, dữ liệu khách, khuyến mãi'], ['Phải tự lo', 'Nguồn truy cập, thanh toán, đơn'], ['Dùng chung', 'Bảng SKU và tồn kho với sàn']]},
+  essentials: {title: 'Sáu điều của một website bán hàng chạy cùng sàn.', lead: 'Website không thay sàn; nó là kênh bạn làm chủ.',
+    cards: [['list', 'Danh mục & bộ lọc', 'Theo cách khách chọn: nhu cầu, giá, còn hàng.'],
+      ['tag', 'Trang sản phẩm đủ để quyết định', 'Giá theo biến thể, tồn, phí giao, đổi trả ngay dưới nút mua; dữ liệu có cấu trúc Product.'],
+      ['pay', 'Thanh toán thử cả khi lỗi', 'Thành công, thất bại, trùng đơn; phí hiện trước khi xác nhận.'],
+      ['table', 'Tồn kho chung với sàn', 'Một bảng SKU cho website và các sàn; cập nhật một nơi.'],
+      ['stamp', 'Thủ tục website bán hàng', 'Thông báo với Bộ Công Thương qua online.gov.vn; trang chính sách đầy đủ.'],
+      ['chart', 'Đo tới đơn', 'Sự kiện view_item → add_to_cart → begin_checkout → purchase trong Google Analytics.']],
+    get: ['POWAI bàn giao', ['Website bán hàng trên máy tính và điện thoại', 'Thanh toán đã thử thành công và thất bại', 'Quy tắc tồn kho chung với sàn', 'Trang chính sách', 'Đo lường tới đơn hàng']],
+    not: ['Tính riêng hoặc cần phối hợp', ['Phí cổng thanh toán, vận chuyển', 'Quảng cáo đưa khách về website', 'Kết nối phần mềm kho: xem Tích hợp hệ thống']],
+    src: ['product', 'ecom', 'gaEvents']},
+  when: {title: 'Khi muốn một kênh bán không phụ thuộc hoàn toàn vào sàn.', lead: 'Hợp với thương hiệu có khách quay lại, có quảng cáo hoặc nội dung đưa khách về.',
+    journey: [['search', 'Khách tìm hoặc bấm quảng cáo'], ['list', 'Lọc danh mục'], ['tag', 'Chọn biến thể'], ['cart', 'Giỏ & thanh toán'], ['check', 'Nhận xác nhận đơn']],
+    inputs: [['table', 'Bảng SKU dùng chung'], ['image', 'Ảnh sản phẩm'], ['pay', 'Cổng thanh toán, COD'], ['box', 'Chính sách giao, đổi trả']],
+    core: 'Danh mục, giỏ, thanh toán, đơn, tồn chung',
+    outputs: [['store', 'Cửa hàng đã thử'], ['receipt', 'Luồng đơn có trạng thái'], ['table', 'Tồn kho khớp sàn']],
+    fit: ['Đã bán trên sàn, muốn kênh riêng', 'Có khách quay lại, muốn giữ dữ liệu', 'Chạy quảng cáo về trang của mình', 'Có người xử lý đơn hằng ngày'],
+    notFit: ['Chưa có nguồn truy cập riêng', 'Chưa có quy trình giao, đổi trả', 'Không ai theo dõi đơn', 'Vài sản phẩm, một chiến dịch: dùng Landing Page'],
+    src: ['product', 'ecom']},
+  formatsToc: 'Hành trình mua',
+  formats: {eyebrow: 'HÀNH TRÌNH MUA', title: 'Năm màn hình quyết định đơn hàng.', lead: 'Chọn một màn hình để xem khách cần gì và lỗi hay gặp.',
+    whereLabel: 'Khách cần', whatLabel: 'Làm thế nào',
+    items: [
+      {key: 'cat', label: 'Danh mục & bộ lọc', icon: 'list', stage: () => category(), where: 'Thu hẹp nhanh tới món hợp nhu cầu.', what: 'Bộ lọc theo cách khách chọn; món hết hàng hiện rõ.'},
+      {key: 'pdp', label: 'Trang sản phẩm', icon: 'tag', stage: () => product(), where: 'Giá, biến thể, còn hàng, phí giao.', what: 'Chọn biến thể đổi giá và ảnh; thông tin giao ngay dưới nút mua.',
+        more: [['Kèm theo', 'Dữ liệu có cấu trúc Product để công cụ tìm kiếm đọc giá và tình trạng hàng.']]},
+      {key: 'checkout', label: 'Giỏ & thanh toán', icon: 'pay', stage: () => checkout('ship'), tag: 'ĐIỆN THOẠI', where: 'Ít bước, phí hiện sớm.', what: 'Mua không cần tài khoản, thử cả thanh toán thất bại.'},
+      {key: 'sku', label: 'Tồn kho chung', icon: 'table', stage: () => skuTable(2), tag: 'QUẢN TRỊ', where: 'Tồn trên website khớp sàn.', what: 'Một bảng SKU, cập nhật một nơi; hết ở kho là hết ở mọi kênh.'},
+      {key: 'orders', label: 'Quản lý đơn', icon: 'receipt', stage: () => orders(1), tag: 'QUẢN TRỊ', where: 'Đơn cần xử lý trước.', what: 'Trạng thái thanh toán và giao tách riêng; đơn lỗi thanh toán nổi lên.'}
+    ],
+    note: {label: 'THỦ TỤC VỚI BỘ CÔNG THƯƠNG', ic: 'stamp', text: 'Website bán hàng thực hiện thông báo với Bộ Công Thương qua online.gov.vn theo quy định hiện hành; doanh nghiệp đứng tên thủ tục.'},
+    src: ['product', 'forms', 'ecom']},
+  prep: {title: 'Dùng chung dữ liệu với các sàn.', lead: 'Website và sàn lệch tồn kho là nguồn hủy đơn phổ biến.',
+    principle: 'Một bảng SKU cho mọi kênh; ai cập nhật trường nào được ghi rõ.',
+    boardLabel: 'BẢNG SKU CHUNG', boards: [() => skuTable(1)],
+    tiles: [['table', 'Bảng SKU', 'Dùng chung với sàn'], ['pay', 'Thanh toán', 'Cổng, COD, hoàn tiền'], ['box', 'Giao hàng', 'Phí, vùng, thời gian'], ['file', 'Chính sách', 'Giao, đổi trả, bảo mật']],
+    assets: [['Dữ liệu', 'Bảng SKU', 'Cùng mã với sàn.'], ['Ảnh', 'Ảnh sản phẩm', 'Cùng tỷ lệ.'], ['Chữ', 'Chính sách', 'Doanh nghiệp duyệt.'], ['Hệ thống', 'Tài khoản thanh toán', 'Thử và thật.']],
+    specs: [['Dữ liệu có cấu trúc', 'Product / Offer', 'Google đọc giá, tình trạng hàng từ trang bán.'], ['Thông báo website', 'online.gov.vn', 'Cổng của Bộ Công Thương.'], ['Đo lường', 'Sự kiện thương mại GA4', 'view_item, add_to_cart, purchase.']],
+    src: ['product', 'ecom', 'gaEvents']},
+  goals: {title: 'Thử những lúc đơn đi sai.', lead: 'Nhóm đầu là phía khách, nhóm sau là phía vận hành.',
+    items: [
+      {key: 'pay', group: 'Phía khách', groupColor: '#ffc59a', label: 'Thanh toán thất bại', icon: 'pay', stage: () => payFail(), facts: [['Cần có', 'Nói rõ chưa trừ tiền, cách thử lại hoặc COD.'], ['Tránh', 'Tạo đơn trùng.']]},
+      {key: 'ship', group: 'Phía khách', groupColor: '#ffc59a', label: 'Phí giao hiện muộn', icon: 'box', stage: () => checkout('ship'), facts: [['Sửa', 'Hiện phí trước khi nhập địa chỉ.'], ['Đo', 'Bỏ ở bước thanh toán.']]},
+      {key: 'stock', group: 'Phía vận hành', groupColor: '#88e4ff', label: 'Lệch tồn với sàn', icon: 'table', stage: () => skuTable(2), stageTag: 'QUẢN TRỊ', facts: [['Nguyên nhân', 'Cập nhật tồn ở nhiều nơi.'], ['Sửa', 'Một bảng SKU, một người cập nhật.']]},
+      {key: 'orders', group: 'Phía vận hành', groupColor: '#88e4ff', label: 'Đối soát đơn', icon: 'receipt', stage: () => orders(1), stageTag: 'QUẢN TRỊ', facts: [['Cần có', 'Lọc đơn lỗi thanh toán, chưa xử lý.'], ['Thử', 'Giá trị đơn khớp cổng thanh toán.']]},
+      {key: 'money', group: 'Phía vận hành', groupColor: '#88e4ff', label: 'So với bán trên sàn', icon: 'wallet', stage: () => netRevenue(), facts: [['Đọc', 'Tiền thực nhận sau phí mỗi kênh.'], ['Vì sao', 'Chọn kênh đầu tư theo lợi nhuận, không theo doanh số.']]}
+    ],
+    src: ['forms', 'gaEvents']},
+  measure: {title: 'Đọc từ lượt xem sản phẩm tới đơn thành công.', lead: 'Bấm từng tầng. Số là một tháng giả định để minh họa cách đọc.',
+    tiers: [['view', 'Xem sản phẩm', '5.200', [['Xem sản phẩm', '5.200', 'view_item.'], ['Thêm giỏ', '640', 'add_to_cart.']]],
+      ['checkout', 'Thanh toán', '310', [['Bắt đầu thanh toán', '310', 'begin_checkout.'], ['Lỗi thanh toán', '27', 'Từ cổng thanh toán.']]],
+      ['buy', 'Mua', '188', [['Đơn thành công', '188', 'purchase.'], ['Hoàn / hủy', '9', 'Theo lý do.']]]],
+    tips: {checkout: 'Thêm giỏ nhiều mà ít thanh toán: phí giao hiện muộn hoặc bắt tạo tài khoản.', buy: 'Đơn web khác cổng thanh toán: kiểm tra đơn trùng, đơn lỗi.'},
+    note: {label: 'SỰ KIỆN ĐỀ XUẤT', ic: 'chart', text: 'Google Analytics có sẵn nhóm sự kiện thương mại; dùng đúng tên để có sẵn báo cáo.'},
+    src: ['gaEvents']},
+  step2: 'Danh mục, trang sản phẩm, giỏ và thanh toán trên điện thoại; trang chính sách.',
+  rollout: {title: 'Năm bước tới đơn đầu tiên trên website.',
+    checks: ['Giá theo biến thể đúng', 'Hết hàng hiện rõ', 'Phí giao hiện trước thanh toán', 'Thanh toán thất bại có hướng dẫn',
+      'Không tạo đơn trùng', 'Tồn kho chung với sàn', 'Sự kiện purchase có giá trị', 'Đã thông báo website với Bộ Công Thương'],
+    src: ['gaEvents', 'ecom']},
+  faq: [['Có cần website khi đã bán trên sàn?', 'Không bắt buộc. Website hợp khi muốn kênh riêng, chạy quảng cáo về trang của mình và giữ dữ liệu khách.'],
+    ['Website và sàn có đồng bộ tồn kho được không?', 'Được nếu phần mềm quản lý có kết nối; tối thiểu là dùng chung bảng SKU và quy tắc cập nhật.'],
+    ['Thủ tục với Bộ Công Thương ai làm?', 'Doanh nghiệp đứng tên thông báo trên online.gov.vn; POWAI chuẩn bị các trang thông tin website cần có.'],
+    ['Khác gì trang Website bán hàng ở nhóm Website?', 'Nội dung giống nhau về cách xây; trang này nhìn website như một kênh bán chạy cùng các sàn.']],
+  faqSrc: ['ecom', 'product'],
+  recap: {title: 'Ba việc cho website bán hàng.', items: [['Tồn kho chung', 'Một bảng SKU.', '#chuan-bi', 'table'],
+    ['Thử đơn đi sai', 'Lỗi, thất bại, trùng.', '#muc-tieu', 'alert'], ['Đo tới đơn', 'purchase có giá trị.', '#do-luong', 'chart']]},
+  sisters: sisters('thiet-lap-gian-hang', 'van-hanh-gian-hang', 'content-thuong-mai-dien-tu')
+});

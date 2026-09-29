@@ -3,7 +3,6 @@ export function serviceReferences(i,j,title){
 let refs=[];
 if(i===1&&j===0)refs=[['https://seller.shopee.vn/edu/home','Trung tâm hướng dẫn Shopee (có thể cần đăng nhập)']];
 if(i===1&&j===1)refs=[['https://seller-vn.tiktok.com/university/essay?knowledge_id=10008556','TikTok Shop: quản lý sản phẩm']];
-if(i===1&&j===2)refs=[['https://university.lazada.vn/','Lazada University (nội dung theo tài khoản)']];
 if(i===2&&j===3)refs=[['https://developer.wordpress.org/advanced-administration/','Tài liệu quản trị WordPress']];
 if(i===2&&[0,1,2,5,6].includes(j))refs=[['https://web.dev/learn/forms/','Hướng dẫn biểu mẫu và kiểm thử web']];
 if(i===3&&j===5)refs=[['https://www.facebook.com/business/ads/facebook-instagram-reels-ads','Meta: nội dung Reels và vùng an toàn']];

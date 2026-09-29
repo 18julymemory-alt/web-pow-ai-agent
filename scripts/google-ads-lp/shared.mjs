@@ -61,6 +61,11 @@ const web = (slug, name, accent) => ({
   name, pages: onePage(WL + slug + '/'), stepsLabel: '', crumb: name, group: [WL, 'Website & Landing Page'],
   css: ['/one-page-lp.css', '/website-lp.css'], bodyClass: 'op-lp ws-lp', accent, sourceLabel: 'Tài liệu tham khảo:'
 });
+const TM = '/dich-vu/thuong-mai-dien-tu/';
+const ecom = (slug, name, accent) => ({
+  name, pages: onePage(TM + slug + '/'), stepsLabel: '', crumb: name, group: [TM, 'Thương mại điện tử'],
+  css: ['/one-page-lp.css', '/website-lp.css', '/training-lp.css', '/commerce-lp.css'], bodyClass: 'op-lp ws-lp tr-lp cm-lp', accent, sourceLabel: 'Tài liệu tham khảo:'
+});
 const DT = '/dich-vu/dao-tao-digital-marketing/';
 const edu = (slug, name, accent, extra = []) => ({
   name, pages: onePage(DT + slug + '/'), stepsLabel: '', crumb: name, group: [DT, 'Đào tạo Digital Marketing'],
@@ -187,7 +192,16 @@ export const CHANNELS = {
   eduAi: edu('ai-marketing', 'AI Marketing', '#8fe3d6'),
   eduAuto: edu('automation', 'Automation', '#b8e08f'),
   eduPractice: edu('marketing-thuc-chien-cho-doanh-nghiep', 'Marketing thực chiến cho doanh nghiệp', '#ffb89a'),
-  eduTeam: edu('dao-tao-doi-ngu-marketing-noi-bo', 'Đào tạo đội ngũ Marketing nội bộ', '#c9d0ff')
+  eduTeam: edu('dao-tao-doi-ngu-marketing-noi-bo', 'Đào tạo đội ngũ Marketing nội bộ', '#c9d0ff'),
+  // Thương mại điện tử (COMMERCE_LP_PLAN.md): one landing page per service.
+  ecomShopee: ecom('shopee', 'Shopee', '#ff9f80'),
+  ecomTiktok: ecom('tiktok-shop', 'TikTok Shop', '#f5a3c0'),
+  ecomWebsite: ecom('website-ban-hang', 'Website bán hàng', '#ffc59a'),
+  ecomSetup: ecom('thiet-lap-gian-hang', 'Thiết lập gian hàng', '#9fd8ff'),
+  ecomListing: ecom('toi-uu-san-pham', 'Tối ưu sản phẩm', '#b8e08f'),
+  ecomAds: ecom('quang-cao-san', 'Quảng cáo sàn', '#ffd08a'),
+  ecomOps: ecom('van-hanh-gian-hang', 'Vận hành gian hàng', '#9fe0c9'),
+  ecomContent: ecom('content-thuong-mai-dien-tu', 'Content thương mại điện tử', '#d4b3ff')
 };
 
 export const PAGES = CHANNELS.google.pages;
