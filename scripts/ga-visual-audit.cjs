@@ -18,6 +18,7 @@
 //   AUDIT_SITE=facebook-ads AUDIT_TAG=fb node scripts/ga-visual-audit.cjs   (Facebook Ads trio)
 //   AUDIT_SITE=tiktok-ads AUDIT_TAG=tt node scripts/ga-visual-audit.cjs     (TikTok Ads trio)
 //   AUDIT_SITE=chatgpt-ads AUDIT_TAG=cg node scripts/ga-visual-audit.cjs    (ChatGPT Ads trio)
+//   AUDIT_SITE=remarketing AUDIT_PAGES=p1 node scripts/ga-visual-audit.cjs  (one-page services)
 //
 // Output: .sites-runtime/visual-audit/<tag>/{shots/*.png, report.json, sheet-<page>-<w>-<n>.png}
 const {chromium} = require('C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
@@ -238,9 +239,9 @@ async function run(page, key, w, rows) {
   };
 
   // Page 01 keeps six campaign panels; every other page has one "scope".
-  const scopes = key === 'p1'
-    ? await page.$$eval('.picker .pick', els => els.map(e => e.dataset.pick))
-    : [''];
+  // One-page services (AUDIT_SITE=remarketing…) have no picker: one scope.
+  const picks = key === 'p1' ? await page.$$eval('.picker .pick', els => els.map(e => e.dataset.pick)) : [];
+  const scopes = picks.length ? picks : [''];
   for (const scope of scopes) {
     const root = scope ? `#panel-${scope} ` : 'main ';
     if (scope) {
