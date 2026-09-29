@@ -53,6 +53,10 @@ const threePages = (base, hints) => [
   {key: 'budget', href: base + 'chi-phi-hieu-qua/', num: '03', label: 'Chi phí & hiệu quả', hint: hints[2]}
 ];
 
+// The smaller services are one landing page each (ONE_PAGE_ADS_PLAN.md).
+const onePage = href => [{key: 'one', href, num: '01', label: 'Tổng quan', hint: ''}];
+const MC = '/dich-vu/quang-cao-da-kenh/';
+
 // One row per ad channel. The frame, the script and every shared class stay
 // the same; a channel only adds its own stylesheet, body class, labels and
 // accent. Add a channel by adding a row, never a branch in the renderer.
@@ -126,6 +130,26 @@ export const CHANNELS = {
     bodyClass: 'cg-lp',
     accent: '#85e1c1',
     sourceLabel: 'Tài liệu OpenAI:'
+  },
+  instagram: {
+    name: 'Instagram Ads', pages: onePage(MC + 'instagram-ads/'), stepsLabel: '', crumb: 'Instagram Ads',
+    css: ['/facebook-ads-lp.css', '/one-page-lp.css'], bodyClass: 'op-lp', accent: '#edb1d8', sourceLabel: 'Tài liệu Meta:'
+  },
+  youtube: {
+    name: 'YouTube Ads', pages: onePage(MC + 'youtube-ads/'), stepsLabel: '', crumb: 'YouTube Ads',
+    css: ['/one-page-lp.css'], bodyClass: 'op-lp', accent: '#f4adad', sourceLabel: 'Tài liệu Google:'
+  },
+  remarketing: {
+    name: 'Remarketing', pages: onePage(MC + 'remarketing/'), stepsLabel: '', crumb: 'Remarketing',
+    css: ['/facebook-ads-lp.css', '/one-page-lp.css'], bodyClass: 'op-lp', accent: '#c9b8ec', sourceLabel: 'Tài liệu nền tảng:'
+  },
+  performance: {
+    name: 'Performance Marketing', pages: onePage(MC + 'performance-marketing/'), stepsLabel: '', crumb: 'Performance Marketing',
+    css: ['/facebook-ads-lp.css', '/one-page-lp.css'], bodyClass: 'op-lp', accent: '#a2dfc5', sourceLabel: 'Tài liệu nền tảng:'
+  },
+  cro: {
+    name: 'Tối ưu chuyển đổi quảng cáo', pages: onePage(MC + 'toi-uu-chuyen-doi-quang-cao/'), stepsLabel: '', crumb: 'Tối ưu chuyển đổi',
+    css: ['/one-page-lp.css'], bodyClass: 'op-lp', accent: '#eac897', sourceLabel: 'Tài liệu tham khảo:'
   }
 };
 

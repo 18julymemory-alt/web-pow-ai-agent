@@ -283,7 +283,7 @@ const SHEET_URL = {
 
 const CAMPAIGN_IDS = ['search', 'pmax', 'shopping', 'demand', 'video', 'app'];
 
-// The Facebook, TikTok and Zalo pages share this script (body.fb-lp / tt-lp / zl-lp).
+// The Facebook, TikTok, Zalo and ChatGPT pages share this script (body.fb-lp / tt-lp / zl-lp / cg-lp).
 // Their old one-page guides used sheet-*, fb-*, fs-*, fd-*, tk-*, zl-* ids; every
 // one of them now lands on page 01, on the matching ad type when there is one.
 const FB_IDS = ['feed', 'stories', 'carousel', 'messaging', 'leadform', 'catalog'];
@@ -319,6 +319,16 @@ function resolveZlHash(hash) {
   if (!id) return null;
   if (ZL_IDS.includes(id)) return {sheet: 'formats', campaign: id};
   if (/^(sheet|zl)-/.test(id) || id === 'contact' || id === 'guide') return {sheet: 'formats'};
+  return null;
+}
+
+const CG_IDS = ['card', 'pair', 'product', 'carousel', 'conv', 'agent'];
+
+function resolveCgHash(hash) {
+  const id = hash.replace(/^#/, '');
+  if (!id) return null;
+  if (CG_IDS.includes(id)) return {sheet: 'formats', campaign: id};
+  if (/^(sheet|cg)-/.test(id) || id === 'contact' || id === 'guide') return {sheet: 'formats'};
   return null;
 }
 
@@ -359,9 +369,12 @@ const sheetUrls = base => ({formats: base, goals: base + 'chon-cach-chay/', budg
 
 // One row per channel, picked by body class; google is the default row.
 const CHANNELS = [
+  // One-page services: no legacy hashes to move, so nothing redirects.
+  {cls: 'op-lp', urls: {}, resolve: () => null},
   {cls: 'fb-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/facebook-ads/'), resolve: resolveFbHash},
   {cls: 'tt-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/tiktok-ads/'), resolve: resolveTtHash},
   {cls: 'zl-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/zalo-ads/'), resolve: resolveZlHash},
+  {cls: 'cg-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/chatgpt-ads/'), resolve: resolveCgHash},
   {cls: 'ga-lp', urls: SHEET_URL, resolve: resolveHash}
 ];
 const CHANNEL = CHANNELS.find(ch => document.body.classList.contains(ch.cls)) || CHANNELS[CHANNELS.length - 1];

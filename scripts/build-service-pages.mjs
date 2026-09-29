@@ -75,11 +75,23 @@ async function buildChatGPTAds(){
  await save(CG_PAGES[2].href,document_({...budgetMeta,page:'budget',channel:'chatgpt',body:budgetPage()}));
  return 3;
 }
+// The smaller services: one landing page each (ONE_PAGE_ADS_PLAN.md).
+const ONE_PAGE={'instagram-ads':'instagram','youtube-ads':'youtube','remarketing':'remarketing','performance-marketing':'performance','toi-uu-chuyen-doi-quang-cao':'cro'};
+async function buildOnePage(slug){
+ const {document_}=await import('./google-ads-lp/shared.mjs');
+ const {renderPage,channelOf}=await import('./one-page-lp/render.mjs');
+ const P=(await import(`./one-page-lp/${ONE_PAGE[slug]}.mjs`)).default;
+ const ch=channelOf(P);
+ const {CHANNELS}=await import('./google-ads-lp/shared.mjs');
+ await save(CHANNELS[ch].pages[0].href,document_({...P.meta,page:'one',channel:ch,body:renderPage(P)}));
+ return 1;
+}
+if(process.argv.includes('--onepage-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const slug of Object.keys(ONE_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug);}console.log(`Built ${n} one-page service pages only.`);process.exit(0);}
 if(process.argv.includes('--chatgpt-only')){await buildChatGPTAds();console.log('Built ChatGPT Ads only.');process.exit(0);}
 if(process.argv.includes('--zalo-only')){await buildZaloAds();console.log('Built Zalo Ads only.');process.exit(0);}
 if(process.argv.includes('--tiktok-only')){await buildTikTokAds();console.log('Built TikTok Ads only.');process.exit(0);}
 if(process.argv.includes('--facebook-only')){await buildFacebookAds();console.log('Built Facebook Ads only.');process.exit(0);}
-if(process.argv.includes('--multichannel-only')){let built=0;for(const [j,child] of services[0].children.entries()){if(j===0||['facebook-ads','tiktok-ads','zalo-ads','chatgpt-ads'].includes(child.slug))continue;await save(child.href,shell(child.title,groupContent[0].focus[j],multichannelPage(child,j)));built++;}console.log(`Built ${built} multichannel service pages only.`);process.exit(0);}
+if(process.argv.includes('--multichannel-only')){let built=0;for(const [j,child] of services[0].children.entries()){if(j===0||['facebook-ads','tiktok-ads','zalo-ads','chatgpt-ads'].includes(child.slug)||ONE_PAGE[child.slug])continue;await save(child.href,shell(child.title,groupContent[0].focus[j],multichannelPage(child,j)));built++;}console.log(`Built ${built} multichannel service pages only.`);process.exit(0);}
 if(process.argv.includes('--google-only')){await buildGoogleAds();console.log('Built Google Ads only.');process.exit(0);}
 const cards=services.map((g,i)=>`<a class="directory-link" href="${g.href}" data-service-search="${esc(g.children.map(x=>x.title).join(' '))}"><img class="directory-art" src="${productImage(i)}" alt="" width="120" height="74"><div><h2>${esc(g.title)}</h2><p>${esc(groupContent[i].need)}</p></div><b aria-hidden="true">↗</b></a>`).join('');
 await save('/dich-vu/',shell('Dịch vụ','Chín nhóm giải pháp Marketing, Công nghệ, AI và đào tạo của POWAI.',`<nav class="breadcrumbs" aria-label="Đường dẫn"><a href="/#gateway">Trang chủ</a><span>/</span><span aria-current="page">Dịch vụ</span></nav><section class="page-intro"><span class="page-kicker">DỊCH VỤ POWAI</span><h1>Chọn giải pháp.<br><em>Kết nối cả hành trình.</em></h1><p>Từ tư vấn đến triển khai, từ marketing đến vận hành. Khám phá nhóm phù hợp với bài toán doanh nghiệp đang cần giải quyết.</p></section><div class="service-finder"><label for="service-query">Anh/chị đang cần giải quyết việc gì?</label><input id="service-query" type="search" placeholder="Ví dụ: website, chatbot, Shopee, đo lường…"><div><button type="button" data-find="">Tất cả</button><button type="button" data-find="Website">Làm website</button><button type="button" data-find="AI">Ứng dụng AI</button><button type="button" data-find="CRM">Quản lý khách hàng</button><button type="button" data-find="Đào tạo">Đào tạo đội ngũ</button></div><p id="service-query-status" role="status"></p></div><div class="service-directory">${cards}</div><script type="module" src="/service-finder.js?v=1"></script>`));
@@ -98,6 +110,7 @@ for(const [i,g]of services.entries()){
   if(i===0&&child.slug==='tiktok-ads'){total+=await buildTikTokAds();continue;}
   if(i===0&&child.slug==='zalo-ads'){total+=await buildZaloAds();continue;}
   if(i===0&&child.slug==='chatgpt-ads'){total+=await buildChatGPTAds();continue;}
+  if(i===0&&ONE_PAGE[child.slug]){total+=await buildOnePage(child.slug);continue;}
   if(i===0){await save(child.href,shell(child.title,c.focus[j],multichannelPage(child,j)));total++;continue;}
   if(i>0){await save(child.href,shell(child.title,c.focus[j],serviceGuide(i,child,j,c)));total++;continue;}
   const related=g.children.filter(x=>x!==child).slice(0,4).map(x=>`<a href="${x.href}">${esc(x.title)} <span>↗</span></a>`).join('');

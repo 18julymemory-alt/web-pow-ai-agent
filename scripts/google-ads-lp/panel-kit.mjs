@@ -469,7 +469,7 @@ function field({name, label, hint = '', type = 'text', required = false}) {
 }
 
 // goals: [[value, label]] for the "Mục tiêu chính" select.
-export function contactChapter({goals, website = 'Website hoặc trang đích'}) {
+export function contactChapter({goals, website = 'Website hoặc trang đích', num = 9}) {
   const options = ['<option value="">Chưa xác định</option>']
     .concat(goals.map(([id, title]) => `<option value="${id}">${esc(title)}</option>`)).join('');
 
@@ -510,7 +510,7 @@ export function contactChapter({goals, website = 'Website hoặc trang đích'})
     + '</aside>';
 
   return chapter({
-    id: 'lien-he', num: 9, eyebrow: 'BẮT ĐẦU',
+    id: 'lien-he', num, eyebrow: 'BẮT ĐẦU',
     title: 'Gửi bối cảnh, nhận đề xuất cách chạy.',
     lead: 'Không cần chuẩn bị sẵn mọi thứ. Gửi những gì đang có, phần thiếu sẽ được rà cùng nhau.',
     body: `<div class="brief-wrap rv">${form}${direct}</div>`
