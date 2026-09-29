@@ -1,15 +1,9 @@
 // Progressive enhancement: retain all readable content when JS is unavailable.
 const guide=document.querySelector('.ga-guide');
 const sections=[
- ['overview','Tổng quan',['#ga-overview']],
- ['goals','Mục tiêu',['#ga-planning']],
- ['formats','Cách chạy',['#ga-formats']],
- ['demographics','Độ tuổi & giới tính',['#ga-demographics']],
- ['audiences','Tệp đối tượng',['#ga-audiences']],
- ['compare','Thế mạnh',['#ga-comparison']],
- ['budget','Ngân sách & thuế',['#ga-budget-plan','#ga-costs']],
- ['measure','Đo hiệu quả',['.ga-metrics']],
- ['delivery','Triển khai & hỏi đáp',['#ga-scope','#ga-faq']]
+ ['formats','01 Cách chạy & định dạng',['#ga-overview','#ga-formats']],
+ ['goals','02 Chọn cách chạy',['#ga-planning','#ga-demographics','#ga-audiences','#ga-comparison']],
+ ['budget','03 Chi phí & hiệu quả',['#ga-budget-plan','#ga-costs','.ga-metrics','#ga-scope','#ga-faq']]
 ];
 const workspace=document.createElement('div');workspace.className='ga-sheet-workspace';workspace.id='ga-sheets';
 const heading=document.createElement('div');heading.className='ga-sheet-heading';heading.innerHTML='<span class="page-kicker">TRA CỨU GOOGLE ADS</span><h2>Bạn muốn tìm hiểu điều gì?</h2><p>Chọn một mục để xem. Bạn có thể chuyển mục bất cứ lúc nào.</p>';workspace.append(heading);

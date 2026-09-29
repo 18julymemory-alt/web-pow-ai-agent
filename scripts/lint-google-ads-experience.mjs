@@ -3,9 +3,9 @@ import {readFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {campaignTypes,marketData,billingConfig,sheetNav,sources,rsaLimits,trackingItems,faq} from '../dist/google-ads-experience-data.js';
-const files=['scripts/google-ads-experience.mjs','scripts/google-ads-experience-components.mjs','scripts/build-service-pages.mjs','dist/google-ads-experience-data.js','dist/google-ads-experience.js'];
+const files=['scripts/google-ads-showroom.mjs','scripts/google-ads-experience.mjs','scripts/google-ads-experience-components.mjs','scripts/build-service-pages.mjs','dist/google-ads-experience-data.js','dist/google-ads-experience.js'];
 for(const f of files){const check=spawnSync(process.execPath,['--check',f],{encoding:'utf8'});assert.equal(check.status,0,check.stderr);const text=readFileSync(f,'utf8');assert(!/\beval\s*\(|new Function\s*\(/.test(text),'Dynamic code prohibited: '+f);assert(!/\son(?:click|mouseover|load)=/.test(text),'Inline handlers prohibited: '+f);assert(!/[ \t]+$/m.test(text),'Trailing whitespace: '+f);}
-assert.equal(sheetNav.length,9);assert.equal(campaignTypes.length,6);assert.equal(new Set(campaignTypes.map(x=>x.id)).size,6);
+assert.equal(sheetNav.length,3);assert.equal(campaignTypes.length,6);assert.equal(new Set(campaignTypes.map(x=>x.id)).size,6);
 for(const c of campaignTypes){for(const field of ['id','title','description','bestFor','howItWorks','inputs','outputs','ctaExamples','trackingRequirements','demoType'])assert(c[field]?.length,'Missing '+field+' in '+c.id);for(const key of c.sourceKeys)assert(sources[key],'Missing source '+key);}
 for(const key of['vietnamPopulation','internetUsers','googleReachMetric'])if(marketData[key]!==null)assert(marketData.source&&marketData.lastUpdated&&marketData.metricDefinition,'Missing market provenance');
 if(billingConfig.taxRate!==null)assert(billingConfig.source&&billingConfig.lastUpdated,'Missing billing provenance');

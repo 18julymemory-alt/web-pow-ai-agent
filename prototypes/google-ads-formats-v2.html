@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Ads — Cách chạy & định dạng | POWAI (bản mẫu v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --dark:#030713; --dark-2:#081225; --dark-3:#0E1B33;
+  --cyan:#72EAFF; --cyan-ink:#0A8FA8; --cyan-soft:#E4F9FD;
+  --ink:#0B1B2B; --ink-2:#34485C; --muted:#66798C;
+  --bg:#F4F7FB; --surface:#FFFFFF; --line:#E1E8F0; --line-2:#CFD9E4;
+  --ok:#1E9E5A; --ok-soft:#E6F6EE; --warn:#C27A00; --warn-soft:#FFF4DC; --bad:#D93B30; --bad-soft:#FDECEA;
+  --g-blue:#4285F4; --g-red:#EA4335; --g-yellow:#FBBC04; --g-green:#34A853;
+  --accent:#4285F4; --accent-soft:#EAF1FE;
+  --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+  --sh-1:0 1px 2px rgba(11,27,43,.06),0 4px 14px rgba(11,27,43,.06);
+  --sh-2:0 10px 30px rgba(11,27,43,.10),0 2px 6px rgba(11,27,43,.06);
+  --sh-3:0 30px 70px rgba(11,27,43,.18),0 8px 20px rgba(11,27,43,.08);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --wrap:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Be Vietnam Pro',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-ink)}
+.kicker::before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor}
+h1,h2,h3,h4{margin:0;line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(30px,4vw,44px);font-weight:800}
+h3{font-size:clamp(22px,2.4vw,28px);font-weight:750}
+h4{font-size:18px;font-weight:700}
+p{margin:0}
+.lead{font-size:18px;color:var(--ink-2);max-width:640px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:600;background:var(--accent-soft);color:var(--accent)}
+.demo-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.demo-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--g-yellow)}
+
+/* ============ HEADER ============ */
+.top{position:relative;z-index:30;background:var(--dark);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{font-weight:800;font-size:26px;letter-spacing:-.03em;text-decoration:none;line-height:1}
+.brand span{color:var(--cyan)} .brand small{display:block;font-size:9px;letter-spacing:.3em;color:#9fb2c8;font-weight:600;margin-top:4px}
+.nav{display:flex;gap:28px;font-size:15px;color:#c9d6e5}
+.nav a{text-decoration:none}.nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:0;transition:transform .25s var(--ease),box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-cyan{background:var(--cyan);color:#022029;box-shadow:0 10px 30px rgba(114,234,255,.35)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:var(--sh-2)}
+.btn-line{background:#fff;color:var(--ink);border:1px solid var(--line-2)}
+@media(max-width:900px){.nav{display:none}}
+
+/* ============ HERO (dark, 3D stack) ============ */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden;padding:40px 0 120px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 78% 35%,rgba(66,133,244,.28),transparent 70%),
+  radial-gradient(500px 360px at 90% 80%,rgba(52,168,83,.18),transparent 70%),
+  radial-gradient(420px 300px at 10% 10%,rgba(114,234,255,.12),transparent 70%)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20px 30px,#fff8,transparent),radial-gradient(1px 1px at 120px 80px,#fff6,transparent),radial-gradient(1.5px 1.5px at 200px 160px,#fff9,transparent),radial-gradient(1px 1px at 300px 40px,#fff5,transparent);background-size:340px 220px;opacity:.5}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.crumbs{font-size:14px;color:#8fa3ba;margin-bottom:34px}.crumbs a{text-decoration:none}.crumbs b{color:#dfe8f2;font-weight:600}
+.hero .kicker{color:var(--cyan)}
+.hero h1{font-size:clamp(48px,7vw,88px);font-weight:800;letter-spacing:-.045em;margin:14px 0 6px;background:linear-gradient(92deg,#fff 30%,#bfefff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .h1-sub{font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.25;color:#e8f0f8;max-width:560px}
+.hero .h1-sub em{font-style:normal;color:var(--cyan)}
+.hero p.desc{margin-top:18px;color:#a9bbcf;font-size:17px;max-width:520px}
+.hero .ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero-stage{position:relative;height:460px;perspective:1400px}
+.stack{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(14deg) rotateY(-22deg) rotateZ(2deg);transition:transform .6s var(--ease)}
+.card3d{position:absolute;border-radius:18px;background:#fff;color:var(--ink);box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08);transform-style:preserve-3d;animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.c-serp{width:330px;left:0;top:90px;padding:16px;transform:translateZ(40px)}
+.c-shop{width:180px;right:10px;top:0;padding:12px;transform:translateZ(120px);animation-delay:-2s}
+.c-yt{width:250px;right:-10px;bottom:0;padding:0;overflow:hidden;background:#0f0f0f;color:#fff;transform:translateZ(90px);animation-delay:-4s}
+.c-map{width:160px;left:60px;bottom:-30px;padding:12px;transform:translateZ(160px);animation-delay:-1s}
+.c-logo{width:92px;height:92px;left:30%;top:-10px;display:grid;place-items:center;border-radius:26px;transform:translateZ(200px);animation-delay:-3s}
+.g-bar{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:12px;color:var(--ink-2)}
+.g-word{font-weight:700;font-size:15px;letter-spacing:-.02em}
+.g-word i{font-style:normal}.g-word i:nth-child(1),.g-word i:nth-child(4){color:var(--g-blue)}.g-word i:nth-child(2),.g-word i:nth-child(6){color:var(--g-red)}.g-word i:nth-child(3){color:var(--g-yellow)}.g-word i:nth-child(5){color:var(--g-green)}
+.spons{font-size:11px;font-weight:700;color:var(--ink)}
+.ad-title{color:#1a0dab;font-size:15px;font-weight:600;line-height:1.3}
+.ad-url{font-size:11px;color:#4d5156}
+.ad-desc{font-size:12px;color:#4d5156;line-height:1.45}
+.skel{height:8px;border-radius:6px;background:#EEF2F6;margin-top:7px}
+.hero-float-label{position:absolute;font-size:12px;font-weight:600;color:#cfe6ff;background:rgba(10,20,40,.7);border:1px solid rgba(255,255,255,.14);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-stage{height:380px;transform:scale(.82);transform-origin:top center}}
+@media(max-width:520px){.hero-stage{height:330px;transform:scale(.66);margin:0 -60px}}
+
+/* ============ STEP NAV (3 pages) ============ */
+.steps-nav{position:relative;z-index:5;margin-top:-56px}
+.steps-nav .bar{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-3);padding:8px;gap:8px}
+.steps-nav a{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:18px;text-decoration:none;transition:background .25s}
+.steps-nav a:hover{background:var(--bg)}
+.steps-nav a b{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--bg);font-size:14px;color:var(--muted)}
+.steps-nav a span{display:block;font-weight:700;font-size:16px;line-height:1.3}
+.steps-nav a small{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.steps-nav a.on{background:var(--ink);color:#fff}
+.steps-nav a.on b{background:var(--cyan);color:#022029}
+.steps-nav a.on small{color:#9fb2c8}
+@media(max-width:760px){.steps-nav .bar{grid-template-columns:1fr}.steps-nav a small{display:none}}
+
+/* ============ SECTIONS ============ */
+section.block{padding:110px 0}
+.sec-head{display:grid;gap:14px;margin-bottom:48px;max-width:760px}
+.sec-head.center{text-align:center;margin-left:auto;margin-right:auto;justify-items:center}
+
+/* ============ ECOSYSTEM ORBIT ============ */
+.eco{overflow-x:clip;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.orbit{position:relative;height:460px}
+.orbit .ring{position:absolute;left:50%;top:50%;width:520px;height:200px;margin:-100px 0 0 -260px;border-radius:50%;border:1.5px dashed var(--line-2)}
+.orbit .ring.r2{width:360px;height:130px;margin:-65px 0 0 -180px;border-style:solid;border-color:var(--line)}
+.orbit .core{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#EAF1FE 60%,#d6e4fb);box-shadow:0 30px 60px rgba(66,133,244,.25),inset 0 -10px 30px rgba(66,133,244,.15);display:grid;place-items:center;z-index:50}
+.orbit .core small{position:absolute;bottom:26px;font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+.planet{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;padding:9px 14px 9px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2);font-weight:700;font-size:14px;white-space:nowrap;will-change:transform;border-width:1px}
+.planet i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-size:13px}
+.planet:hover,.planet.on{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 18%,transparent),var(--sh-2)}
+@media(max-width:960px){.eco{grid-template-columns:1fr}.orbit{height:380px;transform:scale(.8)}}
+@media(max-width:520px){.orbit{height:300px;transform:scale(.6);margin:0 -80px}}
+
+/* ============ CAMPAIGN PICKER ============ */
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;perspective:1200px}
+.pick{--c:var(--g-blue);position:relative;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-lg);padding:22px 22px 0;overflow:hidden;box-shadow:var(--sh-1);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;transform-style:preserve-3d;min-height:290px;display:flex;flex-direction:column}
+.pick::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--c);opacity:.0;transition:opacity .3s}
+.pick:hover{box-shadow:var(--sh-3)}
+.pick.on{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent),var(--sh-3)}
+.pick.on::before{opacity:1}
+.pick small{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--c)}
+.pick strong{display:block;font-size:24px;letter-spacing:-.02em;margin:6px 0 6px}
+.pick .p-desc{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.pick .p-count{display:inline-flex;margin-top:12px;font-size:13px;font-weight:600;color:var(--c)}
+.pick .p-art{margin-top:auto;height:120px;position:relative;transform:translateZ(30px)}
+.pick .p-art>div{position:absolute;left:0;right:0;bottom:-10px;margin:auto;width:78%;height:120px;border-radius:14px 14px 0 0;background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 25%,#fff);border-bottom:0;padding:14px;transition:transform .4s var(--ease)}
+.pick:hover .p-art>div,.pick.on .p-art>div{transform:translateY(-8px)}
+.pick .dot{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:14px;background:color-mix(in srgb,var(--c) 12%,#fff);display:grid;place-items:center;color:var(--c);font-size:20px}
+.mini-l{height:7px;border-radius:5px;background:color-mix(in srgb,var(--c) 22%,#fff);margin-top:7px}
+.mini-l.s{width:60%}.mini-l.xs{width:35%}
+@media(max-width:960px){.picker{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.picker{grid-template-columns:1fr}.pick{min-height:auto}}
+
+/* ============ CAMPAIGN PANEL ============ */
+.panel{--c:var(--g-blue);margin-top:70px}
+.panel-hero{position:relative;border-radius:var(--r-xl);padding:48px;overflow:hidden;color:#fff;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 85%,#000) 0%,color-mix(in srgb,var(--c) 60%,#030713) 100%)}
+.panel-hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%)}
+.panel-hero .ph-in{position:relative;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.panel-hero small{font-size:13px;font-weight:700;letter-spacing:.16em;opacity:.8}
+.panel-hero h2{font-size:clamp(38px,5vw,60px);margin:8px 0 10px}
+.panel-hero p{font-size:18px;opacity:.9;max-width:560px}
+.ph-stats{display:flex;gap:10px;flex-wrap:wrap}
+.ph-stats span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:10px 16px;border-radius:14px;font-size:14px;font-weight:600;backdrop-filter:blur(6px)}
+.ph-stats b{display:block;font-size:22px}
+@media(max-width:760px){.panel-hero{padding:30px 22px}.panel-hero .ph-in{grid-template-columns:1fr}}
+
+.chap-nav{position:sticky;top:0;z-index:20;margin:18px 0 0;padding:10px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+.chap-nav .in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px}
+.chap-nav .in::-webkit-scrollbar{display:none}
+.chap-nav .cur{flex:none;display:flex;align-items:center;gap:8px;padding:0 14px 0 8px;height:42px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:14px}
+.chap-nav .cur i{width:26px;height:26px;border-radius:50%;background:var(--c);display:grid;place-items:center;font-style:normal;font-size:12px}
+.chap-nav a{flex:none;display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:600;color:var(--ink-2);transition:all .2s}
+.chap-nav a b{font-size:12px;color:var(--muted)}
+.chap-nav a.on{border-color:var(--c);color:var(--c);background:color-mix(in srgb,var(--c) 8%,#fff)}
+
+.chap{padding:70px 0 10px;scroll-margin-top:70px}
+.chap-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:32px}
+.chap-num{flex:none;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-weight:800;font-size:18px;color:var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 25%,#fff)}
+.chap-head h3{font-size:clamp(26px,3vw,36px)}
+.chap-head p{color:var(--ink-2);margin-top:8px;max-width:680px}
+.chap-head .lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:6px}
+
+/* Chapter 1: format showroom */
+.showroom{display:grid;grid-template-columns:380px 1fr;gap:28px;align-items:start}
+.fmt-list{display:grid;gap:10px}
+.fmt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:var(--r);padding:16px 18px;transition:all .25s var(--ease)}
+.fmt:hover{border-color:var(--line-2);transform:translateX(3px)}
+.fmt .fh{display:flex;align-items:center;gap:12px}
+.fmt .fh b{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--bg);font-size:13px;color:var(--muted);flex:none}
+.fmt .fh span{font-weight:700;font-size:16px}
+.fmt .fbody{display:none;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);gap:12px}
+.fmt.on{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 14%,transparent),var(--sh-2)}
+.fmt.on .fh b{background:var(--c);color:#fff}
+.fmt.on .fbody{display:grid}
+.frow{display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:14.5px;line-height:1.5}
+.frow i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-size:14px;background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c)}
+.frow em{display:block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stage{position:sticky;top:90px;perspective:1600px;min-height:520px;border-radius:var(--r-xl);background:
+ radial-gradient(500px 300px at 70% 20%,color-mix(in srgb,var(--c) 18%,transparent),transparent 70%),
+ linear-gradient(180deg,#fff,#EEF3F8);border:1px solid var(--line);padding:40px 30px 60px;display:grid;place-items:center;overflow:hidden}
+.stage::after{content:"";position:absolute;left:10%;right:10%;bottom:34px;height:30px;border-radius:50%;background:radial-gradient(ellipse,rgba(11,27,43,.22),transparent 70%);filter:blur(6px)}
+.stage .demo-tag{position:absolute;top:16px;right:16px}
+.device{position:relative;z-index:1;transform:rotateY(-10deg) rotateX(6deg);transform-style:preserve-3d;transition:transform .7s var(--ease);width:100%;max-width:560px}
+.stage:hover .device{transform:rotateY(-3deg) rotateX(2deg)}
+.device.phone{max-width:280px}
+.swap{animation:swapIn .5s var(--ease)}
+@keyframes swapIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.stage-cap{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:12.5px;color:var(--muted);z-index:2;padding:0 20px}
+@media(max-width:1000px){.showroom{grid-template-columns:1fr}.stage{position:relative;top:0;min-height:420px}}
+
+/* device frames */
+.browser{background:#fff;border-radius:16px;box-shadow:var(--sh-3);overflow:hidden;border:1px solid var(--line)}
+.browser .bt{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#F1F4F8;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.browser .bt .dots{display:flex;gap:5px}.browser .bt .dots i{width:9px;height:9px;border-radius:50%;background:#FF5F57}.browser .bt .dots i:nth-child(2){background:#FEBC2E}.browser .bt .dots i:nth-child(3){background:#28C840}
+.browser .bt .url{flex:1;background:#fff;border-radius:8px;padding:4px 10px;border:1px solid var(--line)}
+.browser .bb{padding:18px 22px 22px}
+.phone-f{width:260px;margin:auto;border-radius:38px;background:#0B1B2B;padding:10px;box-shadow:var(--sh-3)}
+.phone-f .scr{border-radius:30px;background:#fff;overflow:hidden;height:500px;position:relative}
+.phone-f .notch{position:absolute;top:8px;left:50%;width:80px;height:20px;margin-left:-40px;background:#0B1B2B;border-radius:12px;z-index:3}
+.hl{position:relative;border-radius:12px;animation:hl 2.2s ease-in-out infinite}
+@keyframes hl{0%,100%{box-shadow:0 0 0 2px color-mix(in srgb,var(--c) 70%,transparent),0 0 0 8px color-mix(in srgb,var(--c) 0%,transparent)}50%{box-shadow:0 0 0 2px var(--c),0 0 0 10px color-mix(in srgb,var(--c) 16%,transparent)}}
+.serp-tabs{display:flex;gap:16px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);margin:12px 0 14px;padding-bottom:8px}
+.serp-tabs b{color:var(--g-blue);border-bottom:2px solid var(--g-blue);padding-bottom:6px;margin-bottom:-9px}
+.ad-block{padding:10px}
+.ad-head{display:flex;align-items:center;gap:8px;margin:6px 0}
+.fav{width:26px;height:26px;border-radius:50%;background:#EAF1FE;color:var(--g-blue);display:grid;place-items:center;font-size:12px;font-weight:800}
+.sitelinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sitelinks span{font-size:12.5px;color:#1a0dab;border:1px solid var(--line);padding:5px 12px;border-radius:999px}
+.callbtn{display:inline-flex;margin-top:10px;background:var(--g-blue);color:#fff;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
+.organic{margin-top:16px;padding:10px;border-top:1px solid var(--line);opacity:.7}
+.img-asset{display:grid;grid-template-columns:1fr 92px;gap:12px;align-items:start}
+.photo{border-radius:10px;background:linear-gradient(135deg,#bcd3f7,#7aa7ee 55%,#3f6fd0);position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:auto 12% 14% 12%;height:40%;border-radius:8px;background:rgba(255,255,255,.55)}
+.photo.warm{background:linear-gradient(135deg,#ffe2b8,#f7b267 55%,#e07a2f)}
+.photo.green{background:linear-gradient(135deg,#c9f0d6,#6fd19a 55%,#23975a)}
+.photo.dark{background:linear-gradient(135deg,#40506a,#1f2a3d)}
+.bottle{position:absolute;left:50%;bottom:12%;width:22%;height:66%;margin-left:-11%;border-radius:12px 12px 8px 8px;background:linear-gradient(90deg,#1d2b44,#3d5579 45%,#1d2b44);z-index:2}
+.bottle::before{content:"";position:absolute;top:-10%;left:12%;right:12%;height:14%;border-radius:6px 6px 2px 2px;background:#9fb2c8}
+
+/* Chapter 2: how it works */
+.flow4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:f}
+.flow4 a{position:relative;display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:all .25s var(--ease)}
+.flow4 a:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--c)}
+.flow4 a b{font-size:13px;color:var(--c);font-weight:800}
+.flow4 a span{display:block;font-weight:700;font-size:17px;margin-top:4px}
+.flow4 a small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px;line-height:1.45}
+.flow4 a:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;margin-top:-12px;width:24px;height:24px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-size:12px;z-index:2}
+@media(max-width:860px){.flow4{grid-template-columns:1fr 1fr}.flow4 a::after{display:none}}
+
+.sub{margin-top:70px}
+.sub-head{display:flex;justify-content:space-between;gap:20px;align-items:end;flex-wrap:wrap;margin-bottom:26px}
+.sub-head .lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.sub-head h4{font-size:clamp(22px,2.5vw,30px);margin-top:6px;letter-spacing:-.02em}
+.sub-head p{color:var(--ink-2);margin-top:8px;max-width:620px}
+
+.pipeline{display:flex;gap:0;flex-wrap:wrap;margin-bottom:24px}
+.pipeline span{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:14px;margin-right:-1px}
+.pipeline span:first-child{border-radius:999px 0 0 999px}.pipeline span:last-child{border-radius:0 999px 999px 0}
+.pipeline span b{width:22px;height:22px;border-radius:50%;background:color-mix(in srgb,var(--c) 12%,#fff);color:var(--c);display:grid;place-items:center;font-size:11px}
+@media(max-width:700px){.pipeline span{border-radius:999px!important;margin:0 6px 6px 0}}
+
+.match{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:32px;box-shadow:var(--sh-1)}
+.rings{position:relative;aspect-ratio:1;max-width:400px;width:100%;margin:auto}
+.rings .rg{position:absolute;border-radius:50%;display:flex;justify-content:center;transition:all .4s var(--ease);border:2px solid transparent}
+.rings .rg span{margin-top:10px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted);background:#fff;padding:2px 10px;border-radius:999px;height:max-content;border:1px solid var(--line)}
+.rg.broad{inset:0;background:color-mix(in srgb,var(--c) 6%,#fff)}
+.rg.phrase{inset:16%;background:color-mix(in srgb,var(--c) 12%,#fff)}
+.rg.exact{inset:34%;background:color-mix(in srgb,var(--c) 22%,#fff);align-items:center}
+.rg.exact span{margin:0}
+.rings[data-m="exact"] .rg.exact,.rings[data-m="phrase"] .rg.phrase,.rings[data-m="broad"] .rg.broad{border-color:var(--c);box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 12%,transparent)}
+.rings[data-m="exact"] .rg.phrase,.rings[data-m="exact"] .rg.broad,.rings[data-m="phrase"] .rg.broad{opacity:.35}
+.qdot{position:absolute;font-size:11.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap;box-shadow:var(--sh-1);transform:translate(-50%,-50%);transition:opacity .3s}
+.qdot.bad{border-color:var(--bad);color:var(--bad);background:var(--bad-soft)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:6px;border-radius:14px}
+.seg button{border:0;background:transparent;padding:10px 14px;border-radius:10px;font-weight:600;font-size:14px;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--c);box-shadow:var(--sh-1)}
+.m-detail{margin-top:18px;padding:18px;border-radius:var(--r);background:var(--bg)}
+.m-detail b{display:block;font-size:17px}
+.m-detail p{color:var(--ink-2);font-size:15px;margin-top:6px}
+.m-neg{margin-top:12px;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:var(--bad-soft);color:var(--bad);font-size:14px;font-weight:600}
+@media(max-width:860px){.match{grid-template-columns:1fr;padding:22px}}
+
+.rsa{display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--ink);color:#fff;border-radius:var(--r-xl);padding:34px;position:relative;overflow:hidden}
+.rsa::before{content:"";position:absolute;left:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 45%,transparent),transparent 70%)}
+.rsa>*{position:relative}
+.rsa h4{font-size:24px}
+.rsa p.s{color:#a9bbcf;margin-top:8px;font-size:15px}
+.fld{margin-top:18px}
+.fld label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#cfdbe8;margin-bottom:6px}
+.fld input,.fld textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;color:#fff;font:inherit;font-size:15px;resize:none}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--cyan);border-color:transparent}
+.meter{height:5px;border-radius:5px;background:rgba(255,255,255,.1);margin-top:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--cyan);transition:width .2s,background .2s}
+.meter.over i{background:#ff7a70}
+.rsa-prev{align-self:center;background:#fff;color:var(--ink);border-radius:18px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(-1.5deg)}
+.rsa-prev small.t{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+@media(max-width:860px){.rsa{grid-template-columns:1fr;padding:24px}}
+
+.report{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rq{border-radius:var(--r);padding:20px;border:1px solid;position:relative;background:#fff}
+.rq .q{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:var(--bg);padding:8px 12px;border-radius:10px;display:block}
+.rq .tag{display:inline-flex;margin-top:14px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.rq p{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+.rq .act{position:absolute;top:16px;right:16px;font-size:12px;font-weight:800;letter-spacing:.06em}
+.rq.keep{border-color:#bfe6cf}.rq.keep .tag{background:var(--ok-soft);color:var(--ok)}.rq.keep .act{color:var(--ok)}
+.rq.maybe{border-color:#f2dca6}.rq.maybe .tag{background:var(--warn-soft);color:var(--warn)}.rq.maybe .act{color:var(--warn)}
+.rq.drop{border-color:#f3c3be}.rq.drop .tag{background:var(--bad-soft);color:var(--bad)}.rq.drop .act{color:var(--bad)}
+.foot-note{margin-top:14px;font-size:13.5px;color:var(--muted);display:flex;gap:8px}
+.foot-note::before{content:"i";flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:11px;font-weight:700;font-style:italic}
+@media(max-width:860px){.report{grid-template-columns:1fr}}
+
+.auction{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center;background:linear-gradient(160deg,#0B1B2B,#102a44);color:#fff;border-radius:var(--r-xl);padding:40px;overflow:hidden;position:relative}
+.auction h2{font-size:clamp(28px,3.4vw,40px)}
+.auction p{color:#b4c5d6;margin-top:14px}
+.auction .src{display:inline-flex;margin-top:16px;color:var(--cyan);font-weight:600;font-size:14px;text-decoration:none}
+.rank-art{position:relative;height:360px;perspective:900px}
+.inputs{position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-around;gap:10px}
+.inputs span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;animation:pulseIn 3s ease-in-out infinite}
+.inputs span:nth-child(2){animation-delay:.4s}.inputs span:nth-child(3){animation-delay:.8s}
+@keyframes pulseIn{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.gem{position:absolute;left:44%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:28px;transform:rotate(45deg);background:linear-gradient(135deg,var(--cyan),#4285F4);box-shadow:0 0 60px rgba(114,234,255,.5);display:grid;place-items:center}
+.gem div{transform:rotate(-45deg);text-align:center;color:#022029;font-weight:800;font-size:15px;line-height:1.1}
+.gem small{display:block;font-size:10px;font-weight:600}
+.podium{position:absolute;right:0;bottom:30px;display:flex;align-items:flex-end;gap:6px;transform:rotateX(18deg);transform-style:preserve-3d}
+.podium i{width:54px;border-radius:8px 8px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.2);display:grid;place-items:start center;padding-top:8px;font-style:normal;font-weight:800}
+.podium i:nth-child(1){height:90px}.podium i:nth-child(2){height:140px;background:linear-gradient(180deg,var(--cyan),rgba(114,234,255,.2));color:#022029}.podium i:nth-child(3){height:64px}
+.elig{position:absolute;right:28px;top:40px;font-size:13px;background:rgba(52,168,83,.2);border:1px solid rgba(52,168,83,.5);color:#9ff0bd;padding:6px 12px;border-radius:999px;font-weight:600}
+.pos-lbl{position:absolute;right:0;bottom:0;font-size:13px;font-weight:700;color:#cfe6ff;width:174px;text-align:center}
+.wires{position:absolute;inset:0;width:100%;height:100%}
+@media(max-width:860px){.auction{grid-template-columns:1fr;padding:26px}}
+
+.bid{display:grid;grid-template-columns:300px 1fr;gap:24px}
+.bid-list{display:grid;gap:8px;align-content:start}
+.bid-list button{text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+.bid-list button small{font-size:11px;color:var(--muted);letter-spacing:.06em}
+.bid-list button[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 7%,#fff);color:var(--c);box-shadow:var(--sh-1)}
+.bid-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:30px;box-shadow:var(--sh-2)}
+.bid-card .k{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--c)}
+.bid-card h4{font-size:26px;margin:6px 0 8px}
+.bid-card>p{color:var(--ink-2)}
+.io{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:22px 0}
+.io div{border-radius:14px;padding:14px;background:var(--bg);text-align:center}
+.io div small{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.io div b{font-size:16px}
+.io .arrow{width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-size:18px}
+.bid-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bid-grid div{padding:14px 16px;border-radius:14px;border:1px solid var(--line);font-size:14.5px;color:var(--ink-2)}
+.bid-grid div b{display:block;color:var(--ink);font-size:13px;margin-bottom:4px}
+.bid-grid .warn{background:var(--warn-soft);border-color:#f2dca6}
+.bid-ex{margin-top:12px;padding:16px;border-radius:14px;background:var(--ink);color:#dce7f2;font-size:14.5px}
+.bid-ex b{color:var(--cyan)}
+@media(max-width:860px){.bid{grid-template-columns:1fr}.bid-grid{grid-template-columns:1fr}}
+
+/* ops cards (non-search chapter 2) */
+.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.op{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;position:relative;overflow:hidden;transition:all .3s var(--ease)}
+.op:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.op .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:20px;background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--c);margin-bottom:14px}
+.op h5{margin:0;font-size:17px}
+.op p{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+.op.big{grid-column:span 2;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 8%,#fff),#fff)}
+@media(max-width:900px){.ops{grid-template-columns:1fr}.op.big{grid-column:auto}}
+
+/* Chapter 3: specs */
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.spec{min-width:0}
+.spec{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:10px;transition:all .3s var(--ease)}
+.spec:hover{transform:translateY(-4px) rotateX(3deg);box-shadow:var(--sh-2)}
+.spec .viz{height:120px;border-radius:14px;background:var(--bg);display:grid;place-items:center;position:relative;overflow:hidden}
+.spec .shape{background:linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,#fff),var(--c));border-radius:8px;box-shadow:0 10px 24px color-mix(in srgb,var(--c) 30%,transparent);display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+.spec small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.spec strong{font-size:17px;line-height:1.35}
+.spec p{font-size:14px;color:var(--ink-2)}
+.charbar{width:84%}
+.charbar .t{font-size:13px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.charbar .m{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+.charbar .b{height:5px;border-radius:5px;background:#dfe7f0;margin-top:4px;overflow:hidden}.charbar .b i{display:block;height:100%;background:var(--c)}
+@media(max-width:1000px){.specs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.specs{grid-template-columns:1fr}}
+
+/* Chapter 4: journey */
+.journey{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--sh-2);overflow:hidden}
+.j-tabs{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:var(--bg)}
+.j-tabs button{border:0;background:transparent;padding:18px 16px;text-align:left;font-weight:700;font-size:15px;color:var(--muted);position:relative;display:flex;gap:10px;align-items:center}
+.j-tabs button b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);font-size:12px}
+.j-tabs button[aria-selected="true"]{color:var(--ink);background:#fff}
+.j-tabs button[aria-selected="true"] b{background:var(--c);border-color:var(--c);color:#fff}
+.j-tabs button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--c)}
+.j-tabs .prog{grid-column:1/-1;height:3px;background:var(--line)}
+.j-body{display:grid;grid-template-columns:1fr 1.25fr;gap:30px;padding:32px;align-items:center}
+.j-text h5{font-size:24px;margin:0 0 10px;letter-spacing:-.02em}
+.j-text p{color:var(--ink-2)}
+.j-text .note{margin-top:16px;font-size:14px;padding:14px 16px;border-radius:14px;background:var(--bg);color:var(--ink-2)}
+.j-screen{perspective:1400px}
+.j-screen .browser{transform:rotateY(-8deg) rotateX(4deg);transition:transform .6s var(--ease)}
+.j-screen:hover .browser{transform:none}
+.j-next{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.ads-ui{font-size:12.5px}
+.ads-ui .ah{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ads-ui .ah .lg{display:flex;gap:3px}.ads-ui .ah .lg i{width:8px;height:18px;border-radius:4px;background:var(--g-yellow);transform:rotate(30deg)}.ads-ui .ah .lg i:nth-child(2){background:var(--g-blue);transform:rotate(-30deg)}
+.ads-ui table{width:100%;border-collapse:collapse;margin-top:10px}
+.ads-ui th,.ads-ui td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+.ads-ui th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.ads-ui .mt{display:inline-flex;padding:2px 8px;border-radius:6px;background:var(--accent-soft);color:var(--g-blue);font-weight:600;font-size:11px}
+.lp-hero{border-radius:12px;padding:20px;background:linear-gradient(135deg,#0B1B2B,#1d3b5e);color:#fff}
+.lp-hero small{font-size:10px;letter-spacing:.14em;color:var(--cyan)}
+.lp-hero b{display:block;font-size:18px;margin:6px 0}
+.lp-hero p{font-size:12px;color:#b9cadb}
+.lp-ctas{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.lp-ctas span{font-size:11.5px;font-weight:700;text-align:center;padding:10px 4px;border-radius:10px;background:var(--bg)}
+.lp-ctas span:first-child{background:var(--g-green);color:#fff}
+.lp-ctas span:nth-child(2){background:#0068FF;color:#fff}
+.ch-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ch-list div{padding:12px;border:1px solid var(--line);border-radius:12px;font-size:12.5px}
+.ch-list div b{display:block;font-size:14px}
+.signal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
+.signal span{font-size:11px;padding:8px;border-radius:8px;background:var(--bg);text-align:center;font-weight:600}
+.signal span:first-child{background:var(--accent-soft);color:var(--g-blue)}
+@media(max-width:900px){.j-tabs{grid-template-columns:1fr 1fr}.j-body{grid-template-columns:1fr;padding:22px}}
+
+/* Chapter 5: flow + summary */
+.bigflow{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px;margin-bottom:34px}
+.bigflow::before{content:"";position:absolute;left:5%;right:5%;top:34px;height:3px;background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 30%,#fff));border-radius:3px}
+.bigflow div{position:relative;text-align:center;font-weight:600;font-size:14px;line-height:1.35}
+.bigflow div b{width:68px;height:68px;margin:0 auto 12px;border-radius:22px;display:grid;place-items:center;background:#fff;border:2px solid var(--c);color:var(--c);font-size:18px;box-shadow:var(--sh-2);transition:transform .3s}
+.bigflow div:hover b{transform:translateY(-6px) rotate(-4deg)}
+.bigflow div:last-child b{background:var(--c);color:#fff}
+@media(max-width:760px){.bigflow{grid-auto-flow:row}.bigflow::before{left:33px;right:auto;top:0;bottom:0;width:3px;height:auto}.bigflow div{display:flex;align-items:center;gap:14px;text-align:left}.bigflow div b{margin:0;width:56px;height:56px;flex:none}}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tri{border-radius:var(--r-lg);padding:26px;background:#fff;border:1px solid var(--line);position:relative;overflow:hidden}
+.tri .ic{font-size:22px;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px}
+.tri h5{margin:0;font-size:18px}
+.tri p,.tri li{font-size:15px;color:var(--ink-2)}
+.tri p{margin-top:8px}
+.tri ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.tri li{display:flex;gap:10px}.tri li::before{content:"✓";flex:none;width:20px;height:20px;border-radius:6px;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;font-size:12px;font-weight:800}
+.tri.t1 .ic{background:#EAF1FE;color:var(--g-blue)}.tri.t2 .ic{background:var(--ok-soft);color:var(--ok)}.tri.t3 .ic{background:#F3ECFE;color:#8B5CF6}
+.callout{margin-top:16px;display:flex;gap:16px;padding:20px 22px;border-radius:var(--r-lg);background:var(--warn-soft);border:1px solid #f2dca6}
+.callout .ic{flex:none;width:40px;height:40px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:18px}
+.callout b{display:block;color:#7a4d00}
+.callout p{font-size:15px;color:#5e4a22;margin-top:4px}
+@media(max-width:900px){.triad{grid-template-columns:1fr}}
+
+/* Chapter 6: strategy / issues / checklist */
+.strat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.st{border-radius:var(--r-lg);padding:24px;background:linear-gradient(160deg,#fff,color-mix(in srgb,var(--c) 7%,#fff));border:1px solid color-mix(in srgb,var(--c) 22%,#fff);position:relative}
+.st .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-size:18px;margin-bottom:14px;box-shadow:0 10px 20px color-mix(in srgb,var(--c) 35%,transparent)}
+.st h5{margin:0;font-size:17px}.st p{margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+.issues{display:grid;gap:12px}
+.iss{display:grid;grid-template-columns:1fr 40px 1.4fr;gap:0;align-items:stretch;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:#fff}
+.iss .pb{padding:20px;background:var(--bad-soft);display:flex;gap:12px;align-items:center;font-weight:700;color:#8f1f17}
+.iss .pb i{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;color:var(--bad)}
+.iss .ar{display:grid;place-items:center;color:var(--muted);background:linear-gradient(90deg,var(--bad-soft),#fff)}
+.iss .fx{padding:20px;font-size:15px;color:var(--ink-2)}
+.iss .fx b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);margin-bottom:4px}
+@media(max-width:760px){.iss{grid-template-columns:1fr}.iss .ar{display:none}}
+.checklist{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;background:var(--ink);color:#fff;border-radius:var(--r-xl);padding:34px}
+.ring-prog{width:140px;height:140px;position:relative}
+.ring-prog svg{transform:rotate(-90deg)}
+.ring-prog b{position:absolute;inset:0;display:grid;place-items:center;font-size:30px}
+.ring-prog small{position:absolute;bottom:34px;left:0;right:0;text-align:center;font-size:11px;color:#9fb2c8}
+.checks{display:grid;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-size:15px;transition:all .2s}
+.checks input{appearance:none;flex:none;width:22px;height:22px;border-radius:7px;border:2px solid #5d7189;margin:1px 0 0;display:grid;place-items:center;transition:all .2s}
+.checks input:checked{background:var(--cyan);border-color:var(--cyan)}
+.checks input:checked::after{content:"✓";color:#022029;font-weight:800;font-size:13px}
+.checks label:has(input:checked){background:rgba(114,234,255,.08);border-color:rgba(114,234,255,.3)}
+@media(max-width:760px){.checklist{grid-template-columns:1fr;justify-items:center;padding:24px}}
+.display-box{margin-top:50px;border-radius:var(--r-xl);border:1px dashed var(--line-2);padding:28px;background:#fff}
+.display-box .dx{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:14px;margin-top:18px}
+.display-box .dx div{border-radius:14px;background:var(--bg);padding:14px}
+.display-box .dx .photo{height:90px;margin-bottom:10px}
+.display-box .dx b{font-size:14px;display:block}.display-box .dx p{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+@media(max-width:760px){.display-box .dx{grid-template-columns:1fr}}
+
+/* recap + next */
+.recap{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.rc{--c:var(--g-blue);border:0;text-align:left;border-radius:var(--r-lg);padding:22px 18px;background:#fff;box-shadow:var(--sh-1);position:relative;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+.rc::after{content:"";position:absolute;right:-30px;bottom:-30px;width:100px;height:100px;border-radius:50%;background:color-mix(in srgb,var(--c) 14%,transparent)}
+.rc:hover{transform:translateY(-6px);box-shadow:var(--sh-2)}
+.rc b{display:block;color:var(--c);font-size:17px}
+.rc span{display:block;margin-top:6px;font-size:14.5px;color:var(--ink-2)}
+@media(max-width:1000px){.recap{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.recap{grid-template-columns:1fr 1fr}}
+.next{margin-top:90px;border-radius:var(--r-xl);background:var(--dark);color:#fff;padding:56px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+.next::before{content:"";position:absolute;right:-100px;top:-160px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(114,234,255,.25),transparent 65%)}
+.next>*{position:relative}
+.next h3{font-size:clamp(26px,3vw,38px)}
+.next p{color:#a9bbcf;margin-top:10px}
+@media(max-width:760px){.next{grid-template-columns:1fr;padding:30px}}
+footer{padding:50px 0;color:var(--muted);font-size:14px;text-align:center}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">POW<span>AI</span><small>MARKETING × TECHNOLOGY</small></a>
+  <nav class="nav"><a href="#">Trang chủ</a><a href="#">Dịch vụ</a><a href="#">Dự án</a><a href="#">Về POW</a><a href="#">Blog</a><a href="#">Liên hệ</a></nav>
+  <a class="btn btn-ghost" href="#">Nhận tư vấn →</a>
+</div></header>
+
+<section class="hero">
+  <div class="stars"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumbs"><a href="#">Trang chủ</a> / <a href="#">Dịch vụ</a> / <a href="#">Quảng cáo đa kênh</a> / <b>Google Ads</b></div>
+      <span class="kicker">POWAI / Google Ads</span>
+      <h1>Google Ads</h1>
+      <div class="h1-sub">Xuất hiện <em>đúng lúc</em> khách hàng đang tìm kiếm.</div>
+      <p class="desc">Google Ads kết nối nhu cầu, nội dung, điểm đến và dữ liệu đo lường để doanh nghiệp tạo lead, đơn hàng và doanh thu có thể theo dõi.</p>
+      <div class="ctas"><a class="btn btn-cyan" href="#eco">Khám phá Google Ads ↓</a><a class="btn btn-ghost" href="#">Trao đổi nhu cầu →</a></div>
+    </div>
+    <div class="hero-stage" id="heroStage" aria-hidden="true">
+      <div class="stack" id="stack">
+        <div class="card3d c-serp">
+          <div class="g-word"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></div>
+          <div class="g-bar" style="margin-top:10px">⌕ dịch vụ thiết kế website</div>
+          <div style="margin-top:14px" class="spons">Được tài trợ</div>
+          <div class="ad-url">website.example › thiet-ke-website</div>
+          <div class="ad-title">Thiết Kế Website Doanh Nghiệp – Tư Vấn Theo Nhu Cầu</div>
+          <div class="ad-desc">Website thể hiện thương hiệu, dễ sử dụng trên điện thoại.</div>
+          <div class="skel"></div><div class="skel" style="width:70%"></div>
+        </div>
+        <div class="card3d c-shop">
+          <div class="photo" style="height:110px"><div class="bottle"></div></div>
+          <div style="font-size:13px;font-weight:700;margin-top:8px">NOVA 500 ml</div>
+          <div style="font-size:13px;font-weight:800">350.000 ₫</div>
+          <div style="font-size:11px;color:var(--muted)">Shopping · Cửa hàng NOVA</div>
+        </div>
+        <div class="card3d c-yt">
+          <div class="photo dark" style="height:130px;border-radius:0;display:grid;place-items:center"><span style="position:relative;z-index:3;width:46px;height:32px;border-radius:9px;background:#f00;display:grid;place-items:center;font-size:14px">▶</span></div>
+          <div style="padding:10px 12px;font-size:12px"><b>YouTube</b> · Quảng cáo · 0:15</div>
+        </div>
+        <div class="card3d c-map">
+          <div style="height:80px;border-radius:10px;background:repeating-linear-gradient(45deg,#e8f0e5 0 10px,#dfe9dc 10px 20px);position:relative"><span style="position:absolute;left:50%;top:30%;font-size:26px;transform:translate(-50%,-50%);color:var(--g-red)">⌖</span></div>
+          <div style="font-size:12px;font-weight:700;margin-top:8px">Maps · Gần bạn</div>
+        </div>
+        <div class="card3d c-logo"><svg width="54" height="50" viewBox="0 0 96 88"><path d="M48 15L78 68" stroke="#4285f4" stroke-width="24" stroke-linecap="round"/><path d="M48 15L18 68" stroke="#fbbc04" stroke-width="24" stroke-linecap="round"/><circle cx="18" cy="68" r="12" fill="#34a853"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="steps-nav"><div class="wrap"><nav class="bar" aria-label="Ba bước tìm hiểu Google Ads">
+  <a class="on" href="#" aria-current="page"><b>01</b><div><span>Cách chạy & định dạng</span><small>Quảng cáo trông như thế nào</small></div></a>
+  <a href="#"><b>02</b><div><span>Chọn cách chạy</span><small>Theo mục tiêu và khách hàng</small></div></a>
+  <a href="#"><b>03</b><div><span>Chi phí & hiệu quả</span><small>Ngân sách, đo lường, triển khai</small></div></a>
+</nav></div></div>
+
+<section class="block" id="eco"><div class="wrap">
+  <div class="eco">
+    <div class="sec-head rv" style="margin:0">
+      <span class="kicker">01 / Google Ads Universe</span>
+      <h2>Khám phá hệ sinh thái Google Ads</h2>
+      <p class="lead">Từ quảng cáo tìm kiếm, sản phẩm, video đến chiến dịch đa kênh — mỗi loại có cách hiển thị, tài sản và hành trình riêng.</p>
+      <p style="color:var(--muted);font-size:15px">Chọn một hành tinh để mở chi tiết bên dưới.</p>
+    </div>
+    <div class="orbit rv" id="orbit">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="core"><svg width="64" height="58" viewBox="0 0 96 88"><path d="M48 15L78 68" stroke="#4285f4" stroke-width="24" stroke-linecap="round"/><path d="M48 15L18 68" stroke="#fbbc04" stroke-width="24" stroke-linecap="round"/><circle cx="18" cy="68" r="12" fill="#34a853"/></svg><small>GOOGLE ADS</small></div>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:90px">
+    <span class="kicker">Chọn định dạng</span>
+    <h2>Quảng cáo của khách hàng sẽ trông như thế nào?</h2>
+    <p class="lead">Chọn định dạng để xem mô phỏng vị trí hiển thị.</p>
+  </div>
+  <div class="picker" id="picker" role="tablist" aria-label="Loại chiến dịch"></div>
+
+  <div class="panel" id="panel"></div>
+
+  <div class="sub" style="margin-top:110px">
+    <div class="sec-head center"><span class="kicker">Tóm tắt</span><h2>Nhớ nhanh: mỗi cách chạy một vai trò.</h2></div>
+    <div class="recap" id="recap"></div>
+  </div>
+
+  <div class="next rv">
+    <div><h3>Đã hình dung quảng cáo trông như thế nào?</h3><p>Tiếp theo, chọn theo mục tiêu và khách hàng của bạn.</p></div>
+    <a class="btn btn-cyan" href="#">Doanh nghiệp nên chọn cách nào? →</a>
+  </div>
+</div></section>
+
+<footer>POWAI · Bản mẫu giao diện v2 — nội dung giữ nguyên từ trang hiện tại, tên cửa hàng/sản phẩm/giá là ví dụ minh họa.</footer>
+
+<script>
+const DATA = {"search": {"tag": "Quảng cáo văn bản khi người dùng tìm giải pháp liên quan.", "formats": [["Quảng cáo văn bản", "Trang kết quả tìm kiếm Google", "Tiêu đề + mô tả + URL. Thông điệp trả lời đúng nhu cầu tìm kiếm. Không phải mọi tiêu đề đều hiện cùng lúc.", "Tiêu đề, mô tả và URL trang dịch vụ."], ["Liên kết trang", "Trang kết quả tìm kiếm Google", "Lối vào các trang liên quan. Dẫn đến giải pháp, dự án, báo giá hoặc liên hệ; trang đích phải phù hợp nội dung liên kết.", "Tên liên kết, mô tả và URL riêng cho từng trang."], ["Tài sản hình ảnh", "Trang kết quả tìm kiếm Google", "Ảnh bổ sung cho quảng cáo. Ảnh là phần bổ sung khi đủ điều kiện, không thay thế bộ nội dung văn bản.", "Ảnh dịch vụ thật cùng bộ tiêu đề, mô tả."], ["Thành phần cuộc gọi", "Trang kết quả tìm kiếm Google", "Nút gọi khi đủ điều kiện. Cho phép khách gọi từ quảng cáo khi thành phần được hỗ trợ và hiển thị. Không phải lần hiển thị nào cũng có nút gọi.", "Tiêu đề, mô tả và URL trang dịch vụ."]], "blocks": {"Dùng khi nào?": ["Khách thường tìm dịch vụ của bạn trên Google và bạn muốn có thêm cuộc gọi, tin nhắn hoặc đơn hàng."], "Cần chuẩn bị": ["Nhóm từ khóa theo ý định", "Tiêu đề, mô tả và phần bổ sung", "Trang đích đúng nhu cầu"], "Đo điều gì?": ["Tách click_call, click_zalo, click_messenger và form thành công. Click chat/gọi là tín hiệu liên hệ, chưa phải lead đủ điều kiện; đối soát cuộc gọi/hội thoại trong CRM. Báo cáo cuộc gọi Google phụ thuộc điều kiện hỗ trợ."]}, "note": "Đối sánh chính xác vẫn có thể gồm ý nghĩa tương đương. Rà cụm tìm kiếm và từ phủ định; không xem tuổi/giới là thay thế ý định.", "details": [["Đọc báo cáo cụm tìm kiếm như thế nào?", "báo giá thiết kế website doanh nghiệp Tìm nhà cung cấp Giữ để đối chiếu trang báo giá và chất lượng yêu cầu. cách tự làm website miễn phí Muốn tự làm Cân nhắc loại nếu doanh nghiệp chỉ bán dịch vụ thiết kế. tuyển dụng thiết kế website Tìm việc Ví dụ thêm phủ định “tuyển dụng” khi mục tiêu là tìm khách mua dịch vụ. Ví dụ từ workshop hiện có. Báo cáo không hiển thị mọi truy vấn; từ phủ định không tự mở rộng theo mọi biến thể gần."], ["Giá thầu và mục tiêu tối ưu", "Muốn tăng yêu cầu tư vấn: cân nhắc Tối đa hóa chuyển đổi khi đã đo đúng. CPA mục tiêu là mức chi phí trung bình mong muốn cho một chuyển đổi. Tối đa hóa lượt nhấp chỉ tìm thêm lượt bấm, không bảo đảm có khách hỏi mua."], ["Nhu cầu mua rõ", "Chia nhóm theo dịch vụ hoặc ý định. Dẫn về trang giải pháp tương ứng; dùng dữ liệu lead để đánh giá thay vì chỉ xem click."], ["Khám phá thêm nhu cầu", "Thử mở rộng có kiểm soát cùng đo lường và Smart Bidding phù hợp. Rà soát truy vấn trước khi tăng ngân sách."], ["Bảo vệ nhu cầu thương hiệu", "Tách nhóm tìm tên thương hiệu để đọc hiệu quả riêng, tránh trộn với tìm kiếm chưa biết thương hiệu."], ["Nhiều nhấp, ít yêu cầu", "Xem truy vấn, trải nghiệm trang đích và biểu mẫu trước khi tăng giá thầu."], ["Có lead nhưng không phù hợp", "Đối soát với đội ngũ bán hàng; điều chỉnh truy vấn, thông điệp hoặc sự kiện tối ưu."], ["Kiểm tra trước khi chạy", "Nhắm đúng địa bàn và kiểm tra tùy chọn hiện diện/sự quan tâm. Biểu mẫu gửi thành công được ghi nhận đúng, không đếm lặp. Nội dung quảng cáo, từ khóa và trang đích nói cùng một dịch vụ."]], "specs": [["Tiêu đề RSA", "Tối đa 30 ký tự / tiêu đề", "Tối đa 15 tiêu đề; viết nhiều góc giá trị khác nhau."], ["Mô tả RSA", "Tối đa 90 ký tự / mô tả", "Tối đa 4 mô tả; thông điệp rõ và kiểm chứng được."], ["Ảnh vuông", "1:1 · 1200 × 1200 px khuyến nghị", "Tối thiểu 300 × 300 px."], ["Ảnh ngang", "1.91:1 · 1200 × 628 px khuyến nghị", "Tối thiểu 600 × 314 px."]], "steps": ["Khách tìm kiếm", "Từ khóa", "Đấu giá", "Mẫu RSA", "Trang đích", "Liên hệ / mua"]}, "pmax": {"tag": "Loại chiến dịch tối ưu theo mục tiêu trên nhiều kênh Google đủ điều kiện.", "formats": [["Nguồn sản phẩm", "Search, Shopping, YouTube và điểm chạm đủ điều kiện", "Shopping và điểm chạm đủ điều kiện. Nếu bán hàng, dữ liệu Merchant Center là đầu vào sản phẩm.", "Chữ, ảnh, logo, video · Chuyển đổi / giá trị đúng · Dữ liệu khi quảng cáo sản phẩm"], ["Bộ ảnh + văn bản", "Search, Shopping, YouTube và điểm chạm đủ điều kiện", "Nhiều tổ hợp quảng cáo. Nhóm tài sản nên cùng một chủ đề; không gom mọi dịch vụ không liên quan.", "Chữ, ảnh, logo, video · Chuyển đổi / giá trị đúng · Dữ liệu khi quảng cáo sản phẩm"], ["Video đa tỷ lệ", "Search, Shopping, YouTube và điểm chạm đủ điều kiện", "YouTube và vị trí video. Chủ động chuẩn bị video để kiểm soát thông điệp thay vì chỉ dựa vào bản tự tạo.", "Chữ, ảnh, logo, video · Chuyển đổi / giá trị đúng · Dữ liệu khi quảng cáo sản phẩm"]], "blocks": {"Dùng khi nào?": ["Đã biết muốn tăng đơn hay tư vấn, có ảnh/video và ghi nhận được khách thực tế."], "Cần chuẩn bị": ["Chữ, ảnh, logo, video", "Chuyển đổi / giá trị đúng", "Dữ liệu khi quảng cáo sản phẩm"], "Đo điều gì?": ["Mục tiêu chuyển đổi, giá trị nếu tối ưu giá trị và phản hồi CRM/đơn hàng."]}, "note": "Tệp thêm vào PMax là gợi ý. Google có thể tìm người ngoài tệp. Bạn vẫn cần cập nhật ảnh/video, thông tin sản phẩm và kiểm tra chất lượng khách.", "details": [["Giá thầu và mục tiêu tối ưu", "Tối đa hóa chuyển đổi hoặc giá trị; Target CPA / Target ROAS theo mục tiêu và điều kiện dữ liệu."], ["Đầu vào của chiến dịch", "Xác định mục tiêu chuyển đổi, cung cấp nhóm tài sản và tín hiệu đối tượng; thêm dữ liệu Merchant Center nếu quảng cáo sản phẩm. Tín hiệu đối tượng là gợi ý, không phải giới hạn cứng người được tiếp cận."], ["Nội dung cần chuẩn bị", "Tổ chức ảnh, video, tiêu đề, mô tả và trang đích theo một chủ đề sản phẩm hoặc dịch vụ. Kiểm tra dữ liệu sản phẩm nếu có và các thiết lập liên quan URL đích."], ["Giá thầu & đo lường", "Theo số lượng: Tối đa hóa lượt chuyển đổi hoặc CPA mục tiêu. Theo giá trị: Tối đa hóa giá trị chuyển đổi hoặc ROAS mục tiêu. Chọn theo dữ liệu bạn đo được; CPC thủ công không phải cách đặt thầu cho Performance Max."], ["Cách kiểm tra khi chạy", "Đối chiếu mục tiêu, giá trị chuyển đổi, nội dung, sản phẩm và chất lượng lead. Chủ đề tìm kiếm là tín hiệu hỗ trợ, không vận hành như danh sách từ khóa đối sánh của Search."], ["Tăng số chuyển đổi", "Chọn hành động chuyển đổi đúng; cân nhắc tối đa hóa chuyển đổi hoặc CPA mục tiêu."], ["Tăng tổng giá trị", "Cung cấp giá trị chuyển đổi; cân nhắc tối đa hóa giá trị hoặc ROAS mục tiêu."], ["Phối hợp với Search", "Giữ cấu trúc đo lường rõ để đọc vai trò từng chiến dịch; tín hiệu và chủ đề tìm kiếm không phải từ khóa đối sánh."], ["Đạt nhiều chuyển đổi nhưng ít khách thực", "Kiểm tra có đang tối ưu nhầm xem trang/nhấn nút hay dữ liệu lead kém."], ["Ngân sách tập trung sai sản phẩm", "Rà soát nguồn hàng, nhóm sản phẩm, mục tiêu giá trị và cách tổ chức chiến dịch."], ["Kiểm tra trước khi chạy", "Rà soát mục tiêu chính, giá trị và sự kiện trùng lặp. Kiểm tra tài sản tự động và lựa chọn URL đích. Tín hiệu đối tượng không giới hạn cứng nhóm được phân phối."]], "specs": [["Ảnh ngang", "1.91:1 · 1200 × 628 px khuyến nghị", "Tối thiểu 600 × 314 px."], ["Định dạng file ảnh", "JPG hoặc PNG · tối đa 5 MB", "Đặt nội dung chính trong khoảng 80% trung tâm ảnh."], ["Video Shorts phù hợp", "Video dọc 10–60 giây", "Theo điều kiện phân phối; cung cấp thêm bản ngang cho điểm chạm khác."], ["Nhóm tài sản", "Ảnh · tiêu đề · mô tả · logo · video", "Bổ sung nguồn sản phẩm khi bán hàng; kiểm tra yêu cầu trong trình tạo."]], "steps": ["Ảnh, video và dữ liệu sản phẩm nếu có", "Tín hiệu + dữ liệu đo", "Performance Max", "Các vị trí được phép hiển thị", "Chuyển đổi"]}, "shopping": {"tag": "Hiển thị hình, tên, giá và cửa hàng từ dữ liệu sản phẩm.", "formats": [["Thẻ sản phẩm", "Kết quả sản phẩm trên Google; trang sản phẩm là bước sau khi nhấp", "Ảnh · Tên · Giá · Cửa hàng. Google tạo quảng cáo từ dữ liệu Merchant Center; không thiết kế một banner chứa giá để thay dữ liệu.", "Ảnh sản phẩm rõ · Tên, giá, tồn và liên kết · Merchant Center kết nối"], ["Nhóm sản phẩm", "Kết quả sản phẩm trên Google; trang sản phẩm là bước sau khi nhấp", "Tổ chức theo danh mục. Tách nhóm để kiểm soát hàng ưu tiên, tồn kho và đọc hiệu quả theo sản phẩm.", "Ảnh sản phẩm rõ · Tên, giá, tồn và liên kết · Merchant Center kết nối"], ["Trang sản phẩm", "Kết quả sản phẩm trên Google; trang sản phẩm là bước sau khi nhấp", "Đích đến sau lượt nhấp. Đúng mẫu, giá và tình trạng hàng; người mua phải tiếp tục đặt hàng thuận tiện.", "Ảnh sản phẩm rõ · Tên, giá, tồn và liên kết · Merchant Center kết nối"]], "blocks": {"Dùng khi nào?": ["Bán hàng có trang sản phẩm, giá/tồn đúng và nguồn dữ liệu đủ điều kiện."], "Cần chuẩn bị": ["Ảnh sản phẩm rõ", "Tên, giá, tồn và liên kết", "Merchant Center kết nối"], "Đo điều gì?": ["Purchase, mã giao dịch, giá trị/tiền tệ; đối soát đơn và feed."]}, "note": "Giá, biến thể, tồn và trang sản phẩm phải khớp feed. Merchant Center có sản phẩm không có nghĩa mọi sản phẩm được duyệt phân phối.", "details": [["Giá thầu và mục tiêu tối ưu", "Chọn chiến lược được hỗ trợ trong Shopping hoặc PMax theo mục tiêu. Không dùng bộ từ khóa Search làm cơ chế chính cho Shopping."], ["Dữ liệu dùng để phân phối", "Google dựa vào thông tin sản phẩm để ghép với nhu cầu tìm kiếm. Với Standard Shopping, bạn tổ chức nhóm sản phẩm thay vì nhập bộ từ khóa đối sánh như Search."], ["Nội dung cần chuẩn bị", "Tên sản phẩm rõ loại và thuộc tính, ảnh đúng hàng, giá, tình trạng còn hàng và trang sản phẩm tương ứng. Đồng bộ dữ liệu khi đổi giá hoặc tồn kho."], ["Giá thầu & đo lường", "Phân biệt Standard Shopping với Performance Max có nguồn sản phẩm. Với Standard Shopping, lựa chọn có thể gồm CPC thủ công, Tối đa hóa lượt nhấp hoặc ROAS mục tiêu theo điều kiện tài khoản. Đo đơn mua và giá trị đơn trước khi tối ưu theo ROAS."], ["Cách kiểm tra khi chạy", "Xem sản phẩm được duyệt, lỗi dữ liệu, chi tiêu theo nhóm sản phẩm, giá trị đơn và mức phù hợp của truy vấn. Kiểm tra giá và hàng trên website khớp dữ liệu gửi Google."], ["Standard Shopping", "Dùng dữ liệu sản phẩm và nhóm sản phẩm để kiểm soát. Chọn thầu theo lưu lượng hoặc giá trị khi đủ điều kiện."], ["Performance Max có sản phẩm", "Kết nối cùng Merchant Center nhưng mở rộng phân phối đa kênh. Cần mục tiêu, tài sản và cách đo riêng."], ["Ưu tiên danh mục có khả năng bán", "Đánh giá biên lợi nhuận, tồn kho, phí giao hàng và trải nghiệm mua; không chỉ chọn hàng có giá thấp."], ["Sản phẩm không phân phối", "Kiểm tra phê duyệt, nguồn dữ liệu, liên kết tài khoản và nhóm sản phẩm bị loại."], ["Nhấp nhiều nhưng ít đơn", "Đối chiếu giá, phí giao hàng, tồn kho và các bước thanh toán."], ["Kiểm tra trước khi chạy", "Sản phẩm được duyệt và không còn lỗi quan trọng trong Merchant Center. Giá, tiền tệ, giao hàng và chính sách trên trang rõ ràng. Đo purchase có mã giao dịch để hạn chế ghi nhận trùng."]], "specs": [["Ảnh chính", "Khuyến nghị từ 1500 × 1500 px", "Ảnh rõ toàn bộ sản phẩm, không chèn thông điệp khuyến mãi."], ["Mốc yêu cầu ảnh mới", "Tối thiểu 500 × 500 px từ 31/01/2027", "Google đã công bố lộ trình; kiểm tra cảnh báo trong Merchant Center."], ["Trường dữ liệu cốt lõi", "ID · tên · link · ảnh · giá · tình trạng hàng", "Bổ sung thương hiệu và mã định danh khi áp dụng; theo đặc thù mặt hàng."], ["Nhất quán dữ liệu", "Giá và tồn kho khớp website", "Cập nhật nguồn dữ liệu khi thay đổi sản phẩm."]], "steps": ["Merchant Center / feed", "Sản phẩm đủ điều kiện", "Shopping ad", "Trang sản phẩm", "Giỏ → mua"]}, "demand": {"tag": "Hình ảnh và video trên các bề mặt khám phá của Google.", "formats": [["Ảnh đơn", "Discover, YouTube hoặc Gmail theo vị trí hỗ trợ", "Nội dung khám phá. Một lợi ích rõ trên một hình; tiêu đề và CTA nối tiếp hình ảnh.", "Hình nhiều tỷ lệ · Video và thông điệp mở đầu · Đối tượng, điểm đến, đo lường"], ["Carousel", "Discover, YouTube hoặc Gmail theo vị trí hỗ trợ", "Nhiều thẻ có câu chuyện. Dùng các góc sản phẩm hoặc lợi ích liên tiếp; mỗi thẻ cần có ý nghĩa riêng.", "Hình nhiều tỷ lệ · Video và thông điệp mở đầu · Đối tượng, điểm đến, đo lường"], ["Video", "Discover, YouTube hoặc Gmail theo vị trí hỗ trợ", "Ngang, dọc hoặc vuông. Chuẩn bị theo vị trí YouTube/Shorts, không dùng một bản cho mọi màn hình.", "Hình nhiều tỷ lệ · Video và thông điệp mở đầu · Đối tượng, điểm đến, đo lường"], ["Kết hợp nguồn sản phẩm", "Discover, YouTube hoặc Gmail theo vị trí hỗ trợ", "Dữ liệu từ Merchant Center. Sản phẩm được kết hợp vào trải nghiệm quảng cáo khi cấu hình và tài khoản phù hợp.", "Hình nhiều tỷ lệ · Video và thông điệp mở đầu · Đối tượng, điểm đến, đo lường"]], "blocks": {"Dùng khi nào?": ["Cần cho khách nhìn thấy giá trị và đi tiếp từ nội dung khám phá."], "Cần chuẩn bị": ["Hình nhiều tỷ lệ", "Video và thông điệp mở đầu", "Đối tượng, điểm đến, đo lường"], "Đo điều gì?": ["Hành động phù hợp trên trang; giá trị nếu tối ưu giá trị."]}, "note": "Kênh có thể gồm YouTube, Discover, Gmail, GDN; bề mặt và điều khiển tùy tài khoản. Nội dung cần thích nghi vị trí, không chỉ thu nhỏ banner.", "details": [["Giá thầu và mục tiêu tối ưu", "Chọn mục tiêu/thầu được hỗ trợ trong trình tạo chiến dịch và dữ liệu sẵn có; không mặc định chỉ để lấy view."], ["Đối tượng và kênh", "Kết hợp nội dung trực quan với đối tượng và các kênh đủ điều kiện. Rà soát cài đặt phân phối thay vì giả định mọi kênh đều được chọn."], ["Nội dung cần chuẩn bị", "Ảnh hoặc video theo ngữ cảnh YouTube, Discover, Gmail và mạng hiển thị khi được sử dụng. Trang đích cần tiếp nối thông điệp, không chỉ đưa người xem về trang chủ chung."], ["Giá thầu & đo lường", "Theo mục tiêu chuyển đổi, cân nhắc Tối đa hóa lượt chuyển đổi hoặc CPA mục tiêu; theo giá trị, cân nhắc Tối đa hóa giá trị chuyển đổi hoặc ROAS mục tiêu khi đủ điều kiện. Đây là tối ưu kết quả, không phải giá cố định cho mỗi lượt xem."], ["Cách kiểm tra khi chạy", "Đánh giá nội dung và kênh cùng chất lượng chuyển đổi, độ trễ và giá trị ghi nhận. Khác biệt giữa người xem video và khách đã chủ động tìm kiếm cần được tính đến khi đọc kết quả."], ["Khơi gợi nhu cầu mới", "Dùng hình ảnh/video nêu vấn đề và lợi ích; thử thông điệp theo nhóm người xem."], ["Theo đuổi lead hoặc đơn", "Chọn mục tiêu chuyển đổi và giá thầu tương ứng; kiểm tra sự kiện, độ trễ và lead thực tế."], ["Tối ưu theo giá trị", "Chỉ gửi giá trị đáng tin; phân biệt doanh thu với lợi nhuận khi dùng ROAS."], ["Nội dung có tương tác nhưng ít lead", "Rà soát CTA, trang đích, độ trễ và mục tiêu tối ưu."], ["Kênh tiêu nhiều nhưng chất lượng thấp", "Đối chiếu dữ liệu theo kênh và chất lượng chuyển đổi trước khi thay phân bổ."], ["Kiểm tra trước khi chạy", "Kiểm tra từng kênh và cách hiển thị đang bật. Chuẩn bị đủ tài sản cho các vị trí muốn chạy. Tránh so CPA với Search mà bỏ qua khác biệt giai đoạn nhu cầu."]], "specs": [["Ảnh ngang", "1.91:1 · 1200 × 628 px khuyến nghị", "Tối thiểu 600 × 314 px."], ["Ảnh vuông", "1:1 · 1200 × 1200 px khuyến nghị", "Tối thiểu 300 × 300 px."], ["Ảnh dọc", "4:5 · 960 × 1200 px khuyến nghị", "Tối thiểu 480 × 600 px."], ["Video", "Chuẩn bị ngang 16:9 và dọc 9:16", "Đối chiếu thông số video của mẫu quảng cáo đang chọn; không áp quy định bumper cho tất cả."]], "steps": ["Ảnh / video / feed phù hợp", "Bề mặt được chọn", "Nội dung khám phá", "CTA", "Trang đích"], "display": {"title": "Display / Chuyển đổi nền tảng", "text": "Tham khảo trong giai đoạn chuyển sang Demand Gen. Google đang đưa Display vào Demand Gen theo đợt. Khả năng tạo/chuyển chiến dịch và tính năng còn tùy tài khoản; xem thông báo chính thức trước khi triển khai.", "items": [["Ảnh ngang thích ứng · 1.91:1", "Ảnh được kết hợp với tiêu đề, mô tả và logo để vừa vị trí phân phối."], ["Ảnh vuông thích ứng · 1:1", "Bố cục riêng để giữ sản phẩm/nhân vật rõ khi khung quảng cáo thay đổi."], ["Banner tải lên · Kích thước theo vị trí", "Thiết kế cố định khác quảng cáo thích ứng; kiểm tra quy cách định dạng được hỗ trợ trước khi xuất."]]}}, "video": {"tag": "Video quảng cáo theo mục tiêu lượt xem, tiếp cận hoặc hành động ở loại chiến dịch phù hợp.", "formats": [["In-stream có thể bỏ qua", "Trải nghiệm xem và khám phá video trên YouTube", "Có thể bỏ qua sau 5 giây. Đưa điều quan trọng vào đầu video; dùng khi cần giải thích giá trị và tiếp tục câu chuyện.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"], ["In-stream không thể bỏ qua", "Trải nghiệm xem và khám phá video trên YouTube", "15–60 giây tùy phân nhóm. Không có một giới hạn duy nhất cho mọi chiến dịch. Kiểm tra phân nhóm và vị trí đang chọn.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"], ["Bumper", "Trải nghiệm xem và khám phá video trên YouTube", "5–6 giây · không thể bỏ qua. Một thông điệp ngắn để tăng ghi nhớ; không cố nhồi toàn bộ giới thiệu doanh nghiệp.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"], ["In-feed", "Trải nghiệm xem và khám phá video trên YouTube", "Ảnh thu nhỏ + video. Xuất hiện trong các luồng khám phá/tìm kiếm của YouTube; tiêu đề và thumbnail giúp người xem quyết định.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"], ["Shorts", "Trải nghiệm xem và khám phá video trên YouTube", "Video dọc · nên dưới 60 giây. Thiết kế cho trải nghiệm di động, giữ nội dung chính khỏi vùng nút giao diện.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"], ["Masthead", "Trải nghiệm xem và khám phá video trên YouTube", "Vị trí nổi bật trang chủ YouTube. Hình thức mua và khả năng tiếp cận khác chiến dịch video thông thường; cần xem điều kiện đặt mua.", "Video ngang / dọc phù hợp · Mở đầu, lợi ích, lời mời tìm hiểu · Trang đích nếu cần hành động"]], "blocks": {"Dùng khi nào?": ["Sản phẩm cần demo, câu chuyện thương hiệu hoặc nội dung giải thích trước quyết định."], "Cần chuẩn bị": ["Video ngang / dọc phù hợp", "Mở đầu, lợi ích, lời mời tìm hiểu", "Trang đích nếu cần hành động"], "Đo điều gì?": ["Tách view, click và chuyển đổi; đo hành động trên trang nếu tối ưu kinh doanh."]}, "note": "Không đồng nhất vị trí in-stream, in-feed và Shorts với mục tiêu chiến dịch. Kiểm tra thời lượng và điều kiện ở loại quảng cáo đã chọn.", "details": [["Giá thầu và mục tiêu tối ưu", "CPV là chi phí mỗi lượt xem; CPM là chi phí mỗi 1.000 lần hiển thị. Cách đặt thầu tùy mục tiêu và loại chiến dịch. Nếu muốn tăng đơn hoặc tư vấn từ video, xem thêm Demand Gen."], ["Chọn mục tiêu trước", "Một chiến dịch tăng lượt xem khác chiến dịch tăng độ phủ. Chọn phân nhóm chiến dịch phù hợp rồi mới chuẩn bị video và ngân sách."], ["Nội dung cần chuẩn bị", "Video có mở đầu rõ, nhận diện thương hiệu, phần giải thích giá trị và hành động tiếp theo. Chuẩn bị tỷ lệ khung hình phù hợp vị trí như in-stream, in-feed hoặc Shorts."], ["Giá thầu & đo lường", "Với mục tiêu lượt xem, xem lựa chọn CPV theo phân nhóm chiến dịch; với độ phủ, thường dùng CPM mục tiêu. Lượt xem và lượt hiển thị là hai chỉ số khác nhau. Không mang nguyên bộ giá thầu Search sang mọi chiến dịch Video."], ["Khi mục tiêu là chuyển đổi", "Video Action đã được chuyển sang Demand Gen. Xem mục Demand Gen cho hướng triển khai video gắn với chuyển đổi; không dùng lượt xem để thay thế số đơn hay yêu cầu tư vấn."], ["Tăng lượt xem", "Chọn Video Views; xem CPV phù hợp phân nhóm. Đọc lượt xem và mức xem tiếp, không quy đổi trực tiếp thành đơn."], ["Tăng độ phủ / ghi nhớ", "Cân nhắc Video Reach với CPM mục tiêu. Theo dõi tiếp cận và tần suất; bumper phù hợp thông điệp ngắn."], ["Tạo chuyển đổi", "Dùng hướng Demand Gen phù hợp. Video Action đã được chuyển sang Demand Gen; cần đo sự kiện và chất lượng chuyển đổi."], ["Kể chuyện nhiều bước", "Cân nhắc chuỗi quảng cáo khi khả dụng: nêu vấn đề → chứng minh → kêu gọi. Không bắt buộc mọi người xem đủ chuỗi."], ["Bị bỏ qua sớm", "Xem lại 5 giây đầu, mức liên quan và tốc độ kể chuyện."], ["Xem tốt nhưng ít hành động", "Kiểm tra CTA, trang đích và mục tiêu chiến dịch; lượt xem không thay thế chuyển đổi."], ["Kiểm tra trước khi chạy", "Mở đầu thể hiện chủ thể hoặc vấn đề rõ ràng. Có phụ đề dễ đọc; kiểm tra âm thanh và vùng an toàn trên điện thoại. Thử các góc mở đầu với cùng mục tiêu, thay vì thay mọi thứ cùng lúc."]], "specs": [["Bản ngang", "16:9 · gợi ý sản xuất 1920 × 1080 px", "Cho trải nghiệm video ngang; đây là gợi ý xuất file của POWAI."], ["Bản dọc", "9:16 · gợi ý sản xuất 1080 × 1920 px", "Dựng bố cục dọc riêng, tránh chỉ thu nhỏ video ngang."], ["Bản vuông", "1:1 · gợi ý sản xuất 1080 × 1080 px", "Chuẩn bị khi vị trí/chiến dịch cần tài sản vuông."], ["Độ dài", "Theo từng định dạng phía trên", "Skippable: Google khuyên dưới 3 phút; không hiểu 5 giây là độ dài video."], ["Nguồn video", "Video lưu trên YouTube", "Kiểm tra quyền sử dụng nhạc, hình ảnh và tính khả dụng của video."]], "steps": ["Video theo mục tiêu", "In-stream / feed / Shorts", "Xem & CTA", "Website", "Hành động đo được"]}, "app": {"tag": "Chiến dịch cho doanh nghiệp có ứng dụng, hướng tới cài đặt hoặc hành động trong app.", "formats": [["Quảng cáo cài đặt", "Google Play và các vị trí quảng cáo ứng dụng được hỗ trợ", "Đưa đến cửa hàng ứng dụng. Nội dung phản ánh đúng trải nghiệm ứng dụng sau khi cài.", "Ứng dụng và trang giới thiệu trên cửa hàng · Chữ, hình, video phù hợp · Công cụ ghi nhận hành động trong ứng dụng"], ["Video trải nghiệm", "Google Play và các vị trí quảng cáo ứng dụng được hỗ trợ", "Minh họa một thao tác hữu ích. Cho người xem thấy công việc họ có thể hoàn thành.", "Ứng dụng và trang giới thiệu trên cửa hàng · Chữ, hình, video phù hợp · Công cụ ghi nhận hành động trong ứng dụng"], ["Ảnh tính năng", "Google Play và các vị trí quảng cáo ứng dụng được hỗ trợ", "Nêu một lợi ích cụ thể. Dùng màn hình hoặc tình huống dễ hiểu, không ghép quá nhiều thông tin.", "Ứng dụng và trang giới thiệu trên cửa hàng · Chữ, hình, video phù hợp · Công cụ ghi nhận hành động trong ứng dụng"]], "blocks": {"Dùng khi nào?": ["Có ứng dụng đã sẵn sàng và đo được sự kiện cần tối ưu."], "Cần chuẩn bị": ["Ứng dụng và trang giới thiệu trên cửa hàng", "Chữ, hình, video phù hợp", "Công cụ ghi nhận hành động trong ứng dụng"], "Đo điều gì?": ["Nguồn đo app được hỗ trợ; thống nhất install, đăng ký hoặc purchase."]}, "note": "Không dùng App cho doanh nghiệp chỉ có website. Trạng thái trên store và sự kiện sau cài cần được kiểm tra.", "details": [["Giá thầu và mục tiêu tối ưu", "CPI, CPA hoặc ROAS theo phân nhóm và điều kiện. Chọn dựa vào sự kiện có dữ liệu đáng tin."], ["Chọn hành động cần tăng", "Phân biệt lượt cài mới, tương tác trở lại và hành động trong ứng dụng. Liên kết nguồn đo lường phù hợp để Google nhận đúng sự kiện."], ["Nội dung cần chuẩn bị", "Ứng dụng trên cửa hàng, văn bản, hình ảnh và video theo yêu cầu chiến dịch. Nội dung phải phản ánh tính năng người dùng thực sự có thể sử dụng."], ["Giá thầu & đo lường", "Tùy loại chiến dịch và điều kiện: CPI mục tiêu cho lượt cài, CPA mục tiêu cho hành động trong app, hoặc ROAS mục tiêu cho giá trị. Không dùng CPC hay bảng từ khóa Search làm hướng dẫn chung cho App."], ["Cách kiểm tra khi chạy", "Theo dõi cài đặt cùng hành động có giá trị sau cài như đăng ký hoặc mua hàng. Đối soát sự kiện, giá trị và chất lượng người dùng trước khi mở rộng ngân sách."], ["Tăng cài đặt", "Cân nhắc chiến dịch cài đặt và CPI mục tiêu; đánh giá người dùng sau cài, không chỉ giá cài rẻ."], ["Tăng hành động trong app", "Xác định sự kiện giá trị như đăng ký hoặc mua hàng và dùng hướng CPA phù hợp."], ["Tăng giá trị người dùng", "Khi giá trị được ghi nhận ổn định, đánh giá hướng ROAS; phân tích hoàn tiền và giá trị thực."], ["Cài đặt rẻ nhưng ít sử dụng", "Xem onboarding, độ phù hợp thông điệp và hành động sau cài."], ["Không thấy sự kiện cần tối ưu", "Kiểm tra liên kết đo lường và thử sự kiện trên thiết bị trước khi đổi thầu."], ["Kiểm tra trước khi chạy", "Đúng liên kết cửa hàng, hệ điều hành và địa bàn. Sự kiện app được ghi nhận nhất quán từ nguồn đo lường. Nếu đưa về màn hình trong app, kiểm tra deep link và luồng khi chưa cài."]], "specs": [["Ảnh ngang", "1.91:1 · 1200 × 628 px", "Khuyến nghị; tối thiểu 600 × 314 px."], ["Ảnh vuông", "1:1 · 1200 × 1200 px", "Khuyến nghị; tối thiểu 200 × 200 px."], ["Ảnh dọc", "4:5 · 1200 × 1500 px", "Khuyến nghị; tối thiểu 320 × 400 px."], ["File ảnh", "JPG / PNG · tối đa 5 MB", "Tối đa 20 ảnh theo thông số tài sản App."], ["Video", "16:9, 9:16 hoặc 1:1; khuyến nghị 10–60 giây", "Video lưu trên YouTube; nội dung đúng ứng dụng."]], "steps": ["Ứng dụng và nội dung quảng cáo", "Kênh đủ điều kiện", "Trang ứng dụng", "Cài / mở", "Sự kiện giá trị"]}};
+const BIDS = {
+clicks:['LƯU LƯỢNG / LƯỢT NHẤP','Tối đa hóa lượt nhấp','Tự động điều chỉnh giá thầu để tìm nhiều lượt nhấp trong ngân sách.','Ngân sách','Lượt nhấp','Trang đích phù hợp; đo hành vi để hiểu chất lượng truy cập.','Tối ưu lượt nhấp không đồng nghĩa với tối ưu khách đủ điều kiện.','Hai nguồn truy cập có cùng số lượt nhấp vẫn có thể tạo số yêu cầu rất khác nhau.'],
+conversions:['SMART BIDDING / SỐ LƯỢNG','Tối đa hóa lượt chuyển đổi','Đặt thầu theo từng phiên đấu giá để tìm nhiều chuyển đổi nhất trong ngân sách.','Ngân sách + chuyển đổi','Số chuyển đổi','Theo dõi chuyển đổi chính đúng và kiểm tra chất lượng dữ liệu.','Có xu hướng sử dụng hết ngân sách; không ấn định CPA cho từng yêu cầu.','Nếu mục tiêu là yêu cầu tư vấn, hãy tối ưu theo gửi yêu cầu thành công, thay vì chỉ đếm người xem trang.'],
+cpa:['SMART BIDDING / CHI PHÍ MỤC TIÊU','CPA mục tiêu','Tìm chuyển đổi trong khi hướng đến chi phí bình quân mỗi chuyển đổi đã đặt.','Chuyển đổi + CPA mục tiêu','CPA bình quân','Dữ liệu chuyển đổi đáng tin và mục tiêu phù hợp với hiệu quả thực tế.','CPA mục tiêu không phải giá tối đa của từng lead; mục tiêu quá chặt có thể hạn chế phân phối.','CPA mục tiêu 200.000 ₫ không có nghĩa mỗi lead đều giá 200.000 ₫. Có lead cao hơn hoặc thấp hơn; hệ thống hướng đến bình quân, không bảo đảm đạt.'],
+value:['SMART BIDDING / GIÁ TRỊ','Tối đa hóa giá trị chuyển đổi','Ưu tiên tổng giá trị chuyển đổi trong ngân sách thay vì chỉ tăng số lần chuyển đổi.','Ngân sách + giá trị','Tổng giá trị','Gửi giá trị có ý nghĩa cho từng chuyển đổi và kiểm tra độ chính xác.','Nhiều chuyển đổi hơn chưa chắc tạo giá trị lớn hơn. Giá trị doanh thu chưa trừ chi phí không phải lợi nhuận.','Hai đơn 500.000 ₫ và một đơn 2.000.000 ₫ có số lượng và tổng giá trị khác nhau. Đây là khác biệt giữa tối ưu số lượng và tối ưu giá trị.'],
+roas:['SMART BIDDING / HIỆU QUẢ GIÁ TRỊ','ROAS mục tiêu','Đặt thầu để tối ưu giá trị chuyển đổi và hướng đến tỷ lệ giá trị trên chi tiêu mục tiêu.','Giá trị + ROAS mục tiêu','ROAS bình quân','Theo dõi chuyển đổi kèm giá trị nhất quán; đối soát đơn hàng và giá trị ghi nhận.','ROAS là mục tiêu bình quân, không phải cam kết doanh thu hay lợi nhuận. Mức đặt quá cao có thể hạn chế lưu lượng.','ROAS 400% nghĩa là hướng đến 4 ₫ giá trị chuyển đổi cho 1 ₫ chi quảng cáo. 10 triệu ₫ chi và 40 triệu ₫ giá trị cho ROAS 400%; chưa tính các chi phí khác.'],
+manual:['KIỂM SOÁT / GIÁ THẦU NHẤP','CPC thủ công','Bạn đặt mức CPC tối đa thay vì giao toàn bộ việc điều chỉnh giá thầu cho chiến lược tự động.','CPC tối đa','Lượt nhấp','Khả năng theo dõi truy vấn, hiệu quả và chỉnh giá thầu thường xuyên.','Không tự tối ưu theo xác suất chuyển đổi như Smart Bidding. Chi phí thực tế còn phụ thuộc đấu giá và thiết lập điều chỉnh.','Đặt CPC là kiểm soát giá thầu lượt nhấp, không phải đặt giá cho một yêu cầu tư vấn thành công.']
+};
+const MATCH = [['exact','[thiết kế website]','Cùng ý nghĩa hoặc ý định','Ví dụ có thể liên quan: dịch vụ làm website. Chính xác không có nghĩa chỉ trùng từng ký tự.'],['phrase','“thiết kế website”','Bao gồm ý nghĩa từ khóa','Ví dụ có thể liên quan: báo giá thiết kế website doanh nghiệp. Thứ tự từ quan trọng khi làm đổi nghĩa.'],['broad','thiết kế website','Tìm kiếm liên quan','Ví dụ có thể liên quan: giải pháp xây dựng trang web công ty. Cần đo chuyển đổi và kiểm tra chất lượng truy vấn.']];
+const CAMPS = [
+ {id:'search',name:'Search',kicker:'01 / ĐÓN NHU CẦU',icon:'⌕',c:'#4285F4',recap:'Khách đã tìm.'},
+ {id:'pmax',name:'Performance Max',kicker:'02 / PHỐI HỢP ĐIỂM CHẠM',icon:'✦',c:'#7C4DFF',recap:'Phối hợp nhiều điểm chạm.',desc:'Loại chiến dịch tối ưu theo mục tiêu trên nhiều kênh Google đủ điều kiện.'},
+ {id:'shopping',name:'Shopping',kicker:'03 / SẢN PHẨM & GIÁ',icon:'🛍',c:'#1E9E5A',recap:'Khách đang xem sản phẩm.',desc:'Hiển thị hình, tên, giá và cửa hàng từ dữ liệu sản phẩm.'},
+ {id:'demand',name:'Demand Gen',kicker:'04 / KHÁM PHÁ TRỰC QUAN',icon:'◈',c:'#E37400',recap:'Khách đang khám phá.',desc:'Hình ảnh và video trên các bề mặt khám phá của Google.'},
+ {id:'video',name:'Video / YouTube',kicker:'05 / GIẢI THÍCH BẰNG VIDEO',icon:'▶',c:'#E53935',recap:'Khách đang xem video.',desc:'Video quảng cáo theo mục tiêu lượt xem, tiếp cận hoặc hành động ở loại chiến dịch phù hợp.'},
+ {id:'app',name:'App',kicker:'06 / GIÁ TRỊ SAU CÀI',icon:'▣',c:'#00897B',recap:'Đưa khách vào ứng dụng.',desc:'Chiến dịch cho doanh nghiệp có ứng dụng, hướng tới cài đặt hoặc hành động trong app.'}
+];
+CAMPS[0].desc = DATA.search.tag;
+const OPS = new Set(['Giá thầu và mục tiêu tối ưu','Đầu vào của chiến dịch','Nội dung cần chuẩn bị','Giá thầu & đo lường','Cách kiểm tra khi chạy','Dữ liệu dùng để phân phối','Đối tượng và kênh','Chọn mục tiêu trước','Khi mục tiêu là chuyển đổi','Chọn hành động cần tăng']);
+const ISSUES = new Set(['Nhiều nhấp, ít yêu cầu','Có lead nhưng không phù hợp','Đạt nhiều chuyển đổi nhưng ít khách thực','Ngân sách tập trung sai sản phẩm','Sản phẩm không phân phối','Nhấp nhiều nhưng ít đơn','Nội dung có tương tác nhưng ít lead','Kênh tiêu nhiều nhưng chất lượng thấp','Bị bỏ qua sớm','Xem tốt nhưng ít hành động','Cài đặt rẻ nhưng ít sử dụng','Không thấy sự kiện cần tối ưu']);
+const OPS_IC = {'Giá thầu và mục tiêu tối ưu':'◎','Đầu vào của chiến dịch':'⇢','Nội dung cần chuẩn bị':'✎','Giá thầu & đo lường':'⌗','Cách kiểm tra khi chạy':'✓','Dữ liệu dùng để phân phối':'⛁','Đối tượng và kênh':'◍','Chọn mục tiêu trước':'◎','Khi mục tiêu là chuyển đổi':'↻','Chọn hành động cần tăng':'↑'};
+const esc = s => String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- mini art for picker ---------- */
+const miniArt = {
+ search:`<div><div class="mini-l xs"></div><div class="mini-l" style="height:10px;background:var(--c);opacity:.55"></div><div class="mini-l s"></div><div class="mini-l"></div></div>`,
+ pmax:`<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><div class="mini-l" style="height:34px;margin:0"></div><div class="mini-l" style="height:34px;margin:0"></div><div class="mini-l" style="height:34px;margin:0"></div><div class="mini-l" style="height:34px;margin:0;background:var(--c);opacity:.5"></div></div>`,
+ shopping:`<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px"><div><div class="mini-l" style="height:46px;margin:0"></div><div class="mini-l s"></div></div><div><div class="mini-l" style="height:46px;margin:0;background:var(--c);opacity:.5"></div><div class="mini-l s"></div></div><div><div class="mini-l" style="height:46px;margin:0"></div><div class="mini-l s"></div></div></div>`,
+ demand:`<div><div class="mini-l" style="height:52px;margin:0;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,#fff),var(--c));opacity:.6"></div><div class="mini-l s"></div><div class="mini-l xs"></div></div>`,
+ video:`<div><div class="mini-l" style="height:60px;margin:0;display:grid;place-items:center;background:#1c1c1c"><span style="color:#fff;font-size:14px">▶</span></div><div class="mini-l s"></div></div>`,
+ app:`<div style="display:flex;gap:10px;align-items:center"><div style="width:44px;height:44px;border-radius:12px;background:var(--c);opacity:.7"></div><div style="flex:1"><div class="mini-l s" style="margin:0"></div><div class="mini-l xs"></div><div class="mini-l" style="height:14px;width:50%;background:var(--c);opacity:.5"></div></div></div>`
+};
+
+/* ---------- mockups per campaign & format ---------- */
+const browser = (url, body) => `<div class="browser"><div class="bt"><span class="dots"><i></i><i></i><i></i></span><span class="url">${url}</span></div><div class="bb">${body}</div></div>`;
+const phone = body => `<div class="phone-f"><div class="scr"><div class="notch"></div>${body}</div></div>`;
+const gword = `<span class="g-word"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span>`;
+function serp(f){
+  const ad = `<div class="ad-block ${f!==null?'':''}">
+    <div class="spons">Được tài trợ</div>
+    <div class="ad-head"><span class="fav">W</span><div><div style="font-size:13px;font-weight:600">Website Studio</div><div class="ad-url">https://website.example › thiet-ke-website</div></div></div>
+    <div class="${f===2?'img-asset':''}"><div><div class="ad-title ${f===0?'hl':''}" style="${f===0?'padding:4px 6px;margin:-4px -6px':''}">Thiết Kế Website Doanh Nghiệp – Tư Vấn Theo Nhu Cầu</div>
+    <div class="ad-desc" style="margin-top:4px">Website thể hiện thương hiệu, dễ sử dụng trên điện thoại. Trao đổi mục tiêu, nội dung và phạm vi trước khi triển khai.</div></div>
+    ${f===2?`<div class="photo hl" style="height:92px"></div>`:''}</div>
+    ${f===1?`<div class="sitelinks hl" style="padding:6px"><span>Website doanh nghiệp</span><span>Quy trình thiết kế</span><span>Nhận tư vấn</span></div>`:''}
+    ${f===3?`<span class="callbtn hl">☎ Gọi doanh nghiệp · 09xx xxx xxx</span>`:''}
+  </div>`;
+  return browser('google.com/search', `<div style="display:flex;gap:14px;align-items:center">${gword}<div class="g-bar" style="flex:1">dịch vụ thiết kế website <span style="margin-left:auto">× 🎙 ⌕</span></div></div>
+   <div class="serp-tabs"><b>Tất cả</b><span>Hình ảnh</span><span>Mua sắm</span><span>Video</span><span>Tin tức</span></div>${ad}
+   <div class="organic"><div class="ad-url">Kiến thức website · kienthuc.example</div><div class="ad-title" style="font-size:14px">Những điều cần chuẩn bị trước khi làm website</div><div class="ad-desc">Nội dung tham khảo trong kết quả tìm kiếm tự nhiên.</div></div>`);
+}
+const product = (hl, n='Bình giữ nhiệt NOVA 500 ml', p='350.000 ₫', cls='') => `<div class="${hl?'hl':''}" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px"><div class="photo ${cls}" style="height:88px"><div class="bottle"></div></div><div style="font-size:12px;font-weight:600;margin-top:6px;line-height:1.3">${n}</div><div style="font-size:13px;font-weight:800">${p}</div><div style="font-size:11px;color:var(--muted)">Cửa hàng NOVA</div></div>`;
+const mock = {
+ search: serp,
+ pmax(f){
+   if(f===0) return browser('google.com/search?tbm=shop',`<div class="spons">Được tài trợ · Performance Max</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">${product(1)}${product(0,'NOVA 750 ml','420.000 ₫','warm')}${product(0,'Bộ NOVA Travel','590.000 ₫','green')}</div><div class="sitelinks" style="margin-top:14px"><span>Search</span><span>Shopping</span><span>YouTube</span><span>Discover</span></div>`);
+   if(f===1) return `<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:12px">
+      <div class="browser"><div class="bt"><span class="url">Discover</span></div><div class="bb" style="padding:12px"><div class="photo hl" style="height:120px"><div class="bottle"></div></div><div style="font-weight:700;margin-top:8px;font-size:14px">NOVA – Bình giữ nhiệt cho ngày năng động</div><div class="ad-desc">Quảng cáo · NOVA</div></div></div>
+      <div style="display:grid;gap:12px"><div class="browser"><div class="bt"><span class="url">Gmail</span></div><div class="bb" style="padding:12px;font-size:12px"><b>NOVA</b> · Quảng cáo<br>Gọn cho công việc. Tiện cho chuyến đi.</div></div>
+      <div class="browser"><div class="bt"><span class="url">Search</span></div><div class="bb" style="padding:12px"><div class="spons">Được tài trợ</div><div class="ad-title" style="font-size:13px">Bình giữ nhiệt NOVA 500 ml</div></div></div></div></div>`;
+   return `<div style="display:flex;gap:12px;align-items:flex-end;justify-content:center">
+     <div><div class="photo dark hl" style="width:220px;height:124px;display:grid;place-items:center"><span style="position:relative;z-index:3;color:#fff">▶ 16:9</span></div></div>
+     <div class="photo dark" style="width:110px;height:110px;display:grid;place-items:center"><span style="position:relative;z-index:3;color:#fff">1:1</span></div>
+     <div class="photo dark" style="width:90px;height:160px;display:grid;place-items:center"><span style="position:relative;z-index:3;color:#fff">9:16</span></div></div>
+     <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--muted)">Video nội dung khách đang xem · nhiều tỷ lệ</p>`;
+ },
+ shopping(f){
+   if(f===0) return browser('google.com/search?q=bình giữ nhiệt',`<div class="spons">Được tài trợ · Sản phẩm</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px">${product(1)}${product(0,'Bình Inox A','290.000 ₫','warm')}${product(0,'Bình Trip','315.000 ₫','green')}${product(0,'Ly giữ nhiệt','199.000 ₫')}</div>`);
+   if(f===1) return `<div class="browser"><div class="bt"><span class="url">Merchant Center · Nhóm sản phẩm</span></div><div class="bb ads-ui">
+     <table><tr><th>Nhóm sản phẩm</th><th>Sản phẩm</th><th>Trạng thái</th></tr>
+     <tr class="hl"><td><b>Bình giữ nhiệt</b></td><td>12</td><td><span class="mt" style="background:var(--ok-soft);color:var(--ok)">Đủ điều kiện</span></td></tr>
+     <tr><td>&nbsp;&nbsp;↳ NOVA 500 ml</td><td>4</td><td><span class="mt" style="background:var(--ok-soft);color:var(--ok)">Đủ điều kiện</span></td></tr>
+     <tr><td>&nbsp;&nbsp;↳ NOVA 750 ml</td><td>3</td><td><span class="mt" style="background:var(--warn-soft);color:var(--warn)">Cần kiểm tra ảnh</span></td></tr>
+     <tr><td>Phụ kiện</td><td>8</td><td><span class="mt">Đang xét</span></td></tr></table></div></div>`;
+   return browser('nova.example/binh-giu-nhiet-500ml',`<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center"><div class="photo" style="height:200px"><div class="bottle"></div></div><div><small style="color:var(--muted)">NOVA / EVERYDAY</small><div style="font-size:20px;font-weight:800;line-height:1.2;margin:4px 0">Bình giữ nhiệt NOVA 500 ml</div><div style="font-size:20px;font-weight:800;color:var(--c)">350.000 ₫</div><div style="font-size:12px;color:var(--ok);margin-top:4px">● Còn hàng</div><div class="hl" style="margin-top:14px;background:var(--ink);color:#fff;text-align:center;padding:10px;border-radius:10px;font-weight:700;font-size:14px">Thêm vào giỏ</div><div style="font-size:11px;color:var(--muted);margin-top:8px">Giá & tồn khớp dữ liệu gửi Google</div></div></div>`);
+ },
+ demand(f){
+   const card = (hl,cls='') => `<div class="${hl?'hl':''}" style="border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;flex:none;width:${f===1?'150px':'auto'}"><div class="photo ${cls}" style="height:${f===1?110:150}px;border-radius:0"><div class="bottle"></div></div><div style="padding:10px"><div style="font-weight:700;font-size:13px;line-height:1.3">Gọn cho công việc. Tiện cho chuyến đi.</div><div style="font-size:11px;color:var(--muted)">Được tài trợ · NOVA</div></div></div>`;
+   let body;
+   if(f===0) body = card(1);
+   else if(f===1) body = `<div style="display:flex;gap:8px;overflow:hidden">${card(1)}${card(0,'warm')}${card(0,'green')}</div>`;
+   else if(f===2) body = `<div class="hl" style="border-radius:14px;overflow:hidden"><div class="photo dark" style="height:170px;border-radius:0;display:grid;place-items:center"><span style="position:relative;z-index:3;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center">▶</span></div><div style="padding:10px;background:#fff;font-weight:700;font-size:13px">NOVA – Bình giữ nhiệt cho ngày năng động</div></div>`;
+   else body = `${card(0)}<div class="hl" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px;padding:6px">${product(0)}${product(0,'NOVA 750','420.000 ₫','warm')}${product(0,'Travel','590.000 ₫','green')}</div>`;
+   return phone(`<div style="padding:40px 14px 14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-size:15px">Khám phá</b><span style="font-size:11px;color:var(--muted)">Discover · YouTube · Gmail</span></div>${body}<div class="skel" style="margin-top:14px;height:60px;border-radius:12px"></div></div>`);
+ },
+ video(f){
+   const player = (label, extra='') => `<div style="border-radius:14px;overflow:hidden;background:#0f0f0f;color:#fff"><div class="photo dark" style="height:230px;border-radius:0;position:relative"><div class="bottle"></div>
+     <span style="position:absolute;left:12px;bottom:12px;z-index:3;font-size:12px;background:var(--g-yellow);color:#000;padding:2px 8px;border-radius:4px;font-weight:700">${label}</span>${extra}
+     <div style="position:absolute;left:0;right:0;bottom:0;height:4px;background:#444;z-index:3"><i style="display:block;width:30%;height:100%;background:var(--g-yellow)"></i></div></div>
+     <div style="padding:12px;font-size:13px"><b>NOVA – Bình giữ nhiệt cho ngày năng động</b><div style="color:#aaa;font-size:12px">Được tài trợ · nova.example</div></div></div>`;
+   if(f===0) return player('Quảng cáo · 0:05', `<span class="hl" style="position:absolute;right:0;bottom:24px;z-index:3;background:rgba(0,0,0,.75);border:1px solid #666;padding:8px 14px;font-size:13px;border-radius:4px 0 0 4px">Bỏ qua quảng cáo ▸|</span>`);
+   if(f===1) return player('Quảng cáo · 0:15', `<span class="hl" style="position:absolute;right:12px;top:12px;z-index:3;background:rgba(0,0,0,.75);padding:6px 10px;font-size:12px;border-radius:6px">Không thể bỏ qua</span>`);
+   if(f===2) return player('Quảng cáo · 0:06', `<span class="hl" style="position:absolute;right:12px;top:12px;z-index:3;background:rgba(0,0,0,.75);padding:6px 10px;font-size:12px;border-radius:6px">Bumper ≤ 6 giây</span>`);
+   if(f===3) return browser('youtube.com/results?q=bình giữ nhiệt',`<div style="display:grid;gap:10px">${[1,0,0].map((h,i)=>`<div class="${h?'hl':''}" style="display:grid;grid-template-columns:150px 1fr;gap:12px;padding:6px"><div class="photo ${i?'':'dark'}" style="height:84px"></div><div><div style="font-weight:700;font-size:13.5px">${h?'Khám phá bộ sưu tập NOVA':'Video nội dung khách đang xem'}</div><div style="font-size:11.5px;color:var(--muted)">${h?'<b style="color:var(--ink)">Được tài trợ</b> · NOVA':'Kênh nội dung · 12 N lượt xem'}</div></div></div>`).join('')}</div>`);
+   if(f===4) return phone(`<div class="photo dark" style="position:absolute;inset:0;border-radius:0"><div class="bottle" style="height:40%"></div></div><div style="position:absolute;left:14px;right:60px;bottom:24px;color:#fff;z-index:3"><b style="font-size:14px">NOVA</b> <span style="font-size:11px;background:var(--g-yellow);color:#000;padding:1px 6px;border-radius:4px;font-weight:700">Được tài trợ</span><p style="font-size:12px;margin-top:6px">Gọn cho công việc. Tiện cho chuyến đi.</p><div class="hl" style="margin-top:10px;background:#fff;color:#000;text-align:center;padding:8px;border-radius:999px;font-weight:700;font-size:13px">Mua ngay</div></div><div style="position:absolute;top:30px;left:14px;color:#fff;font-weight:700;z-index:3">Shorts</div>`);
+   return browser('youtube.com',`<div class="hl" style="border-radius:12px;overflow:hidden"><div class="photo dark" style="height:150px;border-radius:0;display:flex;align-items:center;padding:20px;color:#fff"><div style="position:relative;z-index:3"><small style="color:var(--g-yellow);font-weight:700">MASTHEAD · TRANG CHỦ YOUTUBE</small><div style="font-size:20px;font-weight:800">Khám phá bộ sưu tập NOVA</div></div></div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px"><div class="photo" style="height:60px"></div><div class="photo warm" style="height:60px"></div><div class="photo green" style="height:60px"></div></div>`);
+ },
+ app(f){
+   if(f===0) return phone(`<div style="padding:44px 16px 16px"><div style="font-size:12px;color:var(--muted)">Google Play · Được tài trợ</div><div class="hl" style="display:flex;gap:12px;align-items:center;margin-top:10px;padding:8px"><div style="width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#26c6b0,var(--c));display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px">N</div><div><b style="font-size:15px">NOVA – Mua sắm mỗi ngày</b><div style="font-size:11px;color:var(--muted)">Mua sắm · 4,6 ★</div></div></div><div style="margin-top:12px;background:var(--c);color:#fff;text-align:center;padding:10px;border-radius:999px;font-weight:700;font-size:14px">Cài đặt</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:14px"><div class="photo" style="height:120px"></div><div class="photo warm" style="height:120px"></div><div class="photo green" style="height:120px"></div></div><div style="font-size:13px;font-weight:700;margin-top:12px">Mọi sản phẩm, ngay trong tay</div></div>`);
+   if(f===1) return phone(`<div class="photo dark hl" style="position:absolute;inset:0;border-radius:0;display:grid;place-items:center"><span style="position:relative;z-index:3;color:#fff;font-weight:700">▶ Xem cách đặt hàng trên NOVA</span></div><div style="position:absolute;left:14px;right:14px;bottom:20px;z-index:3;background:#fff;border-radius:16px;padding:10px;display:flex;gap:10px;align-items:center"><div style="width:40px;height:40px;border-radius:12px;background:var(--c)"></div><b style="flex:1;font-size:13px">NOVA</b><span style="background:var(--c);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">Cài đặt</span></div>`);
+   return phone(`<div style="padding:44px 16px 16px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 14%,#fff),#fff);height:100%"><b style="font-size:17px">Mua sắm trong vài bước</b><div class="hl" style="margin-top:14px;background:#fff;border-radius:16px;padding:12px;box-shadow:var(--sh-2)"><div class="g-bar">⌕ Tìm sản phẩm bạn cần</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">${product(0)}${product(0,'NOVA 750','420.000 ₫','warm')}</div></div><div style="margin-top:12px;font-size:12px;color:var(--muted)">Ảnh tính năng · thể hiện đúng trải nghiệm trong app</div></div>`);
+ }
+};
+
+/* ---------- renderers ---------- */
+function renderPicker(){
+  $('#picker').innerHTML = CAMPS.map((c,i)=>`<button class="pick" role="tab" id="pick-${c.id}" aria-selected="${i===0}" style="--c:${c.c}" data-id="${c.id}">
+    <span class="dot">${c.icon}</span><small>${c.kicker}</small><strong>${c.name}</strong><span class="p-desc">${esc(c.desc)}</span>
+    <span class="p-count">${DATA[c.id].formats.length} định dạng minh họa →</span><span class="p-art">${miniArt[c.id]}</span></button>`).join('');
+  $$('.pick').forEach(b=>{
+    b.addEventListener('click',()=>select(b.dataset.id,true));
+    if(!reduce && matchMedia('(hover:hover)').matches){
+      b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;b.style.transform=`rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-4px)`});
+      b.addEventListener('pointerleave',()=>b.style.transform='');
+    }
+  });
+  $('#recap').innerHTML = CAMPS.map(c=>`<button class="rc" style="--c:${c.c}" data-id="${c.id}"><b>${c.id==='video'?'YouTube':c.id==='pmax'?'PMax':c.name}</b><span>${c.recap}</span></button>`).join('');
+  $$('.rc').forEach(b=>b.addEventListener('click',()=>select(b.dataset.id,true)));
+}
+
+function chapHead(n,lbl,title,desc){return `<div class="chap-head rv"><span class="chap-num">${String(n).padStart(2,'0')}</span><div><span class="lbl">${lbl}</span><h3>${title}</h3>${desc?`<p>${desc}</p>`:''}</div></div>`}
+
+function specViz(s){
+  const m = s[1].match(/(\d+(?:\.\d+)?):(\d+)/);
+  if(/ký tự/.test(s[1])){const n=+s[1].match(/\d+/)[0];const txt=n===30?'Website cho doanh nghiệp':'Tìm hiểu giải pháp và phạm vi triển khai phù hợp. Trao đổi nhu cầu với POWAI.';return `<div class="charbar"><div class="t">${txt}</div><div class="b"><i style="width:${Math.min(100,txt.length/n*100)}%"></i></div><div class="m"><span>${txt.length}</span><span>/ ${n}</span></div></div>`}
+  if(m){const w=+m[1],h=+m[2];const k=Math.min(150/w,90/h);return `<div class="shape" style="width:${w*k}px;height:${h*k}px">${m[1]}:${m[2]}</div>`}
+  if(/Video/i.test(s[0])) return `<div style="display:flex;gap:8px;align-items:flex-end"><div class="shape" style="width:96px;height:54px">16:9</div><div class="shape" style="width:40px;height:72px">9:16</div></div>`;
+  return `<div class="shape" style="width:64px;height:78px;border-radius:6px 22px 6px 6px">FILE</div>`;
+}
+
+function searchDeep(){
+  const b = BIDS;
+  return `
+  <section class="chap" id="ch-how">${chapHead(2,'Search / Đi sâu vào cách chạy','Từ câu khách tìm. Đến một yêu cầu thật.','Bốn bước Google đi qua trước khi quảng cáo của bạn hiện lên — bấm từng bước để xem chi tiết.')}
+   <div class="flow4 rv">
+     <a href="#ch-look"><b>01</b><span>Khách nhìn thấy gì?</span><small>Mẫu hiển thị trên trang kết quả</small></a>
+     <a href="#sub-kw"><b>02</b><span>Hiểu nhu cầu</span><small>Từ khóa, đối sánh, cụm tìm kiếm</small></a>
+     <a href="#sub-auction"><b>03</b><span>Đấu giá</span><small>Thứ hạng quảng cáo</small></a>
+     <a href="#sub-bid"><b>04</b><span>Tối ưu</span><small>Chọn chiến lược giá thầu</small></a>
+   </div>
+
+   <div class="sub" id="sub-kw">
+    <div class="sub-head rv"><div><span class="lbl">Chapter 02 / Từ khóa & cụm tìm kiếm</span><h4>Không chỉ chọn từ. Phải hiểu điều khách muốn.</h4></div></div>
+    <div class="pipeline rv">${['Từ khóa','Kiểu đối sánh','Cụm khách tìm','Giữ hoặc loại','Từ khóa phủ định'].map((t,i)=>`<span><b>${i+1}</b>${t}</span>`).join('')}</div>
+    <div class="match rv">
+      <div class="rings" id="rings" data-m="exact">
+        <div class="rg broad"><span>RỘNG</span></div><div class="rg phrase"><span>CỤM TỪ</span></div><div class="rg exact"><span>CHÍNH XÁC</span></div>
+        <span class="qdot" style="left:50%;top:58%" data-show="exact phrase broad">dịch vụ làm website</span>
+        <span class="qdot" style="left:50%;top:26%" data-show="phrase broad">báo giá thiết kế website doanh nghiệp</span>
+        <span class="qdot" style="left:30%;top:88%" data-show="broad">giải pháp xây dựng trang web công ty</span>
+        <span class="qdot bad" style="left:78%;top:80%" data-show="broad-neg">tuyển dụng thiết kế website</span>
+      </div>
+      <div>
+        <h4 style="font-size:24px">Từ khóa bạn chọn. Cụm từ khách thực sự gõ.</h4>
+        <p style="color:var(--ink-2);margin:10px 0 18px">Từ khóa là cụm bạn chọn để chạy. Cụm từ tìm kiếm là câu khách thực sự gõ vào Google; hai phần này có thể khác nhau.</p>
+        <div class="seg" id="matchSeg">${MATCH.map((m,i)=>`<button aria-pressed="${i===0}" data-m="${m[0]}">${esc(m[1])}</button>`).join('')}</div>
+        <div class="m-detail" id="matchDetail" aria-live="polite"></div>
+        <label class="m-neg" style="cursor:pointer"><input type="checkbox" id="negToggle" style="accent-color:var(--bad)"> Minh họa thêm phủ định “tuyển dụng”</label>
+        <p class="foot-note">Ví dụ giải thích, không dự đoán truy vấn chắc chắn kích hoạt quảng cáo.</p>
+      </div>
+    </div>
+   </div>
+
+   <div class="sub">
+    <div class="rsa rv">
+      <div>
+        <span class="demo-tag" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#cfdbe8">Mẫu nội dung / không phân phối</span>
+        <h4 style="margin-top:14px">Thử một thông điệp RSA</h4>
+        <p class="s">Tiêu đề, mô tả và assets cần phối hợp có nghĩa. Không phải mọi tài sản đều được hiển thị mỗi lần.</p>
+        <div class="fld"><label for="rsaH"><span>Tiêu đề mẫu</span><span id="rsaHc">0/30</span></label><input id="rsaH" maxlength="40" value="Website cho doanh nghiệp"><div class="meter" id="rsaHm"><i></i></div></div>
+        <div class="fld"><label for="rsaD"><span>Mô tả mẫu</span><span id="rsaDc">0/90</span></label><textarea id="rsaD" rows="3" maxlength="120">Tìm hiểu giải pháp và phạm vi triển khai phù hợp. Trao đổi nhu cầu với POWAI.</textarea><div class="meter" id="rsaDm"><i></i></div></div>
+      </div>
+      <div class="rsa-prev"><small class="t">XEM TRƯỚC</small><div class="spons">Được tài trợ</div><div class="ad-head"><span class="fav">P</span><div class="ad-url">powai.example › google-ads</div></div><div class="ad-title" id="rsaPH"></div><div class="ad-desc" id="rsaPD" style="margin-top:4px"></div><div class="sitelinks"><span>Giải pháp</span><span>Dự án</span><span>Liên hệ</span></div></div>
+    </div>
+   </div>
+
+   <div class="sub">
+    <div class="sub-head rv"><div><span class="lbl">Báo cáo cụm tìm kiếm</span><h4>Đọc báo cáo cụm tìm kiếm như thế nào?</h4></div></div>
+    <div class="report rv">
+      <div class="rq keep"><span class="act">GIỮ</span><span class="q">báo giá thiết kế website doanh nghiệp</span><span class="tag">Tìm nhà cung cấp</span><p>Giữ để đối chiếu trang báo giá và chất lượng yêu cầu.</p></div>
+      <div class="rq maybe"><span class="act">CÂN NHẮC</span><span class="q">cách tự làm website miễn phí</span><span class="tag">Muốn tự làm</span><p>Cân nhắc loại nếu doanh nghiệp chỉ bán dịch vụ thiết kế.</p></div>
+      <div class="rq drop"><span class="act">LOẠI</span><span class="q">tuyển dụng thiết kế website</span><span class="tag">Tìm việc</span><p>Ví dụ thêm phủ định “tuyển dụng” khi mục tiêu là tìm khách mua dịch vụ.</p></div>
+    </div>
+    <p class="foot-note">Ví dụ từ workshop hiện có. Báo cáo không hiển thị mọi truy vấn; từ phủ định không tự mở rộng theo mọi biến thể gần.</p>
+   </div>
+
+   <div class="sub" id="sub-auction">
+    <div class="auction rv">
+      <div><span class="kicker" style="color:var(--cyan)">Chapter 03 / Đấu giá</span><h2 style="margin-top:12px">Tiền nhiều không đồng nghĩa luôn đứng số 1.</h2>
+      <p>Google xem xét giá thầu, chất lượng quảng cáo và trang đích, ngữ cảnh tìm kiếm cùng các yếu tố khác. Đây là sơ đồ giải thích, không phải công thức tính thứ hạng.</p>
+      <a class="src" href="https://support.google.com/google-ads/answer/1722122" target="_blank" rel="noopener">Cách Google xác định thứ hạng ↗</a></div>
+      <div class="rank-art" aria-hidden="true">
+        <svg class="wires" viewBox="0 0 400 360" preserveAspectRatio="none"><path d="M120 60 C170 60 150 180 176 180 M120 180 L176 180 M120 300 C170 300 150 180 176 180" stroke="rgba(114,234,255,.55)" stroke-width="2" fill="none" stroke-dasharray="6 6"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></path><path d="M240 180 C280 180 280 250 300 260" stroke="rgba(114,234,255,.55)" stroke-width="2" fill="none" stroke-dasharray="6 6"><animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/></path></svg>
+        <div class="inputs"><span>Giá thầu</span><span>Mức liên quan</span><span>Ngữ cảnh</span></div>
+        <div class="gem"><div>AD RANK<small>Thứ hạng quảng cáo</small></div></div>
+        <span class="elig">✓ Đủ điều kiện?</span>
+        <div class="podium"><i>2</i><i>1</i><i>3</i></div>
+        <span class="pos-lbl">Vị trí hiển thị</span>
+      </div>
+    </div>
+   </div>
+
+   <div class="sub" id="sub-bid">
+    <div class="sub-head rv"><div><span class="lbl">Chapter 04 / Chọn giá thầu</span><h4>Bạn giao cho Google mục tiêu tối ưu nào?</h4></div></div>
+    <div class="bid rv">
+      <div class="bid-list" id="bidList">${Object.entries(b).map(([k,v],i)=>`<button aria-pressed="${i===0}" data-k="${k}">${esc(v[1])}<small>${k==='manual'?'THỦ CÔNG':k==='clicks'?'LƯỢT NHẤP':'SMART'}</small></button>`).join('')}</div>
+      <div class="bid-card" id="bidCard" aria-live="polite"></div>
+    </div>
+   </div>
+  </section>`;
+}
+
+function genericHow(d){
+  const ops = d.details.filter(x=>OPS.has(x[0]));
+  return `<section class="chap" id="ch-how">${chapHead(2,'Cách vận hành','Đầu vào rõ. Hệ thống mới có hướng tối ưu.','Những gì bạn đưa vào chiến dịch, cách đặt giá thầu và cách kiểm tra khi chạy.')}
+   <div class="ops">${ops.map((o,i)=>`<div class="op rv ${i===0?'big':''}"><span class="ic">${OPS_IC[o[0]]||'•'}</span><h5>${esc(o[0])}</h5><p>${esc(o[1])}</p></div>`).join('')}</div>
+   ${d.display?`<div class="display-box rv"><span class="chip" style="background:var(--warn-soft);color:var(--warn)">${esc(d.display.title)}</span><p style="margin-top:12px;color:var(--ink-2)">${esc(d.display.text)}</p><div class="dx">${d.display.items.map((it,i)=>`<div><div class="photo ${['','warm','green'][i]}" style="${i===1?'aspect-ratio:1;height:auto;max-width:90px':''}"></div><b>${esc(it[0])}</b><p>${esc(it[1])}</p></div>`).join('')}</div></div>`:''}
+  </section>`;
+}
+
+function journeySearch(){
+  return `<section class="chap" id="ch-journey">${chapHead(4,'Sau khi khách thấy quảng cáo','Khách hàng thực sự đi qua quảng cáo như thế nào?','Chọn từng bước hoặc bấm “Bước tiếp” để đi hết hành trình.')}
+  <div class="journey rv">
+    <div class="j-tabs" role="tablist">${['Thiết lập trong Ads','Khách thấy trên Google','Trang đích','Hotline, chat & form'].map((t,i)=>`<button role="tab" aria-selected="${i===1}" data-j="${i}"><b>0${i+1}</b>${t}</button>`).join('')}</div>
+    <div class="j-body" id="jBody"></div>
+    <div class="j-next"><span>Search / Thử hành trình thực tế · <b>Ví dụ minh họa</b></span><button class="btn btn-line" id="jNext" style="height:40px">Bước tiếp →</button></div>
+  </div>
+  <p class="foot-note">Giao diện được dựng lại để hướng dẫn; vị trí và thành phần thực tế có thể khác theo thiết bị, tài khoản và lần hiển thị. Tên cửa hàng, sản phẩm và giá đều là ví dụ. Không kết nối Google Ads và không tạo giao dịch.</p>
+  </section>`;
+}
+const JOURNEY = [
+ {t:'Thiết lập trong Ads',p:'Mẫu quảng cáo: tiêu đề + mô tả + URL trang đích. Cụm từ khách thực sự gõ được xem trong báo cáo cụm từ tìm kiếm.',n:'Đây là dữ liệu minh họa; chưa có chiến dịch được tạo hoặc quảng cáo được gửi.',
+  s:()=>browser('ads.google.com / mô phỏng',`<div class="ads-ui"><div class="ah"><span class="lg"><i></i><i></i></span><b>Google Ads</b><span style="margin-left:auto;color:var(--muted)">Chiến dịch · Mục tiêu · Công cụ · Thanh toán</span></div><div style="margin-top:10px;color:var(--muted)">Chiến dịch / Search – Thiết kế website</div><div style="font-weight:700;font-size:15px;margin-top:4px">Từ khóa tìm kiếm <span class="mt">Mạng Tìm kiếm</span></div><table><tr><th>Từ khóa</th><th>Kiểu đối sánh</th><th>Nhóm quảng cáo</th></tr><tr class="hl"><td>[thiết kế website]</td><td><span class="mt">Chính xác</span></td><td>Website doanh nghiệp</td></tr><tr><td>"thiết kế web doanh nghiệp"</td><td><span class="mt">Cụm từ</span></td><td>Website doanh nghiệp</td></tr></table></div>`)},
+ {t:'Khách thấy trên Google',p:'Đây là màn hình khách hàng nhìn thấy. Nhãn “Được tài trợ” nhận diện quảng cáo; bấm tiêu đề xanh hoặc liên kết bên dưới để tới website.',n:'Ví dụ thành phần cuộc gọi khi đủ điều kiện hiển thị; không phải lúc nào cũng xuất hiện.',s:()=>serp(1)},
+ {t:'Trang đích',p:'Xem phạm vi, mẫu dự án đã xác minh và quy trình. Khách có thể hỏi thêm, gọi hotline hoặc nhắn Zalo/Messenger; form dành cho nhu cầu cần mô tả dài.',n:'Trang đích cần nói cùng một dịch vụ với từ khóa và quảng cáo.',
+  s:()=>browser('website.example/thiet-ke-website',`<div class="lp-hero"><small>WEBSITE CHO DOANH NGHIỆP</small><b>Trao đổi nhanh. Chọn cách liên hệ thuận tiện.</b><p>Cấu trúc nội dung · Thiết kế trải nghiệm · Phát triển & bàn giao</p></div><div class="lp-ctas hl"><span>☎ Gọi hotline</span><span>Nhắn Zalo</span><span>Messenger</span><span>Để lại yêu cầu</span></div>`)},
+ {t:'Hotline, chat & form',p:'Nhấp số điện thoại chưa chứng minh cuộc gọi đã kết nối hoặc có khách phù hợp. Đối chiếu tổng đài/nhật ký và CRM; chỉ dùng báo cáo cuộc gọi của Google khi quốc gia, số và tài khoản được hỗ trợ.',n:'Zalo và Messenger trong ví dụ là nút trên website. Không phải tiện ích Zalo/Messenger mặc định trong quảng cáo Google.',
+  s:()=>browser('website.example / liên hệ → kênh khách chọn',`<div class="ch-list"><div class="hl"><b>☎ Hotline</b>09xx xxx xxx · Số minh họa</div><div><b>Z Zalo</b>Nhắn tin tư vấn</div><div><b>↗ Messenger</b>Chat qua Facebook</div><div><b>▤ Form</b>Mô tả nhu cầu dài</div></div><div style="margin-top:12px;font-size:12px;font-weight:700;color:var(--muted)">PHÂN BIỆT NHẤP VÀ KẾT QUẢ</div><div class="signal"><span>01 / Click liên hệ</span><span>02 / Cuộc gọi hoặc hội thoại được tiếp nhận</span><span>03 / Đội tư vấn đánh giá chất lượng</span></div>`)}
+];
+
+function renderPanel(id){
+  const c = CAMPS.find(x=>x.id===id), d = DATA[id];
+  const strat = d.details.filter(x=>!OPS.has(x[0]) && !ISSUES.has(x[0]) && x[0]!=='Kiểm tra trước khi chạy' && !x[0].startsWith('Đọc báo cáo'));
+  const issues = d.details.filter(x=>ISSUES.has(x[0]));
+  const check = (d.details.find(x=>x[0]==='Kiểm tra trước khi chạy')||['',''])[1].split(/(?<=\.)\s+/).filter(Boolean);
+  const chaps = [['ch-look','Trông như thế nào'],['ch-how',id==='search'?'Cách hoạt động':'Cách vận hành'],['ch-files','File cần chuẩn bị']];
+  if(id==='search') chaps.push(['ch-journey','Hành trình khách']);
+  chaps.push(['ch-sum','Tóm tắt'],['ch-play','Chiến lược & xử lý']);
+  let n = 0; const num = () => ++n;
+  const html = `
+  <div class="panel-hero rv"><div class="ph-in"><div><small>ĐANG KHÁM PHÁ / ${c.kicker}</small><h2>${c.name}</h2><p>${esc(c.desc)}</p></div>
+   <div class="ph-stats"><span><b>${d.formats.length}</b>định dạng</span><span><b>${d.specs.length}</b>file cần chuẩn bị</span><span><b>${issues.length}</b>tình huống thường gặp</span></div></div></div>
+  <nav class="chap-nav" aria-label="Mục trong ${c.name}"><div class="in"><span class="cur"><i>${c.icon}</i>${c.name}</span>${chaps.map((x,i)=>`<a href="#${x[0]}" data-ch="${x[0]}"><b>0${i+1}</b>${x[1]}</a>`).join('')}</div></nav>
+
+  <section class="chap" id="ch-look">${chapHead(num(),c.name+' / Chapter 01','Quảng cáo của khách hàng sẽ trông như thế nào?','Chọn định dạng để xem mô phỏng vị trí hiển thị.')}
+   <div class="showroom">
+    <div class="fmt-list rv">${d.formats.map((f,i)=>`<button class="fmt ${i===0?'on':''}" data-f="${i}" aria-expanded="${i===0}"><span class="fh"><b>0${i+1}</b><span>${esc(f[0])}</span></span>
+      <span class="fbody"><span class="frow"><i>⌖</i><span><em>Xuất hiện ở đâu?</em>${esc(f[1])}</span></span><span class="frow"><i>◉</i><span><em>Khách nhìn thấy gì?</em>${esc(f[2])}</span></span><span class="frow"><i>▤</i><span><em>Cần chuẩn bị</em>${esc(f[3])}</span></span></span></button>`).join('')}</div>
+    <div class="stage rv"><span class="demo-tag">Mô phỏng giao diện</span><div class="device" id="device"></div><p class="stage-cap">Mẫu dựng để hình dung cách hiển thị. Nội dung, cửa hàng và giá là ví dụ; thành phần thực tế thay đổi theo vị trí và điều kiện phân phối.</p></div>
+   </div>
+  </section>
+
+  ${id==='search'? searchDeep() : genericHow(d)}
+  ${(n=2,'')}
+
+  <section class="chap" id="ch-files">${chapHead(num(),'File cần chuẩn bị / '+c.name,'Cần chuẩn bị file gì?','Thông số để đội nội dung chuẩn bị trước khi dựng chiến dịch.')}
+   <div class="specs">${d.specs.map(s=>`<div class="spec rv"><div class="viz">${specViz(s)}</div><small>${esc(s[0])}</small><strong>${esc(s[1])}</strong><p>${esc(s[2])}</p></div>`).join('')}</div>
+  </section>
+
+  ${id==='search'? (n++, journeySearch()) : ''}
+
+  <section class="chap" id="ch-sum">${chapHead(num(),'Cách chạy / '+c.name,'Từ nội dung quảng cáo đến kết quả.','')}
+   <div class="bigflow rv">${d.steps.map((s,i)=>`<div><b>${i+1}</b><span>${esc(s)}</span></div>`).join('')}</div>
+   <div class="triad">
+     <div class="tri t1 rv"><span class="ic">◎</span><h5>Dùng khi nào?</h5><p>${esc(d.blocks['Dùng khi nào?'].join(' '))}</p></div>
+     <div class="tri t2 rv"><span class="ic">▤</span><h5>Cần chuẩn bị</h5><ul>${d.blocks['Cần chuẩn bị'].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+     <div class="tri t3 rv"><span class="ic">⌗</span><h5>Đo điều gì?</h5><p>${esc(d.blocks['Đo điều gì?'].join(' '))}</p></div>
+   </div>
+   ${d.note?`<div class="callout rv"><span class="ic">⚠</span><div><b>Điểm cần lưu ý</b><p>${esc(d.note)}</p></div></div>`:''}
+   ${id==='search'?`<div class="callout rv" style="background:var(--accent-soft);border-color:#cfdffb"><span class="ic">◎</span><div><b style="color:var(--g-blue)">Giá thầu và mục tiêu tối ưu</b><p style="color:var(--ink-2)">${esc(d.details.find(x=>x[0]==='Giá thầu và mục tiêu tối ưu')[1])}</p></div></div>`:''}
+  </section>
+
+  <section class="chap" id="ch-play">${chapHead(num(),'Chiến lược & xử lý / '+c.name,'Chọn hướng đi. Biết cách xử lý khi lệch.','')}
+   ${strat.length?`<div class="sub-head rv" style="margin-bottom:18px"><div><span class="lbl">Theo mục tiêu</span></div></div><div class="strat">${strat.map(s=>`<div class="st rv"><span class="ic">➚</span><h5>${esc(s[0])}</h5><p>${esc(s[1])}</p></div>`).join('')}</div>`:''}
+   ${issues.length?`<div class="sub-head rv" style="margin:44px 0 18px"><div><span class="lbl">Khi gặp vấn đề</span></div></div><div class="issues">${issues.map(s=>`<div class="iss rv"><div class="pb"><i>!</i>${esc(s[0])}</div><div class="ar">→</div><div class="fx"><b>Cách xử lý</b>${esc(s[1])}</div></div>`).join('')}</div>`:''}
+   ${check.length?`<div class="checklist rv" style="margin-top:44px"><div class="ring-prog"><svg width="140" height="140" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" stroke="rgba(255,255,255,.1)" stroke-width="12" fill="none"/><circle id="ringArc" cx="70" cy="70" r="60" stroke="var(--cyan)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="377" style="transition:stroke-dashoffset .5s var(--ease)"/></svg><b id="ringTxt">0/${check.length}</b><small>đã kiểm tra</small></div>
+     <div><h4 style="font-size:24px;margin-bottom:14px">Kiểm tra trước khi chạy</h4><div class="checks">${check.map(x=>`<label><input type="checkbox">${esc(x)}</label>`).join('')}</div></div></div>`:''}
+  </section>`;
+  const p = $('#panel');
+  p.style.setProperty('--c', c.c);
+  p.innerHTML = html;
+  bindPanel(id);
+  observe();
+}
+
+function bindPanel(id){
+  const dev = $('#device');
+  const show = f => { dev.className = 'device swap' + (['demand','app'].includes(id)||(id==='video'&&f===4)?' phone':''); dev.innerHTML = mock[id](f); void dev.offsetWidth; };
+  show(0);
+  $$('.fmt').forEach(b=>b.addEventListener('click',()=>{$$('.fmt').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-expanded',x===b)});show(+b.dataset.f)}));
+  // chapter nav active state
+  const links = $$('.chap-nav a');
+  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.dataset.ch===e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});
+  $$('.chap').forEach(s=>io.observe(s));
+  // checklist
+  const cbs = $$('.checks input');
+  cbs.forEach(cb=>cb.addEventListener('change',()=>{const k=cbs.filter(x=>x.checked).length;$('#ringTxt').textContent=`${k}/${cbs.length}`;$('#ringArc').style.strokeDashoffset=377-377*k/cbs.length}));
+  if(id!=='search') return;
+  // match types
+  const setM = m => {
+    $('#rings').dataset.m = m; const o = MATCH.find(x=>x[0]===m);
+    $('#matchDetail').innerHTML = `<b>${esc(o[2])}</b><p>${esc(o[3])}</p>`;
+    $$('#matchSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));
+    const neg = $('#negToggle').checked;
+    $$('#rings .qdot').forEach(q=>{const s=q.dataset.show;q.style.opacity = s==='broad-neg' ? (m==='broad'&&!neg?1:0) : (s.split(' ').includes(m)?1:0)});
+  };
+  $$('#matchSeg button').forEach(b=>b.addEventListener('click',()=>setM(b.dataset.m)));
+  $('#negToggle').addEventListener('change',()=>setM($('#rings').dataset.m));
+  setM('exact');
+  // RSA
+  const rsa = () => {const h=$('#rsaH').value,d=$('#rsaD').value;
+    $('#rsaPH').textContent=h||'Tiêu đề của bạn';$('#rsaPD').textContent=d||'Mô tả của bạn';
+    $('#rsaHc').textContent=`${h.length}/30`;$('#rsaDc').textContent=`${d.length}/90`;
+    $('#rsaHm i').style.width=Math.min(100,h.length/30*100)+'%';$('#rsaDm i').style.width=Math.min(100,d.length/90*100)+'%';
+    $('#rsaHm').classList.toggle('over',h.length>30);$('#rsaDm').classList.toggle('over',d.length>90)};
+  $('#rsaH').addEventListener('input',rsa);$('#rsaD').addEventListener('input',rsa);rsa();
+  // bidding
+  const setB = k => {const v=BIDS[k];$$('#bidList button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));
+    $('#bidCard').innerHTML=`<span class="k">${esc(v[0])}</span><h4>${esc(v[1])}</h4><p>${esc(v[2])}</p>
+     <div class="io"><div><small>BẠN ĐƯA VÀO</small><b>${esc(v[3])}</b></div><span class="arrow">→</span><div><small>GOOGLE TỐI ƯU</small><b>${esc(v[4])}</b></div></div>
+     <div class="bid-grid"><div><b>Cần có</b>${esc(v[5])}</div><div class="warn"><b>Lưu ý</b>${esc(v[6])}</div></div><div class="bid-ex"><b>Ví dụ · </b>${esc(v[7])}</div>`;
+    $('#bidCard').classList.remove('swap');void $('#bidCard').offsetWidth;$('#bidCard').classList.add('swap')};
+  $$('#bidList button').forEach(b=>b.addEventListener('click',()=>setB(b.dataset.k)));setB('clicks');
+  // journey
+  let j=1; const setJ = i => {j=i;const s=JOURNEY[i];$$('.j-tabs button').forEach(b=>b.setAttribute('aria-selected',+b.dataset.j===i));
+    $('#jBody').innerHTML=`<div class="j-text swap"><span class="chip">Bước 0${i+1}</span><h5 style="margin-top:12px">${s.t}</h5><p>${esc(s.p)}</p><div class="note">${esc(s.n)}</div></div><div class="j-screen swap">${s.s()}</div>`;
+    $('#jNext').textContent = i===3?'Xem lại từ đầu ↺':'Bước tiếp →'};
+  $$('.j-tabs button').forEach(b=>b.addEventListener('click',()=>setJ(+b.dataset.j)));
+  $('#jNext').addEventListener('click',()=>setJ((j+1)%4));setJ(1);
+}
+
+function select(id,scroll){
+  $$('.pick').forEach(b=>{b.classList.toggle('on',b.dataset.id===id);b.setAttribute('aria-selected',b.dataset.id===id)});
+  $$('.planet').forEach(p=>p.classList.toggle('on',p.dataset.id===id));
+  renderPanel(id);
+  if(scroll) $('#panel').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  history.replaceState(null,'','#'+id);
+}
+
+/* ---------- orbit (pseudo-3D, 6 nodes) ---------- */
+function orbit(){
+  const o = $('#orbit');
+  const nodes = CAMPS.map((c,i)=>{const b=document.createElement('button');b.className='planet';b.dataset.id=c.id;b.style.setProperty('--c',c.c);b.innerHTML=`<i style="background:${c.c}">${c.icon}</i>${c.name}`;b.addEventListener('click',()=>select(c.id,true));o.appendChild(b);return {b,a:i/CAMPS.length*Math.PI*2}});
+  let t=0, run=true, last=performance.now();
+  new IntersectionObserver(e=>run=e[0].isIntersecting).observe(o);
+  let paused=false; o.addEventListener('pointerenter',()=>paused=true); o.addEventListener('pointerleave',()=>paused=false);
+  const draw = now => {
+    const dt = now-last; last=now; if(run&&!paused&&!reduce) t += dt*0.00012;
+    const w = o.clientWidth, rx = Math.min(250, w*.46), ry = 100;
+    nodes.forEach(n=>{const a=n.a+t, x=Math.cos(a)*rx, y=Math.sin(a)*ry, depth=(Math.sin(a)+1)/2;
+      n.b.style.transform=`translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${.78+depth*.32})`;
+      n.b.style.zIndex = Math.round(depth*100); n.b.style.opacity = .55+depth*.45;});
+    requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw);
+}
+
+/* ---------- hero parallax ---------- */
+function hero(){
+  if(reduce || !matchMedia('(hover:hover)').matches) return;
+  const st = $('#heroStage'), s = $('#stack');
+  document.querySelector('.hero').addEventListener('pointermove',e=>{const r=st.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    s.style.transform=`rotateX(${14-y*10}deg) rotateY(${-22+x*16}deg) rotateZ(2deg)`});
+}
+
+/* ---------- reveal ---------- */
+const rvIO = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvIO.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+function observe(){ $$('.rv:not(.in)').forEach(el=>rvIO.observe(el)); }
+
+renderPicker(); orbit(); hero();
+const start = CAMPS.some(c=>'#'+c.id===location.hash) ? location.hash.slice(1) : 'search';
+select(start,false); observe();
+</script>
+</body>
+</html>

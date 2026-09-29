@@ -1,0 +1,1418 @@
+/* ===================================================
+   POWAI / ABOUT STYLESHEET — CINEMATIC REDESIGN
+   Editorial × Space Technology × HTML Motion
+   Formula: 35-40% Text, 60-65% Visual
+   =================================================== */
+
+:root {
+  --about-bg: #020713;
+  --about-surface: #040c1a;
+  --about-card-bg: rgba(6, 17, 30, 0.65);
+  --about-border: rgba(145, 185, 203, 0.16);
+  --about-border-hover: rgba(114, 234, 255, 0.45);
+  --cyan: #72eaff;
+  --cyan-dim: rgba(114, 234, 255, 0.12);
+  --cyan-glow: rgba(114, 234, 255, 0.28);
+  --amber: #ffbe53;
+  --text-main: #eff8ff;
+  --text-muted: #8ca7b9;
+  --text-dim: #607d92;
+  --gold-accent: #e0cd9b;
+}
+
+.about-page {
+  background: var(--about-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Be Vietnam Pro', Arial, sans-serif;
+}
+
+.about-page .pow-header {
+  background: #020812f2;
+  backdrop-filter: blur(12px);
+  position: fixed;
+}
+
+/* Ambient Cosmic Background */
+.about-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(35, 105, 145, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 15% 55%, rgba(20, 75, 120, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(15, 45, 80, 0.15) 0%, transparent 60%);
+}
+
+.about-ambient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(180, 225, 245, 0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.45;
+}
+
+#about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 120px 32px 80px;
+  overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Breadcrumbs */
+.about-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+}
+
+.about-breadcrumbs a {
+  color: var(--text-muted);
+  transition: color 160ms ease;
+}
+
+.about-breadcrumbs a:hover {
+  color: var(--cyan);
+}
+
+/* Section Kicker */
+.about-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.about-kicker::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+.section-head-row {
+  margin-bottom: 36px;
+}
+
+.section-head-row h2 {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 8px 0 0;
+}
+
+.section-head-row h2 em {
+  font-style: normal;
+  color: var(--cyan);
+}
+
+.section-sub-copy {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 660px;
+  margin: 12px 0 0;
+}
+
+/* ===================================================
+   00 / HERO SECTION — CINEMATIC SPACE VIEWPORT
+   =================================================== */
+.about-hero {
+  min-height: 74vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  padding: 10px 0 70px;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.about-hero-copy h1 {
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  margin: 0 0 20px;
+  color: #ffffff;
+}
+
+.about-hero-copy h1 em {
+  font-style: normal;
+  color: var(--cyan);
+  display: block;
+}
+
+.hero-summary {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 0 32px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hero-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  background: rgba(114, 234, 255, 0.08);
+  border: 1px solid rgba(114, 234, 255, 0.22);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse-telemetry 2s infinite ease-in-out;
+}
+
+@keyframes pulse-telemetry {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Space Viewport Frame */
+.about-hero-visual-frame {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-viewport-container {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  max-width: 480px;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(114, 234, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(114, 234, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-viewport-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1) brightness(0.9);
+  transition: transform 12s ease;
+}
+
+.space-viewport-container:hover .space-viewport-bg {
+  transform: scale(1.04);
+}
+
+.space-viewport-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 8, 18, 0.2) 0%, rgba(2, 7, 19, 0.8) 100%);
+  pointer-events: none;
+}
+
+.hero-orbit-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rotating-ring {
+  transform-origin: 250px 250px;
+  animation: spin-orbit 40s linear infinite;
+}
+
+@keyframes spin-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-core-glow {
+  box-shadow: 0 0 25px rgba(114, 234, 255, 0.4);
+}
+
+.hero-stamp {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+.stamp-sys {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.stamp-coord {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: var(--cyan);
+  margin-top: 3px;
+}
+
+.hud-corner {
+  position: absolute;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(145, 185, 203, 0.7);
+  pointer-events: none;
+}
+
+.hud-tl { top: 12px; left: 14px; }
+.hud-br { bottom: 12px; right: 14px; color: var(--cyan); }
+
+/* ===================================================
+   01 / VÌ SAO CHÚNG TÔI TỒN TẠI (SYSTEM CONNECTIVITY MOTION)
+   =================================================== */
+.why-exist-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.why-exist-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 40px;
+  align-items: center;
+}
+
+.why-editorial-col h2 {
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.why-editorial-col h2 em {
+  font-style: normal;
+  color: var(--cyan);
+}
+
+.why-summary {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0 0 28px;
+}
+
+.fragmented-symptoms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.symptom-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.symptom-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 100, 100, 0.12);
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  color: #ff8585;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.symptom-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.symptom-text p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.why-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-replay-motion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(114, 234, 255, 0.08);
+  border: 1px solid rgba(114, 234, 255, 0.35);
+  border-radius: 6px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  font-family: inherit;
+}
+
+.btn-replay-motion:hover {
+  background: rgba(114, 234, 255, 0.18);
+  border-color: var(--cyan);
+  transform: translateY(-1px);
+}
+
+.replay-icon {
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 300ms ease;
+}
+
+.btn-replay-motion:hover .replay-icon {
+  transform: rotate(180deg);
+}
+
+.why-scroll-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.why-scroll-link:hover {
+  color: var(--cyan);
+}
+
+/* System Motion Stage (Right 60%) */
+.why-motion-col {
+  position: relative;
+  width: 100%;
+}
+
+.system-motion-stage {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 50%, rgba(12, 35, 60, 0.45) 0%, rgba(3, 10, 20, 0.95) 75%);
+  border: 1px solid rgba(114, 234, 255, 0.25);
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(114, 234, 255, 0.08);
+  overflow: hidden;
+}
+
+.stage-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(114, 234, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(114, 234, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.stage-telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(145, 185, 203, 0.12);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.telemetry-state {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.motion-network-wrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 95px 1fr 130px;
+  align-items: center;
+  min-height: 320px;
+}
+
+/* Fragmented Nodes (Left Stack) */
+.fragmented-nodes-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+  z-index: 3;
+}
+
+.frag-node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 22, 38, 0.85);
+  border: 1px solid rgba(145, 185, 203, 0.25);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #c4d7e6;
+  transition: all 300ms ease;
+  cursor: default;
+}
+
+.node-code {
+  font-size: 9px;
+  color: var(--cyan);
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.node-label {
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.node-status {
+  font-size: 8px;
+  margin-left: auto;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* Center Hub with SVG Canvas */
+.motion-center-hub {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signal-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.signal-line {
+  fill: none;
+  stroke: rgba(114, 234, 255, 0.25);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+  transition: stroke 400ms ease;
+}
+
+.output-line {
+  fill: none;
+  stroke: rgba(114, 234, 255, 0.3);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+  transition: stroke 400ms ease;
+}
+
+/* Active Signal Animation */
+.system-motion-stage.stage-active .signal-line {
+  stroke: rgba(114, 234, 255, 0.7);
+  animation: pulse-inbound 1.8s infinite linear;
+}
+
+.system-motion-stage.stage-active .output-line {
+  stroke: rgba(114, 234, 255, 0.8);
+  animation: pulse-outbound 1.8s infinite linear;
+}
+
+@keyframes pulse-inbound {
+  to { stroke-dashoffset: -40; }
+}
+
+@keyframes pulse-outbound {
+  to { stroke-dashoffset: -40; }
+}
+
+/* Hub Core */
+.powai-hub-core {
+  position: relative;
+  z-index: 4;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hub-pulse-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(114, 234, 255, 0.4);
+  animation: spin-hub 25s linear infinite;
+}
+
+@keyframes spin-hub {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hub-center-disc {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0e2e46 0%, #030a16 90%);
+  border: 2px solid var(--cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(114, 234, 255, 0.4);
+  text-align: center;
+  transition: box-shadow 300ms ease;
+}
+
+.system-motion-stage.stage-active .hub-center-disc {
+  box-shadow: 0 0 35px rgba(114, 234, 255, 0.65);
+}
+
+.hub-logo {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.hub-sub {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+/* Output Nodes (Right Stack) */
+.output-nodes-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  z-index: 3;
+}
+
+.output-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(9, 28, 48, 0.75);
+  border: 1px solid rgba(114, 234, 255, 0.28);
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: all 250ms ease;
+}
+
+.system-motion-stage.stage-active .output-node {
+  border-color: rgba(114, 234, 255, 0.55);
+  background: rgba(12, 38, 64, 0.85);
+  box-shadow: 0 0 14px rgba(114, 234, 255, 0.12);
+}
+
+.out-marker {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.output-node strong {
+  display: block;
+  font-size: 11px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.output-node small {
+  display: block;
+  font-size: 8px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stage-footer-note {
+  position: relative;
+  z-index: 2;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(145, 185, 203, 0.1);
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+/* ===================================================
+   02 / PHƯƠNG PHÁP TRIỂN KHAI (6-STEP TIMELINE)
+   =================================================== */
+.about-method-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.method-timeline-container {
+  position: relative;
+  margin-top: 40px;
+  padding: 30px 0 10px;
+}
+
+.timeline-track-line {
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: rgba(145, 185, 203, 0.15);
+  z-index: 1;
+}
+
+.timeline-pulse-runner {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 60px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--cyan) 50%, transparent 100%);
+  box-shadow: 0 0 12px var(--cyan);
+  transition: transform 400ms ease;
+}
+
+.method-steps-track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  transition: all 200ms ease;
+}
+
+.step-marker-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+}
+
+.step-radar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #020713;
+  border: 2px solid rgba(145, 185, 203, 0.4);
+  transition: all 200ms ease;
+}
+
+.timeline-step.active .step-radar-dot,
+.timeline-step:hover .step-radar-dot {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.step-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ===================================================
+   03 / HỆ SINH THÁI NĂNG LỰC (SYSTEM MAP)
+   =================================================== */
+.about-universe-section {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.system-map-container {
+  margin-top: 36px;
+  position: relative;
+}
+
+.system-map-hub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 36px;
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.hub-orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hub-orbital-ring.r1 {
+  inset: -12px;
+  border: 1px dashed rgba(114, 234, 255, 0.22);
+  animation: spin-hub 35s linear infinite;
+}
+
+.hub-orbital-ring.r2 {
+  inset: -28px;
+  border: 1px solid rgba(114, 234, 255, 0.1);
+}
+
+.hub-core-content {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0a253a 0%, #030a16 85%);
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 30px rgba(114, 234, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hub-core-content strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.hub-core-content small {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  margin-top: 2px;
+}
+
+.hub-live-tag {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  padding: 2px 6px;
+  background: rgba(114, 234, 255, 0.1);
+  border-radius: 3px;
+}
+
+.system-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.capability-module {
+  background: rgba(6, 17, 30, 0.6);
+  border: 1px solid var(--about-border);
+  border-radius: 10px;
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+.capability-module:hover {
+  border-color: var(--about-border-hover);
+  background: rgba(9, 26, 46, 0.8);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(114, 234, 255, 0.1);
+}
+
+.mod-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.mod-code {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cyan);
+}
+
+.mod-head h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.capability-module p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.mod-link-arrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  display: inline-flex;
+  align-items: center;
+  transition: transform 160ms ease;
+}
+
+.capability-module:hover .mod-link-arrow {
+  transform: translateX(4px);
+}
+
+/* ===================================================
+   04 / CON NGƯỜI × TRÍ TUỆ NHÂN TẠO (SIGNAL FLOW)
+   =================================================== */
+.about-human-ai-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.human-ai-flow-container {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.flow-agent-col {
+  background: rgba(6, 17, 30, 0.65);
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.flow-agent-col.col-human {
+  border-left: 3px solid #8be8fc;
+}
+
+.flow-agent-col.col-ai {
+  border-right: 3px solid #c0a2ff;
+}
+
+.agent-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 10px;
+}
+
+.col-human .agent-badge { color: #8be8fc; }
+.col-ai .agent-badge { color: #c0a2ff; }
+
+.agent-role {
+  font-size: 19px;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.agent-traits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agent-traits-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #c0d8e8;
+}
+
+.col-human .trait-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8be8fc;
+}
+
+.col-ai .trait-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c0a2ff;
+}
+
+.flow-convergence-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.convergence-svg {
+  width: 100%;
+  max-width: 160px;
+  height: 90px;
+}
+
+.flow-path {
+  fill: none;
+  stroke-width: 2;
+}
+
+.path-human {
+  stroke: #8be8fc;
+  stroke-dasharray: 4 4;
+  animation: trace-flow 2s infinite linear;
+}
+
+.path-ai {
+  stroke: #c0a2ff;
+  stroke-dasharray: 4 4;
+  animation: trace-flow 2s infinite linear;
+}
+
+.path-out {
+  stroke: var(--cyan);
+  stroke-dasharray: 6 4;
+  animation: trace-flow 1.5s infinite linear;
+}
+
+@keyframes trace-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.convergence-badge {
+  margin-top: 8px;
+}
+
+.convergence-badge strong {
+  display: block;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.convergence-badge small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  color: var(--cyan);
+  margin-top: 2px;
+}
+
+.convergence-result-tag {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.human-ai-punchline {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.human-ai-punchline quote,
+.human-ai-punchline blockquote {
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #d0e4f4;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 680px;
+  display: block;
+}
+
+/* ===================================================
+   05 / NGUYÊN TẮC CỐT LÕI (EDITORIAL STREAM)
+   =================================================== */
+.about-principles-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.principles-editorial-stream {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.principle-entry {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 32px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(145, 185, 203, 0.14);
+  transition: background 180ms ease;
+}
+
+.principle-entry:hover {
+  background: rgba(114, 234, 255, 0.02);
+}
+
+.entry-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.entry-num {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--cyan);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.entry-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.entry-body h3 {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.entry-body p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0;
+}
+
+/* ===================================================
+   TỪ LÝ THUYẾT ĐẾN THỰC TIỄN (CASE PREVIEW)
+   =================================================== */
+.theory-practice-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.practice-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.practice-card {
+  background: rgba(6, 17, 30, 0.6);
+  border: 1px solid var(--about-border);
+  border-radius: 10px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 180ms ease;
+}
+
+.practice-card:hover {
+  border-color: var(--about-border-hover);
+  background: rgba(9, 26, 46, 0.8);
+  transform: translateY(-2px);
+}
+
+.practice-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.practice-code {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.practice-card-head h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.practice-card small {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.practice-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.practice-view-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+/* ===================================================
+   CINEMATIC CTA
+   =================================================== */
+.about-cta-section {
+  margin: 80px 0 20px;
+  padding: 65px 40px;
+  background: radial-gradient(ellipse at 50% 20%, rgba(18, 55, 84, 0.55) 0%, rgba(3, 10, 20, 0.95) 70%);
+  border: 1px solid rgba(114, 234, 255, 0.35);
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.cta-inner-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.about-cta-section h2 {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 12px 0 18px;
+  line-height: 1.25;
+}
+
+.about-cta-section h2 em {
+  font-style: normal;
+  color: var(--cyan);
+}
+
+.about-cta-section p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0 0 32px;
+}
+
+.cta-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ===================================================
+   RESPONSIVE LAYOUT
+   =================================================== */
+@media (max-width: 1100px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    min-height: auto;
+  }
+  .about-hero-visual-frame {
+    order: -1;
+  }
+  .space-viewport-container {
+    max-width: 100%;
+  }
+  .why-exist-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .method-steps-track {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 32px;
+  }
+  .timeline-track-line {
+    display: none;
+  }
+  .system-modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .human-ai-flow-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .flow-convergence-hub {
+    transform: rotate(90deg);
+    margin: 20px 0;
+  }
+  .practice-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #about-content {
+    padding: 100px 20px 50px;
+  }
+  .about-hero-copy h1 {
+    font-size: 30px;
+  }
+  .motion-network-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: auto;
+  }
+  .signal-canvas {
+    display: none;
+  }
+  .motion-center-hub {
+    height: 120px;
+  }
+  .fragmented-nodes-cluster {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .output-nodes-cluster {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .method-steps-track {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .system-modules-grid {
+    grid-template-columns: 1fr;
+  }
+  .principle-entry {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .practice-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-cta-section {
+    padding: 40px 20px;
+  }
+  .about-cta-section h2 {
+    font-size: 26px;
+  }
+}
+
+/* ===================================================
+   PREFERS REDUCED MOTION
+   =================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .telemetry-dot,
+  .rotating-ring,
+  .hub-pulse-ring,
+  .hub-orbital-ring.r1,
+  .path-human,
+  .path-ai,
+  .path-out,
+  .signal-line,
+  .output-line {
+    animation: none !important;
+  }
+  .space-viewport-bg {
+    transition: none !important;
+  }
+}

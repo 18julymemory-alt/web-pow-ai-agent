@@ -7,6 +7,7 @@ export const briefs = [
 ['video','Video bắt đầu cuộc trò chuyện','Mở đầu video','Nội dung ngắn','Lời kêu gọi','Trang đích'],
 ['video','Kể câu chuyện bằng video','Video ngang','Kịch bản thương hiệu','Nhóm người xem','Hành động tiếp theo'],
 ['chat','Kết nối qua Zalo','Nội dung quảng cáo','Khách quan tâm','Yêu cầu tư vấn','Nhân viên tiếp nhận'],
+['chat','Xuất hiện dưới câu trả lời','Câu hỏi của khách','Câu trả lời độc lập','Thẻ được tài trợ','Trang đích'],
 ['journey','Tiếp tục từ điểm đã quan tâm','Xem sản phẩm','Nhóm quan tâm','Thông điệp tiếp nối','Quay lại trang'],
 ['dashboard','Kết nối hiệu quả đa kênh','Search','Social','Video','Chuyển đổi'],
 ['compare','Thử nghiệm để cải thiện','Trang đích A','Trang đích B','Biểu mẫu','Hành động chính']

@@ -85,6 +85,20 @@
   },
   {
     "group": "quang-cao-da-kenh",
+    "title": "ChatGPT Ads",
+    "href": "/dich-vu/quang-cao-da-kenh/chatgpt-ads/",
+    "key": "quang-cao-da-kenh--chatgpt-ads",
+    "mode": "chat",
+    "subtitle": "Xuất hiện dưới câu trả lời",
+    "labels": [
+      "Câu hỏi của khách",
+      "Câu trả lời độc lập",
+      "Thẻ được tài trợ",
+      "Trang đích"
+    ]
+  },
+  {
+    "group": "quang-cao-da-kenh",
     "title": "Remarketing",
     "href": "/dich-vu/quang-cao-da-kenh/remarketing/",
     "key": "quang-cao-da-kenh--remarketing",

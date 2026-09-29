@@ -1,7 +1,8 @@
 import {menuImages} from './navigation-art.js';
 import {services,mainNavigation} from './navigation-data.js?v=menu-no-pow-ai';
 const header=document.querySelector('.pow-header'),mount=document.getElementById('header-navigation');
-const link=item=>`<a href="${item.href}">${item.title}</a>`;
+const currentPath=location.pathname.endsWith('/')?location.pathname:location.pathname+'/';
+const link=item=>{const isCurrent=item.href===currentPath||(item.href!=='/'&&item.href!=='/#gateway'&&currentPath.startsWith(item.href));return `<a href="${item.href}"${isCurrent?' aria-current="page"':''}>${item.title}</a>`;};
 mount.innerHTML=`<nav id="pow-navigation" aria-label="Điều hướng chính">${link(mainNavigation[0])}<div class="services-disclosure"><button type="button" class="services-trigger" aria-expanded="false" aria-controls="services-mega">Dịch vụ</button><div id="services-mega" hidden><div class="mega-heading"><span>DỊCH VỤ POWAI</span><a href="/#universe-map">Khám phá giải pháp →</a></div><div class="category-index">${services.map((g,i)=>`<button type="button" class="category-choice" data-group="${i}" aria-expanded="false" aria-controls="category-detail"><span>${g.title}</span><span aria-hidden="true">→</span></button>`).join('')}</div><div id="category-detail" hidden></div></div></div>${mainNavigation.slice(1).map(link).join('')}</nav>`;
 const trigger=header.querySelector('.services-trigger'),panel=document.getElementById('services-mega'),disclosure=header.querySelector('.services-disclosure'),mobile=header.querySelector('.mobile-nav-toggle'),index=panel.querySelector('.category-index'),detail=document.getElementById('category-detail');
 const compact=matchMedia('(max-width: 1100px)');let timer,hoverOpened=false,selected=-1;

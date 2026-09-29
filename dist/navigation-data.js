@@ -40,6 +40,11 @@ export const services = [
         "href": "/dich-vu/quang-cao-da-kenh/zalo-ads/"
       },
       {
+        "title": "ChatGPT Ads",
+        "slug": "chatgpt-ads",
+        "href": "/dich-vu/quang-cao-da-kenh/chatgpt-ads/"
+      },
+      {
         "title": "Remarketing",
         "slug": "remarketing",
         "href": "/dich-vu/quang-cao-da-kenh/remarketing/"
@@ -619,11 +624,11 @@ export const mainNavigation = [
   },
   {
     "title": "Dự án",
-    "href": "/#results"
+    "href": "/du-an/"
   },
-{
+  {
     "title": "Về POW",
-    "href": "/#mission"
+    "href": "/ve-pow/"
   },
   {
     "title": "Blog",
@@ -631,6 +636,6 @@ export const mainNavigation = [
   },
   {
     "title": "Liên hệ",
-    "href": "/#horizon"
+    "href": "/lien-he/"
   }
 ];
