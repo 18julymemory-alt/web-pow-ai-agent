@@ -61,6 +61,11 @@ const web = (slug, name, accent) => ({
   name, pages: onePage(WL + slug + '/'), stepsLabel: '', crumb: name, group: [WL, 'Website & Landing Page'],
   css: ['/one-page-lp.css', '/website-lp.css'], bodyClass: 'op-lp ws-lp', accent, sourceLabel: 'Tài liệu tham khảo:'
 });
+const DT = '/dich-vu/dao-tao-digital-marketing/';
+const edu = (slug, name, accent, extra = []) => ({
+  name, pages: onePage(DT + slug + '/'), stepsLabel: '', crumb: name, group: [DT, 'Đào tạo Digital Marketing'],
+  css: [...extra, '/one-page-lp.css', '/website-lp.css', '/training-lp.css'], bodyClass: 'op-lp ws-lp tr-lp', accent, sourceLabel: 'Tài liệu tham khảo:'
+});
 
 // One row per ad channel. The frame, the script and every shared class stay
 // the same; a channel only adds its own stylesheet, body class, labels and
@@ -167,7 +172,22 @@ export const CHANNELS = {
   webCro: web('cro-toi-uu-chuyen-doi', 'CRO – tối ưu chuyển đổi', '#f0d28a'),
   webCare: web('bao-tri-website', 'Bảo trì Website', '#9fe0c9'),
   webSpeed: web('toi-uu-toc-do', 'Tối ưu tốc độ', '#8fe3f0'),
-  webIntegrate: web('tich-hop-he-thong', 'Tích hợp hệ thống', '#b8e08f')
+  webIntegrate: web('tich-hop-he-thong', 'Tích hợp hệ thống', '#b8e08f'),
+  // Đào tạo Digital Marketing (TRAINING_LP_PLAN.md): one landing page per
+  // course on the same renderer, reusing the website mocks.
+  eduOverview: edu('digital-marketing-tong-the', 'Digital Marketing tổng thể', '#9fd8ff'),
+  eduGoogle: edu('google-ads', 'Google Ads', '#a8c8ff'),
+  eduFacebook: edu('facebook-ads', 'Facebook Ads', '#9db8f5', ['/facebook-ads-lp.css']),
+  eduTiktok: edu('tiktok-ads', 'TikTok Ads', '#f5a3c0'),
+  eduSeo: edu('seo', 'SEO', '#a6e3b8'),
+  eduContent: edu('content-marketing', 'Content Marketing', '#f3c79a'),
+  eduSocial: edu('social-media-marketing', 'Social Media Marketing', '#d4b3ff'),
+  eduWebsite: edu('website-marketing', 'Website Marketing', '#9fc8ff'),
+  eduGa4: edu('ga4-tracking', 'GA4 & Tracking', '#ffd08a'),
+  eduAi: edu('ai-marketing', 'AI Marketing', '#8fe3d6'),
+  eduAuto: edu('automation', 'Automation', '#b8e08f'),
+  eduPractice: edu('marketing-thuc-chien-cho-doanh-nghiep', 'Marketing thực chiến cho doanh nghiệp', '#ffb89a'),
+  eduTeam: edu('dao-tao-doi-ngu-marketing-noi-bo', 'Đào tạo đội ngũ Marketing nội bộ', '#c9d0ff')
 };
 
 export const PAGES = CHANNELS.google.pages;
