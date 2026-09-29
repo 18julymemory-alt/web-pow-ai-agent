@@ -17,6 +17,7 @@
 //   AUDIT_PAGES=p1 AUDIT_W=390 node scripts/ga-visual-audit.cjs
 //   AUDIT_SITE=facebook-ads AUDIT_TAG=fb node scripts/ga-visual-audit.cjs   (Facebook Ads trio)
 //   AUDIT_SITE=tiktok-ads AUDIT_TAG=tt node scripts/ga-visual-audit.cjs     (TikTok Ads trio)
+//   AUDIT_SITE=chatgpt-ads AUDIT_TAG=cg node scripts/ga-visual-audit.cjs    (ChatGPT Ads trio)
 //
 // Output: .sites-runtime/visual-audit/<tag>/{shots/*.png, report.json, sheet-<page>-<w>-<n>.png}
 const {chromium} = require('C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
@@ -53,6 +54,9 @@ const BLOCKS = [
   ['.checklist', ''],
   ['.tta-map', ''],
   ['.tt-vat', ''],
+  ['.cg-pr-art', ''],
+  ['.cg-vs', ''],
+  ['.cg-tax', ''],
   ['main form', '']
 ];
 
@@ -128,7 +132,7 @@ function measure(el) {
       // Facebook mocks: the .fbm-* headings and the headline of a link bar.
       const fbTitle = /fbm-(ph|fh|ixh|rtitle)\b|ttm-(ph|fh)\b/.test(p.className)
         || (p.tagName === 'B' && p.parentElement.parentElement.classList.contains('fbm-ctabar'));
-      if (p.closest('[data-mock], .device, .browser') && (fbTitle || /title|mk-t\b|ad-title|mk-pn|mk-vt/.test(p.className))) {
+      if (p.closest('[data-mock], .device, .browser') && (fbTitle || /title|mk-t\b|ad-title|mk-pn|mk-vt|cgm-(adt|pn)\b/.test(p.className))) {
         const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.3;
         const lines = Math.round((p.offsetHeight || p.getBoundingClientRect().height) / lh);
         if (lines > 2 || p.scrollHeight > p.clientHeight + 2) out.longTitle.push(`${clip(t.textContent)} (${lines} dòng)`);
@@ -189,7 +193,7 @@ function measure(el) {
     }
   }
   // 6. No platform logos: pictures, drawn marks or classes named after them.
-  const brand = /tik\s?tok|capcut|lemon8|pangle|douyin|facebook|instagram|messenger/i;
+  const brand = /tik\s?tok|capcut|lemon8|pangle|douyin|facebook|instagram|messenger|openai|chatgpt/i;
   for (const img of el.querySelectorAll('img')) {
     const s = (img.getAttribute('src') || '') + ' ' + (img.getAttribute('alt') || '');
     if (brand.test(s) || /logo/i.test(s)) out.logo.push('ảnh ' + clip(s));
