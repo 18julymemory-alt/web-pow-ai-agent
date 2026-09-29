@@ -131,7 +131,7 @@ function agentPanel(stage = 'open') {
   ];
   const suggest = stage === 'suggest'
     ? '<div class="cgm-am is-shop"><p>Bạn có thể xem hai mẫu này, đều dưới 500 nghìn:</p>'
-      + `<div class="cgm-two">${productCard(5, {cls: 'is-sm'})}${productCard(2, {cls: 'is-sm'})}</div></div>`
+      + `<div class="cgm-two">${productCard(5, {cls: 'is-wide is-sm'})}${productCard(2, {cls: 'is-wide is-sm'})}</div></div>`
     : stage === 'site'
       ? '<div class="cgm-am is-me"><p>Lấy mẫu nến gỗ tuyết tùng, gói quà giúp mình</p></div>'
         + '<div class="cgm-am is-shop"><p>Mẫu này còn hàng, gói quà miễn phí. Bạn đặt trên website nhé:</p></div>'
@@ -369,7 +369,7 @@ export function heroStack() {
   const chat = `<div class="cgh-chat"><span class="cgh-q">${esc(QUESTION)}</span>`
     + '<span class="cgh-a"><i class="cgm-dot"></i><span class="cgm-bars"><i></i><i></i><i></i></span></span>'
     + `${sponsored()}${adCard({cls: 'is-mini'})}</div>`;
-  const car = `<div class="cgh-car">${productCard(5, {cls: 'is-sm'})}${productCard(2, {cls: 'is-sm'})}</div>`;
+  const car = `<div class="cgh-car">${productCard(5, {cls: 'is-sm'})}</div>`;
   const brand = `<div class="cgh-agent"><span class="cgh-bar">${BRAND} · Được tài trợ</span>`
     + '<p>Bạn đang chọn quà cho dịp gì?</p><p class="is-me">Quà tân gia, mùi gỗ</p></div>';
   const stats = '<div class="cgh-stats">' + [['Impressions', '42.000'], ['Clicks', '510'], ['CTR', '1,21%']]
