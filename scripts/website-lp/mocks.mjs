@@ -415,3 +415,25 @@ export function payload() {
 
 // Hero pictures reused by several pages: a small browser beside a phone.
 export const heroSite = () => homePage();
+
+/* ------------------------------------------------------------------ *
+ * Hero pictures
+ * ------------------------------------------------------------------ */
+// A campaign landing page on a desktop browser: promise + form on the first
+// screen, benefits and proof below, numbered like the chapter it explains.
+export function landingDesktop() {
+  return wrap(win(SHOP + '/qua-tet-doanh-nghiep', `<div class="wsm-lpd">${fav()}<b>${BRAND}</b></div>`
+    + '<div class="wsm-lpd-hero"><div><small>Ưu đãi đặt trước 15/12 (mẫu)</small><b class="wsm-t">Hộp quà Tết 3 nến in logo công ty</b>'
+    + '<p>Duyệt mẫu trong 48 giờ, giao theo danh sách địa chỉ.</p>' + img('s-desk', 'r169') + '</div>'
+    + `<div class="wsm-mini-form"><b>Nhận báo giá</b>${['Công ty', 'Số lượng hộp', 'Số điện thoại'].map(t => `<span>${t}</span>`).join('')}<i>Gửi yêu cầu</i></div></div>`
+    + `<div class="wsm-lpd-row">${[['check', 'Sáp đậu nành'], ['star', '4,8 · 1.200 đánh giá'], ['box', 'Đổi trả 7 ngày']].map(([ic, t]) => `<span>${icon(ic)}${t}</span>`).join('')}</div>`));
+}
+
+// Hero scene: one large screen, an optional phone, numbered callouts naming
+// the parts that matter, and a badge saying which group the page belongs to.
+export function scene({badge, main, side = '', calls}) {
+  return `<div class="tp-scene" id="heroStack"><span class="tp-badge">${esc(badge)}</span>`
+    + `<div class="tp-main">${main}</div>` + (side ? `<div class="tp-side">${side}</div>` : '')
+    + calls.map(([t, d], i) => `<span class="tp-call tp-c${i}"><i>${i + 1}</i><b>${esc(t)}</b><em>${esc(d)}</em></span>`).join('')
+    + '</div>';
+}

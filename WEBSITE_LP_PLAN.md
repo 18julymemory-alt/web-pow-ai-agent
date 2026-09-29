@@ -25,8 +25,11 @@ hỏi đáp, form liên hệ, "Xem thêm").
   (định nghĩa, lựa chọn, quy trình, chuẩn bị, chi phí, chỉ số, hỏi đáp của nhóm Website).
 - Renderer dùng chung `scripts/one-page-lp/render.mjs`; trang website đổi tên chương qua các
   trường tùy chọn (`toc`, `eyebrow`, `rollout.lead`, `measure.sample`, `contact`).
-- Tám chương: 01 Khi nào cần · 02 Hạng mục (tên riêng theo từng trang) · 03 Cần chuẩn bị ·
-  04 Tình huống / trạng thái · 05 Đo lường · 06 Triển khai · 07 Hỏi đáp · 08 Liên hệ.
+- Hero riêng từng trang (`scripts/website-lp/extra.mjs`): hình lớn của chính dịch vụ (trang đích,
+  trình quản trị, báo cáo tốc độ…), điện thoại, 3 chú thích đánh số và nhãn "Website & Landing Page · Dịch vụ".
+- Khung "X là gì?" ngay dưới hero: định nghĩa ngắn và 3 ý (dùng khi, khác gì, đo bằng gì).
+- Chín chương: 01 Khi nào cần · 02 Cốt lõi (6 điểm quan trọng + bàn giao / tính riêng) · 03 Hạng mục ·
+  04 Cần chuẩn bị · 05 Tình huống · 06 Đo lường · 07 Triển khai · 08 Hỏi đáp · 09 Liên hệ.
 - Dữ liệu trong `scripts/website-lp/<module>.mjs`, hình minh họa trong `scripts/website-lp/mocks.mjs`
   (lớp `wsm-*`), CSS trong `dist/website-lp.css` (mọi quy tắc nằm dưới `.ws-lp`, ≤ 25 KB, không `!important`).
 - Mỗi mục là một dòng `CHANNELS` (`web(...)` trong shared.mjs) với breadcrumb của nhóm Website.

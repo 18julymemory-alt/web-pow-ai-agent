@@ -3,9 +3,10 @@
 // this one works on the website itself, whatever the traffic source.
 import {dropoff, scrollMap, hypothesis, splitTest, contactForm, checkout, crm, usability, vitals} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'cro-toi-uu-chuyen-doi',
   channel: 'webCro',
   name: 'CRO – tối ưu chuyển đổi',
@@ -144,4 +145,4 @@ export default {
       ['Thử một thay đổi', 'Đủ mẫu mới kết luận.', '#do-luong', 'sliders']]
   },
   sisters: sisters('ui-ux', 'landing-page', 'toi-uu-toc-do')
-};
+});

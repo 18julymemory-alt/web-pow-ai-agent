@@ -28,8 +28,11 @@ workbench, phễu đánh giá, lộ trình, hỏi đáp, form liên hệ, "Xem t
   đánh giá ứng dụng, chứng nhận, ngân sách chạy thật).
 - `scripts/training-lp/course.mjs` dựng phần chung của mọi khóa (tên chương, lộ trình 5 bước,
   đánh giá Hiểu → Làm → Ứng dụng, hai câu hỏi chung); mỗi module khóa học chỉ đưa phần riêng.
-- Tám chương: 01 Dành cho ai · 02 Chương trình học · 03 Cần chuẩn bị · 04 Bài thực hành ·
-  05 Đánh giá · 06 Lộ trình · 07 Hỏi đáp · 08 Liên hệ.
+- Hero riêng từng khóa (`scripts/training-lp/extra.mjs`): hình của chính môn học (quảng cáo tìm kiếm,
+  kịch bản video, luồng sự kiện…), bài học trên điện thoại, 3 chú thích và nhãn "Đào tạo Digital Marketing · Khóa học".
+- Khung "Khóa X học gì?" dưới hero: mô tả ngắn và 3 ý (dành cho, thực hành, học thêm / theo tài liệu).
+- Chín chương: 01 Dành cho ai · 02 Cốt lõi (6 kiến thức cốt lõi + học xong làm được / không hứa) ·
+  03 Chương trình · 04 Cần chuẩn bị · 05 Thực hành · 06 Đánh giá · 07 Lộ trình · 08 Hỏi đáp · 09 Liên hệ.
 - Hình minh họa: `scripts/training-lp/mocks.mjs` (lớp `trm-*`: đề cương, màn hình bài học, lịch học,
   đề bài, tiêu chí chấm, nhận xét bài, ma trận kỹ năng, kế hoạch một trang, nhóm từ khóa, kế hoạch
   sự kiện, luồng sự kiện, thẻ/trình kích hoạt/biến, yêu cầu AI có nguồn, luồng tự động, brief, lịch

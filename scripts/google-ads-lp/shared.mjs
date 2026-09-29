@@ -42,7 +42,7 @@ const FOOTER = '<footer class="page-footer">'
 
 const SKY = '<div class="ga-sky" aria-hidden="true"><i></i><i></i></div>';
 
-export const V = '2';
+export const V = '3';
 
 /* ------------------------------------------------------------------ *
  * Navigation between the three landing pages of each channel

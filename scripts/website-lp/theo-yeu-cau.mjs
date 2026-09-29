@@ -1,9 +1,10 @@
 // Website theo yêu cầu — one landing page (WEBSITE_LP_PLAN.md).
 import {userStory, modules, environments, roles, flow, uiStates, fieldMap, syncLog} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'website-theo-yeu-cau',
   channel: 'webCustom',
   name: 'Website theo yêu cầu',
@@ -142,4 +143,4 @@ export default {
       ['Làm theo đợt', 'Dùng thật rồi làm tiếp.', '#trien-khai', 'route']]
   },
   sisters: sisters('tich-hop-he-thong', 'ui-ux', 'bao-tri-website')
-};
+});

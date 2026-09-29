@@ -1,9 +1,10 @@
 // Tích hợp hệ thống — one landing page (WEBSITE_LP_PLAN.md).
 import {pipeline, fieldMap, syncLog, payload, contactForm, crm, environments, leadDone} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'tich-hop-he-thong',
   channel: 'webIntegrate',
   name: 'Tích hợp hệ thống',
@@ -142,4 +143,4 @@ export default {
       ['Đối soát', 'Website ↔ CRM.', '#do-luong', 'list']]
   },
   sisters: sisters('website-theo-yeu-cau', 'website-ban-hang', 'bao-tri-website')
-};
+});

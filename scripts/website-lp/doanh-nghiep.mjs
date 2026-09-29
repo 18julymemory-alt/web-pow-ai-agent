@@ -3,9 +3,10 @@
 // service-editorial-chapters.mjs; external facts from sources.mjs.
 import {sitemap, homePage, servicePage, projects, mobileSite, contactForm, editor, crm, dropoff} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'website-doanh-nghiep',
   channel: 'webCorp',
   name: 'Website doanh nghiệp',
@@ -146,4 +147,4 @@ export default {
       ['Đo hoàn tất', 'Gửi thành công và khách phù hợp.', '#do-luong', 'chart']]
   },
   sisters: sisters('landing-page', 'wordpress', 'ui-ux')
-};
+});
