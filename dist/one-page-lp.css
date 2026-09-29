@@ -15,6 +15,7 @@ body.op-lp{--oi:#1b2733;--os:#5f6773;--ol:#e2e7ee;--of:#f3f5f8;--og:#1f7a55}
 .sp-ico{display:grid;place-items:center;width:72px;height:72px;border-radius:20px;background:#fff;box-shadow:0 10px 22px #0b182926,inset 0 0 0 1px #c7d4e0;.ico{width:32px;height:32px;color:#16283c}}
 .sp-tiles>.sp-tile:last-child:nth-child(odd){grid-column:1/-1}
 .checklist[data-checklist]{margin-top:8px}
+.bp-frames:has(>.opm){display:block;min-width:0;>.opm{max-width:100%;min-width:0}.mk-url{min-width:0;overflow:hidden}.mk-url span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 
 /* mocks */
 .opm,.opm-phone{font-family:system-ui,"Segoe UI",Roboto,sans-serif;font-size:13px;line-height:1.4;color:var(--oi);text-align:left}

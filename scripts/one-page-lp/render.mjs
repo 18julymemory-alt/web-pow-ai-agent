@@ -139,7 +139,7 @@ export function renderPage(P) {
   });
 
   /* ------------------------------ 08 contact ----------------------------- */
-  const ch8 = contactChapter({goals: P.contactGoals, website: 'Website hoặc trang đích'});
+  const ch8 = contactChapter({goals: P.contactGoals, website: 'Website hoặc trang đích', num: 8});
 
   /* -------------------------------- recap -------------------------------- */
   const sister = ([title, text, href]) => nextBlock({eyebrow: 'XEM THÊM', title, text, href, cta: 'Xem ' + title});

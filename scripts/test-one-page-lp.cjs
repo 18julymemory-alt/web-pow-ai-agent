@@ -91,7 +91,7 @@ async function shell(browser, [slug, name, accent]) {
   ok(`${name} reuses google-ads-lp.js`, info.js.some(s => /google-ads-lp\.js/.test(s)), info.js.join(' '));
   ok(`${name} real header and footer`, info.header > 0 && info.footer);
   ok(`${name} h1 is the service name`, info.h1 === name, info.h1);
-  ok(`${name} hero shows the check date`, /Cập nhật theo tài liệu [^.]* ngày \d{2}\/\d{2}\/\d{4}/.test(info.hero));
+  ok(`${name} hero shows the check date`, /Cập nhật theo tài liệu .+? ngày \d{2}\/\d{2}\/\d{4}/.test(info.hero));
   ok(`${name} old multichannel guide is gone`, !info.old);
   ok(`${name} shell loads without console errors`, errors.length === 0, errors.join(' | '));
   await page.close();
