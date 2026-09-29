@@ -7,9 +7,7 @@ const flow=words=>`<div class="scene-flow">${words.map((w,i)=>`${i?'<i>↓</i>':
 const product='<div class="product-object"><i></i><b></b></div>';
 function commerce(title,j){
  if(title==='TikTok Shop')return `<div class="tiktok-shop-scene"><span>VIDEO × SẢN PHẨM</span><strong>Khám phá.<br>Trải nghiệm.<br>Đặt hàng.</strong>${product}<div><b>Sản phẩm trong video</b><small>Xem chi tiết →</small></div></div>`;
- if(title==='Lazada')return `<div class="shop-head"><b>Lazada / Gian hàng</b><span>⌕</span></div><div class="market-banner">Danh mục rõ ràng.<br><strong>Dễ tìm sản phẩm.</strong></div><div class="market-grid">${['Sản phẩm nổi bật','Bộ sưu tập','Thông tin chi tiết','Hỗ trợ khách hàng'].map(w=>`<span><i></i><b>${w}</b></span>`).join('')}</div>`;
 
- if(/Livestream/.test(title))return `<div class="commerce-live"><span class="scene-label">KỊCH BẢN PHIÊN LIVE</span>${product}<strong>Giới thiệu · Trải nghiệm · Tư vấn</strong><small>Sản phẩm trọng tâm → Tiếp nhận nhu cầu</small></div>`;
  if(/Vận hành|Thiết lập/.test(title))return `<div class="commerce-ops"><span class="scene-label">GIAN HÀNG / VẬN HÀNH</span>${['Danh mục sản phẩm','Thông tin & hình ảnh','Xử lý yêu cầu'].map((w,i)=>`<div><b>0${i+1}</b><span>${w}</span><i>→</i></div>`).join('')}</div>`;
  return `<div class="shop-head"><b>${escape(title)}</b><span>⌕ &nbsp; ▢</span></div><div class="shop-feature">${product}<div><small>BỘ SƯU TẬP THƯƠNG HIỆU</small><strong>Sản phẩm rõ nét.<br>Lựa chọn dễ dàng.</strong><span>Khám phá sản phẩm ↗</span></div></div><div class="shop-products">${['Thông tin','Hình ảnh','Lợi ích'].map(w=>`<span><i></i><b>${w}</b></span>`).join('')}</div>`;
 }

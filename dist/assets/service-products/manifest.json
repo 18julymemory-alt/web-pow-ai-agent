@@ -169,20 +169,6 @@
   },
   {
     "group": "thuong-mai-dien-tu",
-    "title": "Lazada",
-    "href": "/dich-vu/thuong-mai-dien-tu/lazada/",
-    "key": "thuong-mai-dien-tu--lazada",
-    "mode": "shop",
-    "subtitle": "Gian hàng Lazada",
-    "labels": [
-      "Bộ sưu tập",
-      "Danh mục sản phẩm",
-      "Chi tiết sản phẩm",
-      "Giỏ hàng"
-    ]
-  },
-  {
-    "group": "thuong-mai-dien-tu",
     "title": "Website bán hàng",
     "href": "/dich-vu/thuong-mai-dien-tu/website-ban-hang/",
     "key": "thuong-mai-dien-tu--website-ban-hang",
@@ -249,20 +235,6 @@
       "Xác nhận",
       "Đóng gói",
       "Bàn giao"
-    ]
-  },
-  {
-    "group": "thuong-mai-dien-tu",
-    "title": "Livestream bán hàng",
-    "href": "/dich-vu/thuong-mai-dien-tu/livestream-ban-hang/",
-    "key": "thuong-mai-dien-tu--livestream-ban-hang",
-    "mode": "video",
-    "subtitle": "Phiên live có kịch bản",
-    "labels": [
-      "Sản phẩm lên sóng",
-      "Kịch bản live",
-      "Tư vấn trực tiếp",
-      "Giỏ hàng"
     ]
   },
   {

@@ -11,7 +11,7 @@ body.ws-lp{--wi:#1b2733;--ws:#5f6773;--wl:#e2e7ee;--wf:#f3f5f8;--wg:#1f7a55;--wr
 & b,& strong{font-weight:600}
 & code{font:11px/1.3 ui-monospace,Consolas,monospace;color:#3d4a5c;overflow-wrap:normal}
 & .ico{width:14px;height:14px;flex:none}
-& .mk-win{max-width:100%;min-width:0}& .mk-chrome,& .mk-url{min-width:0}& .mk-url{overflow:hidden}& .mk-url span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+& .mk-win{max-width:100%;min-width:0}& .mk-chrome,& .mk-url{min-width:0}& .mk-url{overflow:hidden}& .mk-url span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .bp-frames:has(>.wsm){display:block;min-width:0}
 .wsm-win{display:grid;gap:10px;padding:14px}
 :is(.wsm-h,.wsm-nav,.wsm-pnav,.wsm-stock,.wsm-ship,.wsm-block,.wsm-cms aside span,.wsm-ri,.wsm-stars,.wsm-sticky span,.wsm-pmenu span,.wsm-side span,.wsm-out,.wsm-sw span){display:flex;align-items:center;gap:6px}
