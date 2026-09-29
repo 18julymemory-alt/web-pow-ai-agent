@@ -369,6 +369,8 @@ const sheetUrls = base => ({formats: base, goals: base + 'chon-cach-chay/', budg
 
 // One row per channel, picked by body class; google is the default row.
 const CHANNELS = [
+  // One-page services: no legacy hashes to move, so nothing redirects.
+  {cls: 'op-lp', urls: {}, resolve: () => null},
   {cls: 'fb-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/facebook-ads/'), resolve: resolveFbHash},
   {cls: 'tt-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/tiktok-ads/'), resolve: resolveTtHash},
   {cls: 'zl-lp', urls: sheetUrls('/dich-vu/quang-cao-da-kenh/zalo-ads/'), resolve: resolveZlHash},
