@@ -12,12 +12,12 @@ export {checkout, dropoff, splitTest, match, leadDone, crm, form} from '../one-p
 
 export const wrap = (html, cls = '') => `<div class="wsm${cls ? ' ' + cls : ''}" data-mock>${html}</div>`;
 // Internal screens (admin, logs, specs) sit on the sample brand's own domain.
-const inside = url => url.startsWith(SHOP) ? url : 'quantri.' + SHOP + ' › ' + url;
-const box = (url, title, ic, body, note = '') => wrap(win(inside(url), '<div class="wsm-win">'
+const inside = url => url.includes(SHOP) ? url : 'quantri.' + SHOP + ' › ' + url;
+export const box = (url, title, ic, body, note = '') => wrap(win(inside(url), '<div class="wsm-win">'
   + (title ? `<b class="wsm-h">${icon(ic)}${esc(title)}</b>` : '') + body
   + (note ? `<p class="wsm-note">${esc(note)}</p>` : '') + '</div>'));
-const phone = (inner, cls = '') => wrap(handset(`<div class="wsm-ph ${cls}">${inner}</div>`, {cls: 'wsm-phone'}));
-const chip = (t, cls = '') => `<span class="wsm-chip${cls ? ' ' + cls : ''}">${esc(t)}</span>`;
+export const phone = (inner, cls = '') => wrap(handset(`<div class="wsm-ph ${cls}">${inner}</div>`, {cls: 'wsm-phone'}));
+export const chip = (t, cls = '') => `<span class="wsm-chip${cls ? ' ' + cls : ''}">${esc(t)}</span>`;
 const nav = (items = ['Giới thiệu', 'Dịch vụ', 'Dự án', 'Liên hệ'], hot = -1) => `<div class="wsm-nav">${fav()}<b>${BRAND}</b>`
   + `<span class="wsm-menu">${items.map((t, i) => `<i${i === hot ? ' class="is-on"' : ''}>${esc(t)}</i>`).join('')}</span></div>`;
 

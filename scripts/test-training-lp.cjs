@@ -1,6 +1,6 @@
-// Playwright checks for the ten Website & Landing Page service pages
-// (WEBSITE_LP_PLAN.md), one landing page each on the one-page frame.
-// Usage: node scripts/test-website-lp.cjs   (serve.mjs must be on 127.0.0.1:4173)
+// Playwright checks for the thirteen Đào tạo Digital Marketing course pages
+// (TRAINING_LP_PLAN.md), one landing page each on the one-page frame.
+// Usage: node scripts/test-training-lp.cjs   (serve.mjs must be on 127.0.0.1:4173)
 //
 // Same frame as the three-page channels: shell, no sideways scroll at
 // 320–1920 px, eight numbered chapters that follow the index, a picture or
@@ -12,20 +12,24 @@ const {chromium} = require('C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-r
 const fs = require('fs');
 const path = require('path');
 
-const BASE = 'http://127.0.0.1:4173/dich-vu/website-landing-page/';
-const OFFICIAL = /web\.dev|w3\.org|developer\.mozilla\.org|wordpress\.org|developers\.google\.com|support\.google\.com|owasp\.org|online\.gov\.vn/;
+const BASE = 'http://127.0.0.1:4173/dich-vu/dao-tao-digital-marketing/';
+const OFFICIAL = /web\.dev|developer\.mozilla\.org|developers\.google\.com|support\.google\.com|skillshop\.withgoogle\.com|facebook\.com|ads\.tiktok\.com|owasp\.org/;
 const PAGES = [
-  ['website-doanh-nghiep', 'Website doanh nghiệp', '#9fc8ff'],
-  ['website-ban-hang', 'Website bán hàng', '#ffc59a'],
-  ['landing-page', 'Landing Page', '#f3a9c9'],
-  ['wordpress', 'WordPress', '#a9c4ec'],
-  ['website-theo-yeu-cau', 'Website theo yêu cầu', '#b9a8f2'],
-  ['ui-ux', 'UI/UX', '#e0b3ff'],
-  ['cro-toi-uu-chuyen-doi', 'CRO – tối ưu chuyển đổi', '#f0d28a'],
-  ['bao-tri-website', 'Bảo trì Website', '#9fe0c9'],
-  ['toi-uu-toc-do', 'Tối ưu tốc độ', '#8fe3f0'],
-  ['tich-hop-he-thong', 'Tích hợp hệ thống', '#b8e08f']
+  ['digital-marketing-tong-the', 'Digital Marketing tổng thể', '#9fd8ff'],
+  ['google-ads', 'Google Ads', '#a8c8ff'],
+  ['facebook-ads', 'Facebook Ads', '#9db8f5'],
+  ['tiktok-ads', 'TikTok Ads', '#f5a3c0'],
+  ['seo', 'SEO', '#a6e3b8'],
+  ['content-marketing', 'Content Marketing', '#f3c79a'],
+  ['social-media-marketing', 'Social Media Marketing', '#d4b3ff'],
+  ['website-marketing', 'Website Marketing', '#9fc8ff'],
+  ['ga4-tracking', 'GA4 & Tracking', '#ffd08a'],
+  ['ai-marketing', 'AI Marketing', '#8fe3d6'],
+  ['automation', 'Automation', '#b8e08f'],
+  ['marketing-thuc-chien-cho-doanh-nghiep', 'Marketing thực chiến cho doanh nghiệp', '#ffb89a'],
+  ['dao-tao-doi-ngu-marketing-noi-bo', 'Đào tạo đội ngũ Marketing nội bộ', '#c9d0ff']
 ].map(p => [...p, 'Tài liệu tham khảo:', OFFICIAL]);
+const TOC = ['Dành cho ai', 'Chương trình học', 'Cần chuẩn bị', 'Bài thực hành', 'Đánh giá', 'Lộ trình', 'Hỏi đáp', 'Liên hệ'];
 const CHAPTERS = ['khi-nao', 'dinh-dang', 'chuan-bi', 'muc-tieu', 'do-luong', 'trien-khai', 'faq', 'lien-he'];
 const WIDTHS = [320, 390, 768, 1024, 1440, 1920];
 const ROOT = path.resolve(__dirname, '..');
@@ -49,31 +53,32 @@ async function open(browser, url, width = 1440) {
 
 /* ---------------- files --------------------------------------------------- */
 function files() {
-  const css = fs.readFileSync(path.join(ROOT, 'dist/website-lp.css'), 'utf8');
-  ok('website-lp.css ≤ 25 KB', Buffer.byteLength(css) <= 25 * 1000, `${Buffer.byteLength(css)} bytes`);
-  ok('website-lp.css has no !important', !/!important/.test(css));
+  const css = fs.readFileSync(path.join(ROOT, 'dist/training-lp.css'), 'utf8');
+  ok('training-lp.css ≤ 25 KB', Buffer.byteLength(css) <= 25 * 1000, `${Buffer.byteLength(css)} bytes`);
+  ok('training-lp.css has no !important', !/!important/.test(css));
   const rules = css.replace(/\/\*[\s\S]*?\*\//g, '');
-  ok('website-lp.css is scoped to .ws-lp', /^\s*body\.ws-lp\{[^}]*\}\s*\.ws-lp\{/.test(rules)
-    && rules.split('@media').slice(1).every(m => /^[^{]*\{\s*\.ws-lp[\s{]/.test(m)));
-  ok('website-lp.css: no rotate, tilt at most 4°', !/rotate|skew/.test(rules));
+  ok('training-lp.css is scoped to .tr-lp', /^\s*body\.tr-lp\{[^}]*\}\s*\.tr-lp\{/.test(rules)
+    && rules.split('@media').slice(1).every(m => /^[^{]*\{\s*\.tr-lp[\s{]/.test(m)));
+  ok('training-lp.css: no rotate, tilt at most 4°', !/rotate|skew/.test(rules));
 
-  const dir = path.join(ROOT, 'scripts/website-lp');
+  const dir = path.join(ROOT, 'scripts/training-lp');
   const mods = fs.readdirSync(dir).filter(f => f.endsWith('.mjs')).sort();
-  const DATA = ['ban-hang', 'bao-tri', 'cro', 'doanh-nghiep', 'landing-page', 'theo-yeu-cau', 'tich-hop', 'toc-do', 'ui-ux', 'wordpress'];
-  ok('website modules', mods.join() === [...DATA, 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
+  const DATA = ['ai', 'automation', 'content', 'doi-ngu', 'facebook-ads', 'ga4', 'google-ads', 'seo', 'social', 'thuc-chien', 'tiktok-ads', 'tong-the', 'website'];
+  ok('training modules', mods.join() === [...DATA, 'course', 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
   const src = mods.map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n');
   ok('modules reuse the Google Ads kit', /from '\.\.\/google-ads-lp\//.test(src));
   ok('modules do not import google-ads-page.mjs or the old service guide', !/google-ads-page\.mjs|service-guide/.test(src));
+  ok('modules reuse the website mocks', /from '\.\.\/website-lp\/mocks\.mjs'/.test(src));
   ok('sources carry a check date', /export const CHECKED = '\d{4}-\d{2}-\d{2}'/.test(fs.readFileSync(path.join(dir, 'sources.mjs'), 'utf8')));
   ok('every data module re-exports the check date', DATA.every(m => /export \{CHECKED\}/.test(fs.readFileSync(path.join(dir, m + '.mjs'), 'utf8'))));
   const hosts = [...fs.readFileSync(path.join(dir, 'sources.mjs'), 'utf8').matchAll(/'(https:\/\/[^']+)'/g)].map(m => new URL(m[1]).host);
   ok('every source is official documentation', hosts.length > 5 && hosts.every(h => OFFICIAL.test(h)), [...new Set(hosts)].join(' '));
 
   const shared = fs.readFileSync(path.join(ROOT, 'scripts/google-ads-lp/shared.mjs'), 'utf8');
-  ok('shared.mjs has one CHANNELS row per website page', (shared.match(/\n  web[A-Z]\w+: web\('/g) || []).length === 10);
+  ok('shared.mjs has one CHANNELS row per course', (shared.match(/\n  edu[A-Z]\w+: edu\('/g) || []).length === 13);
   ok('shared.mjs has no per-channel if/else', !/(channel|ch)\s*===?\s*'[a-z]+'/.test(shared));
   const build = fs.readFileSync(path.join(ROOT, 'scripts/build-service-pages.mjs'), 'utf8');
-  ok('build: WEB_PAGE + --website-only', /const WEB_PAGE=/.test(build) && /--website-only/.test(build));
+  ok('build: EDU_PAGE + --training-only', /const EDU_PAGE=/.test(build) && /--training-only/.test(build));
 }
 
 /* ---------------- shell + layout ----------------------------------------- */
@@ -91,16 +96,16 @@ async function shell(browser, [slug, name, accent]) {
     old: /multichannel|mc-hero|ga-sheet-panel|service-row|scope-grid/.test(document.querySelector('main').outerHTML),
     crumb: [...document.querySelectorAll('.ga-hero .crumbs a')].map(a => a.getAttribute('href') + ' ' + a.textContent).join(' | ')
   }));
-  ok(`${name} body class ga-lp op-lp ws-lp`, /\bga-lp\b/.test(info.body) && /\bop-lp\b/.test(info.body) && /\bws-lp\b/.test(info.body), info.body);
+  ok(`${name} body class ga-lp op-lp ws-lp tr-lp`, /\bga-lp\b/.test(info.body) && /\bop-lp\b/.test(info.body) && /\bws-lp\b/.test(info.body) && /\btr-lp\b/.test(info.body), info.body);
   ok(`${name} accent ${accent}`, info.accent === accent, info.accent);
-  ok(`${name} loads google-ads-lp.css + one-page-lp.css + website-lp.css`, info.css.some(h => /google-ads-lp\.css/.test(h)) && info.css.some(h => /one-page-lp\.css/.test(h)) && info.css.some(h => /website-lp\.css/.test(h)),
+  ok(`${name} loads google-ads-lp.css + one-page-lp.css + website-lp.css + training-lp.css`, ['google-ads-lp', 'one-page-lp', 'website-lp', 'training-lp'].every(c => info.css.some(h => h.includes('/' + c + '.css'))),
     info.css.join(' '));
   ok(`${name} reuses google-ads-lp.js`, info.js.some(s => /google-ads-lp\.js/.test(s)), info.js.join(' '));
   ok(`${name} real header and footer`, info.header > 0 && info.footer);
   ok(`${name} h1 is the service name`, info.h1 === name, info.h1);
   ok(`${name} hero shows the check date`, /Cập nhật theo tài liệu .+? ngày \d{2}\/\d{2}\/\d{4}/.test(info.hero));
   ok(`${name} old service guide is gone`, !info.old);
-  ok(`${name} breadcrumb goes through Website & Landing Page`, info.crumb.includes('/dich-vu/website-landing-page/ Website & Landing Page'), info.crumb);
+  ok(`${name} breadcrumb goes through Đào tạo Digital Marketing`, info.crumb.includes('/dich-vu/dao-tao-digital-marketing/ Đào tạo Digital Marketing'), info.crumb);
   ok(`${name} shell loads without console errors`, errors.length === 0, errors.join(' | '));
   await page.close();
 }
@@ -248,8 +253,10 @@ async function interact(browser, [slug, name]) {
   const body = await page.evaluate(() => document.querySelector('main').textContent.replace(/\s+/g, ' '));
   ok(`${name} phễu ghi rõ số mẫu`, body.includes('Số mẫu, không phải kết quả dự kiến'));
   ok(`${name} có phần Đọc tiếp`, body.includes('Đọc tiếp'));
-  const FACTS = {'toi-uu-toc-do': ['LCP ≤ 2,5 s', 'INP ≤ 200 ms', 'CLS ≤ 0,1', 'phân vị 75'], 'website-ban-hang': ['online.gov.vn'],
-    'wordpress': ['Biên tập viên', 'Tác giả', 'Cộng tác viên']};
+  const FACTS = {'google-ads': ['tài khoản, chiến dịch, nhóm quảng cáo', 'Skillshop'], 'facebook-ads': ['khách hàng tiềm năng', 'Blueprint'],
+    'tiktok-ads': ['nhận biết, cân nhắc, chuyển đổi'], 'ga4-tracking': ['DebugView', 'generate_lead'], 'ai-marketing': ['không phải cách tạo']};
+  const toc = await page.$$eval('.panel-toc a', as => as.map(a => a.textContent.replace(/^\s*\d+\s*/, '').trim()));
+  ok(`${name} mục lục dùng tên chương của khóa học`, TOC.every((t, i) => (toc[i] || '').includes(t)), toc.join(' | '));
   for (const f of FACTS[slug] || []) ok(`${name} nêu "${f}" theo nguồn`, body.includes(f));
 
   const boxes = await page.$$('#trien-khai [data-checklist] input[type="checkbox"]');
@@ -277,7 +284,7 @@ async function interact(browser, [slug, name]) {
   ok(`${name} form ở lại trang và báo chưa nối nơi nhận`, form.url.endsWith(`/${slug}/`) && /\[HOTLINE\]/.test(form.status), form.status);
 
   const more = await page.$$eval('.op-more .next a', as => as.map(a => a.getAttribute('href')));
-  ok(`${name} có khối xem thêm sang trang cùng nhóm`, more.length === 3 && more.every(h => /^\/dich-vu\/website-landing-page\/[a-z0-9-]+\/$/.test(h) && !h.endsWith(`/${slug}/`)), more.join(' | '));
+  ok(`${name} có khối xem thêm sang trang cùng nhóm`, more.length === 3 && more.every(h => /^\/dich-vu\/dao-tao-digital-marketing\/[a-z0-9-]+\/$/.test(h) && !h.endsWith(`/${slug}/`)), more.join(' | '));
   const bad = [];
   for (const h of more) { const r = await page.request.get('http://127.0.0.1:4173' + h); if (r.status() !== 200) bad.push(h + ' ' + r.status()); }
   ok(`${name} liên kết xem thêm mở được`, !bad.length, bad.join(' | '));
