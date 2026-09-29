@@ -77,16 +77,19 @@ async function buildChatGPTAds(){
 }
 // The smaller services: one landing page each (ONE_PAGE_ADS_PLAN.md).
 const ONE_PAGE={'instagram-ads':'instagram','youtube-ads':'youtube','remarketing':'remarketing','performance-marketing':'performance','toi-uu-chuyen-doi-quang-cao':'cro'};
-async function buildOnePage(slug){
+// Website & Landing Page: one landing page per service (WEBSITE_LP_PLAN.md).
+const WEB_PAGE={'website-doanh-nghiep':'doanh-nghiep','website-ban-hang':'ban-hang','landing-page':'landing-page','wordpress':'wordpress','website-theo-yeu-cau':'theo-yeu-cau','ui-ux':'ui-ux','cro-toi-uu-chuyen-doi':'cro','bao-tri-website':'bao-tri','toi-uu-toc-do':'toc-do','tich-hop-he-thong':'tich-hop'};
+async function buildOnePage(slug,dir='one-page-lp',file=ONE_PAGE[slug]){
  const {document_}=await import('./google-ads-lp/shared.mjs');
  const {renderPage,channelOf}=await import('./one-page-lp/render.mjs');
- const P=(await import(`./one-page-lp/${ONE_PAGE[slug]}.mjs`)).default;
+ const P=(await import(`./${dir}/${file}.mjs`)).default;
  const ch=channelOf(P);
  const {CHANNELS}=await import('./google-ads-lp/shared.mjs');
  await save(CHANNELS[ch].pages[0].href,document_({...P.meta,page:'one',channel:ch,body:renderPage(P)}));
  return 1;
 }
 if(process.argv.includes('--onepage-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const slug of Object.keys(ONE_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug);}console.log(`Built ${n} one-page service pages only.`);process.exit(0);}
+if(process.argv.includes('--website-only')){const only=process.argv.find(a=>a.startsWith('--slug='));let n=0;for(const [slug,file] of Object.entries(WEB_PAGE)){if(only&&only.slice(7)!==slug)continue;n+=await buildOnePage(slug,'website-lp',file);}console.log(`Built ${n} website service pages only.`);process.exit(0);}
 if(process.argv.includes('--chatgpt-only')){await buildChatGPTAds();console.log('Built ChatGPT Ads only.');process.exit(0);}
 if(process.argv.includes('--zalo-only')){await buildZaloAds();console.log('Built Zalo Ads only.');process.exit(0);}
 if(process.argv.includes('--tiktok-only')){await buildTikTokAds();console.log('Built TikTok Ads only.');process.exit(0);}
@@ -112,6 +115,7 @@ for(const [i,g]of services.entries()){
   if(i===0&&child.slug==='chatgpt-ads'){total+=await buildChatGPTAds();continue;}
   if(i===0&&ONE_PAGE[child.slug]){total+=await buildOnePage(child.slug);continue;}
   if(i===0){await save(child.href,shell(child.title,c.focus[j],multichannelPage(child,j)));total++;continue;}
+  if(g.slug==='website-landing-page'&&WEB_PAGE[child.slug]){total+=await buildOnePage(child.slug,'website-lp',WEB_PAGE[child.slug]);continue;}
   if(i>0){await save(child.href,shell(child.title,c.focus[j],serviceGuide(i,child,j,c)));total++;continue;}
   const related=g.children.filter(x=>x!==child).slice(0,4).map(x=>`<a href="${x.href}">${esc(x.title)} <span>↗</span></a>`).join('');
   const detailVisual=`<figure class="page-art detailed-service-art" style="--channel-color:${tones[i]}">${i===0?adsDetailVisual(j):serviceVisual(i,child,j)}<figcaption>${esc(child.title)} / ${i===8?'CHƯƠNG TRÌNH THỰC HÀNH':'MINH HỌA GIẢI PHÁP'}</figcaption></figure>`;

@@ -12,9 +12,9 @@ const pad2 = n => String(n).padStart(2, '0');
 /* ------------------------------------------------------------------ *
  * Hero copy block. `stage` is the trusted 3D picture on the right.
  * ------------------------------------------------------------------ */
-export function heroBlock({crumb, eyebrow, title, sub, lead, primary, ghost, stage}) {
+export function heroBlock({crumb, group, eyebrow, title, sub, lead, primary, ghost, stage}) {
   return '<section class="ga-hero"><div class="wrap hero-inner"><div class="hero-copy">'
-    + crumbs(crumb)
+    + crumbs(crumb, group)
     + kicker(eyebrow)
     + `<h1>${esc(title)}</h1>`
     + `<p class="hero-sub">${sub}</p>`
@@ -152,10 +152,10 @@ export const imgFor = r => r > 1.2 ? 's-shelf' : r < .8 ? 's-tall' : 's6';
 
 export {ratioFrame, charBox};
 
-export function blueprint(texts, frames) {
+export function blueprint(texts, frames, label = 'BẢN VẼ KÍCH THƯỚC') {
   return texts.length || frames.length
     ? `<div class="bp${texts.length && frames.length ? ' has-both' : ''}">`
-      + `<span class="bp-tag">${icon('sliders')}BẢN VẼ KÍCH THƯỚC</span>`
+      + `<span class="bp-tag">${icon('sliders')}${esc(label)}</span>`
       + (texts.length ? `<div class="bp-text">${texts.join('')}</div>` : '')
       + (frames.length ? `<div class="bp-frames">${frames.join('')}</div>` : '')
       + '</div>'
@@ -469,7 +469,9 @@ function field({name, label, hint = '', type = 'text', required = false}) {
 }
 
 // goals: [[value, label]] for the "Mục tiêu chính" select.
-export function contactChapter({goals, website = 'Website hoặc trang đích', num = 9}) {
+export function contactChapter({goals, website = 'Website hoặc trang đích', num = 9, budget = 'Ngân sách dự kiến mỗi tháng',
+  title = 'Gửi bối cảnh, nhận đề xuất cách chạy.',
+  hint = 'POWAI cần biết doanh nghiệp bán gì, phục vụ khu vực nào và hiện nhận khách qua đâu. Ba thông tin đó quyết định phần lớn cách chạy được đề xuất.'}) {
   const options = ['<option value="">Chưa xác định</option>']
     .concat(goals.map(([id, title]) => `<option value="${id}">${esc(title)}</option>`)).join('');
 
@@ -484,7 +486,7 @@ export function contactChapter({goals, website = 'Website hoặc trang đích', 
     + field({name: 'phone', label: 'Số điện thoại', type: 'tel', required: true})
     + field({name: 'email', label: 'Email', type: 'email'})
     + field({name: 'website', label: website, type: 'url'})
-    + field({name: 'budget', label: 'Ngân sách dự kiến mỗi tháng'})
+    + field({name: 'budget', label: budget})
     + '<div class="fld"><label for="f-goal"><span>Mục tiêu chính</span><span>TÙY CHỌN</span></label>'
     + `<select name="goal" id="f-goal">${options}</select></div>`
     + '<div class="fld wide"><label for="f-note"><span>Doanh nghiệp đang gặp vấn đề gì</span>'
@@ -505,13 +507,12 @@ export function contactChapter({goals, website = 'Website hoặc trang đích', 
     + `<a class="sc-dc is-call" href="tel:${esc(hotline)}"><i>${icon('phone')}</i><span><small>Hotline</small><b>${esc(hotline)}</b></span></a>`
     + `<a class="sc-dc is-zalo" href="#"><i>${fabGlyph('zalo')}</i><span><small>Zalo</small><b>${esc(zalo)}</b></span></a>`
     + '</div>'
-    + '<p class="brief-hint">POWAI cần biết doanh nghiệp bán gì, phục vụ khu vực nào và hiện nhận khách '
-    + 'qua đâu. Ba thông tin đó quyết định phần lớn cách chạy được đề xuất.</p>'
+    + `<p class="brief-hint">${esc(hint)}</p>`
     + '</aside>';
 
   return chapter({
     id: 'lien-he', num, eyebrow: 'BẮT ĐẦU',
-    title: 'Gửi bối cảnh, nhận đề xuất cách chạy.',
+    title,
     lead: 'Không cần chuẩn bị sẵn mọi thứ. Gửi những gì đang có, phần thiếu sẽ được rà cùng nhau.',
     body: `<div class="brief-wrap rv">${form}${direct}</div>`
   });
