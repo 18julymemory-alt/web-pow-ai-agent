@@ -2,9 +2,10 @@
 // thresholds and field/lab data from web.dev and PageSpeed Insights docs.
 import {vitals, waterfall, cacheRules, imageDiet, media, mobileSite, uiStates, backups} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'toi-uu-toc-do',
   channel: 'webSpeed',
   name: 'Tối ưu tốc độ',
@@ -142,4 +143,4 @@ export default {
       ['Quy tắc giữ tốc độ', 'Cho ảnh và mã mới.', '#trien-khai', 'file']]
   },
   sisters: sisters('bao-tri-website', 'cro-toi-uu-chuyen-doi', 'landing-page')
-};
+});

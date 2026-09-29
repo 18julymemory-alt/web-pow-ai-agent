@@ -1,9 +1,10 @@
 // Website bán hàng — one landing page (WEBSITE_LP_PLAN.md).
 import {category, product, checkout, payFail, orders, mobileSite, leadDone, media} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'website-ban-hang',
   channel: 'webShop',
   name: 'Website bán hàng',
@@ -141,4 +142,4 @@ export default {
       ['Đo tới đơn', 'purchase có giá trị.', '#do-luong', 'chart']]
   },
   sisters: sisters('tich-hop-he-thong', 'cro-toi-uu-chuyen-doi', 'toi-uu-toc-do')
-};
+});

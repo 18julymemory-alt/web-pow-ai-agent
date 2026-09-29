@@ -4,6 +4,7 @@
 // feedback, evaluation of application) and the eight chapters of the
 // one-page renderer. A course module hands over what is specific to it.
 import {CHECKED, SOURCES, CONTACT} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 
 const TOC = {'khi-nao': 'Dành cho ai', 'dinh-dang': 'Chương trình học', 'chuan-bi': 'Cần chuẩn bị',
   'muc-tieu': 'Bài thực hành', 'do-luong': 'Đánh giá', 'trien-khai': 'Lộ trình'};
@@ -16,7 +17,7 @@ const FAQ_COMMON = [
 
 export function course(o) {
   const name = o.name;
-  return {
+  return withExtra({
     slug: o.slug, channel: o.channel, name, checked: CHECKED, docName: o.docName, SOURCES, sourceLabel: 'Tài liệu tham khảo:',
     toc: TOC, contact: CONTACT,
     meta: {title: o.metaTitle, description: o.metaDescription},
@@ -48,6 +49,7 @@ export function course(o) {
       src: o.evalSrc
     },
     rollout: {
+      eyebrow: 'LỘ TRÌNH HỌC',
       title: 'Năm bước từ khảo sát tới áp dụng.',
       lead: 'Mỗi bước kết thúc bằng một thứ xem được. Bên dưới là danh sách kiểm tra trước khi khai giảng.',
       steps: [['Khảo sát đầu vào', 'Người ra quyết định, người vận hành, người đọc báo cáo.', 'Bảng năng lực đầu vào'],
@@ -64,5 +66,5 @@ export function course(o) {
     contactGoals: [['team', 'Đào tạo đội ngũ'], ['workshop', 'Workshop theo bài toán'], ['coach', 'Kèm cặp 1–1'], ['path', 'Tư vấn lộ trình học']],
     recap: {title: o.recapTitle, items: o.recap},
     sisters: o.sisters
-  };
+  });
 }

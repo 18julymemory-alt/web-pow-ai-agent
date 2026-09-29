@@ -1,9 +1,10 @@
 // UI/UX — one landing page (WEBSITE_LP_PLAN.md).
 import {flow, wireframe, uiStates, designSystem, usability, contactForm, mobileSite} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'ui-ux',
   channel: 'webUx',
   name: 'UI/UX',
@@ -144,4 +145,4 @@ export default {
       ['Thử người thật', 'Theo vòng nhỏ.', '#do-luong', 'users']]
   },
   sisters: sisters('cro-toi-uu-chuyen-doi', 'website-theo-yeu-cau', 'landing-page')
-};
+});

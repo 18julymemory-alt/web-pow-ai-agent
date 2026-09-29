@@ -1,9 +1,10 @@
 // Landing Page — one landing page (WEBSITE_LP_PLAN.md).
 import {lpAnatomy, lpVariants, match, contactForm, splitTest, scrollMap, crm, leadDone} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'landing-page',
   channel: 'webLanding',
   name: 'Landing Page',
@@ -142,4 +143,4 @@ export default {
       ['Đo lead phù hợp', 'Không chỉ lượt bấm.', '#do-luong', 'chart']]
   },
   sisters: sisters('cro-toi-uu-chuyen-doi', 'website-doanh-nghiep', 'tich-hop-he-thong')
-};
+});

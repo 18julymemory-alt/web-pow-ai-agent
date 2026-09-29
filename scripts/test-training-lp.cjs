@@ -29,8 +29,8 @@ const PAGES = [
   ['marketing-thuc-chien-cho-doanh-nghiep', 'Marketing thực chiến cho doanh nghiệp', '#ffb89a'],
   ['dao-tao-doi-ngu-marketing-noi-bo', 'Đào tạo đội ngũ Marketing nội bộ', '#c9d0ff']
 ].map(p => [...p, 'Tài liệu tham khảo:', OFFICIAL]);
-const TOC = ['Dành cho ai', 'Chương trình học', 'Cần chuẩn bị', 'Bài thực hành', 'Đánh giá', 'Lộ trình', 'Hỏi đáp', 'Liên hệ'];
-const CHAPTERS = ['khi-nao', 'dinh-dang', 'chuan-bi', 'muc-tieu', 'do-luong', 'trien-khai', 'faq', 'lien-he'];
+const TOC = ['Dành cho ai', 'Cốt lõi', 'Chương trình', 'Cần chuẩn bị', 'Thực hành', 'Đánh giá', 'Lộ trình', 'Hỏi đáp', 'Liên hệ'];
+const CHAPTERS = ['khi-nao', 'cot-loi', 'dinh-dang', 'chuan-bi', 'muc-tieu', 'do-luong', 'trien-khai', 'faq', 'lien-he'];
 const WIDTHS = [320, 390, 768, 1024, 1440, 1920];
 const ROOT = path.resolve(__dirname, '..');
 
@@ -64,7 +64,7 @@ function files() {
   const dir = path.join(ROOT, 'scripts/training-lp');
   const mods = fs.readdirSync(dir).filter(f => f.endsWith('.mjs')).sort();
   const DATA = ['ai', 'automation', 'content', 'doi-ngu', 'facebook-ads', 'ga4', 'google-ads', 'seo', 'social', 'thuc-chien', 'tiktok-ads', 'tong-the', 'website'];
-  ok('training modules', mods.join() === [...DATA, 'course', 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
+  ok('training modules', mods.join() === [...DATA, 'course', 'extra', 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
   const src = mods.map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n');
   ok('modules reuse the Google Ads kit', /from '\.\.\/google-ads-lp\//.test(src));
   ok('modules do not import google-ads-page.mjs or the old service guide', !/google-ads-page\.mjs|service-guide/.test(src));
@@ -105,6 +105,20 @@ async function shell(browser, [slug, name, accent]) {
   ok(`${name} h1 is the service name`, info.h1 === name, info.h1);
   ok(`${name} hero shows the check date`, /Cập nhật theo tài liệu .+? ngày \d{2}\/\d{2}\/\d{4}/.test(info.hero));
   ok(`${name} old service guide is gone`, !info.old);
+  const hero = await page.evaluate(() => ({
+    badge: document.querySelector('.tp-scene .tp-badge')?.textContent || '',
+    calls: document.querySelectorAll('.tp-scene .tp-call').length,
+    screen: document.querySelectorAll('.tp-scene .tp-main [data-mock]').length,
+    eyebrow: document.querySelector('.ga-hero .kicker')?.textContent || '',
+    intro: document.querySelector('.tp-intro h2')?.textContent || '',
+    facts: document.querySelectorAll('.tp-intro dl > div').length,
+    keys: document.querySelectorAll('#cot-loi .tp-key').length,
+    lists: document.querySelectorAll('#cot-loi .op-fit li').length
+  }));
+  ok(`${name} hero có hình riêng của chủ đề, 3 chú thích và nhãn nhóm`, hero.screen > 0 && hero.calls === 3 && hero.badge.includes('Đào tạo Digital Marketing'), JSON.stringify(hero));
+  ok(`${name} dòng nhỏ trên tiêu đề nói rõ thuộc nhóm nào`, hero.eyebrow.toUpperCase().includes('Đào tạo Digital Marketing'.toUpperCase()), hero.eyebrow);
+  ok(`${name} có khung "là gì / học gì" với 3 ý`, /\?$/.test(hero.intro.trim()) && hero.facts === 3, hero.intro);
+  ok(`${name} chương cốt lõi có 6 điểm và danh sách bàn giao / không hứa`, hero.keys === 6 && hero.lists >= 8, `${hero.keys} thẻ, ${hero.lists} dòng`);
   ok(`${name} breadcrumb goes through Đào tạo Digital Marketing`, info.crumb.includes('/dich-vu/dao-tao-digital-marketing/ Đào tạo Digital Marketing'), info.crumb);
   ok(`${name} shell loads without console errors`, errors.length === 0, errors.join(' | '));
   await page.close();
@@ -125,7 +139,7 @@ async function layout(browser, [slug, name]) {
 }
 
 /* ---------------- chapter frame ------------------------------------------ */
-const VISUAL = '.workbench, .stage, .v-funnel, .sc-road, .checklist, .sc-faq, form, .bp, .files, [data-mock], .how-io';
+const VISUAL = '.tp-keys, .workbench, .stage, .v-funnel, .sc-road, .checklist, .sc-faq, form, .bp, .files, [data-mock], .how-io';
 
 async function frame(browser, [slug, name, , label, host]) {
   const {page} = await open(browser, BASE + slug + '/');
@@ -143,7 +157,7 @@ async function frame(browser, [slug, name, , label, host]) {
       }).map(c => c.id)
     };
   }, {VISUAL, label, host: host.source});
-  ok(`${name} mục lục đủ 8 chương theo thứ tự`, r.toc.join() === CHAPTERS.join() && r.ids.join() === CHAPTERS.join(), r.ids.join());
+  ok(`${name} mục lục đủ 9 chương theo thứ tự`, r.toc.join() === CHAPTERS.join() && r.ids.join() === CHAPTERS.join(), r.ids.join());
   ok(`${name} chương nào cũng có số lớn đúng thứ tự`, r.nums.every(Boolean));
   ok(`${name} chương nào cũng có hình / công cụ`, !r.bare.length, r.bare.join(', '));
   ok(`${name} chương nào cũng có dòng "${label}" dẫn tới nguồn`, !r.cite.length, r.cite.join(', '));

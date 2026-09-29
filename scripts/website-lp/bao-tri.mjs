@@ -1,9 +1,10 @@
 // Bảo trì Website — one landing page (WEBSITE_LP_PLAN.md).
 import {backups, updates, uptime, careReport, environments, contactForm, vitals, media} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'bao-tri-website',
   channel: 'webCare',
   name: 'Bảo trì Website',
@@ -140,4 +141,4 @@ export default {
       ['Có người nhận sự cố', 'Và báo cáo tháng.', '#do-luong', 'bell']]
   },
   sisters: sisters('wordpress', 'toi-uu-toc-do', 'tich-hop-he-thong')
-};
+});

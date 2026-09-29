@@ -2,9 +2,10 @@
 // and update advice from the WordPress.org documentation in sources.mjs.
 import {editor, media, updates, roles, backups, homePage, mobileSite, uptime} from './mocks.mjs';
 import {CHECKED, SOURCES, CONTACT, toc, sisters} from './sources.mjs';
+import {withExtra} from './extra.mjs';
 export {CHECKED};
 
-export default {
+export default withExtra({
   slug: 'wordpress',
   channel: 'webWp',
   name: 'WordPress',
@@ -142,4 +143,4 @@ export default {
       ['Sao lưu, thử khôi phục', 'Trước mỗi cập nhật lớn.', '#muc-tieu', 'shield']]
   },
   sisters: sisters('bao-tri-website', 'website-doanh-nghiep', 'toi-uu-toc-do')
-};
+});

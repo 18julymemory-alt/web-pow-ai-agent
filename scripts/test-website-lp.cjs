@@ -26,7 +26,7 @@ const PAGES = [
   ['toi-uu-toc-do', 'Tối ưu tốc độ', '#8fe3f0'],
   ['tich-hop-he-thong', 'Tích hợp hệ thống', '#b8e08f']
 ].map(p => [...p, 'Tài liệu tham khảo:', OFFICIAL]);
-const CHAPTERS = ['khi-nao', 'dinh-dang', 'chuan-bi', 'muc-tieu', 'do-luong', 'trien-khai', 'faq', 'lien-he'];
+const CHAPTERS = ['khi-nao', 'cot-loi', 'dinh-dang', 'chuan-bi', 'muc-tieu', 'do-luong', 'trien-khai', 'faq', 'lien-he'];
 const WIDTHS = [320, 390, 768, 1024, 1440, 1920];
 const ROOT = path.resolve(__dirname, '..');
 
@@ -55,12 +55,12 @@ function files() {
   const rules = css.replace(/\/\*[\s\S]*?\*\//g, '');
   ok('website-lp.css is scoped to .ws-lp', /^\s*body\.ws-lp\{[^}]*\}\s*\.ws-lp\{/.test(rules)
     && rules.split('@media').slice(1).every(m => /^[^{]*\{\s*\.ws-lp[\s{]/.test(m)));
-  ok('website-lp.css: no rotate, tilt at most 4°', !/rotate|skew/.test(rules));
+  ok('website-lp.css: only the hero scene tilts, and by a fraction of the pointer', !/skew/.test(rules) && (rules.match(/rotate[XY]?\(/g) || []).length === 2 && /rotateX\(calc\(var\(--rx,7deg\) \* \.3\)\) rotateY\(calc\(var\(--ry,-15deg\) \* \.2\)\)/.test(rules));
 
   const dir = path.join(ROOT, 'scripts/website-lp');
   const mods = fs.readdirSync(dir).filter(f => f.endsWith('.mjs')).sort();
   const DATA = ['ban-hang', 'bao-tri', 'cro', 'doanh-nghiep', 'landing-page', 'theo-yeu-cau', 'tich-hop', 'toc-do', 'ui-ux', 'wordpress'];
-  ok('website modules', mods.join() === [...DATA, 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
+  ok('website modules', mods.join() === [...DATA, 'extra', 'mocks', 'sources'].sort().map(m => m + '.mjs').join(), mods.join());
   const src = mods.map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n');
   ok('modules reuse the Google Ads kit', /from '\.\.\/google-ads-lp\//.test(src));
   ok('modules do not import google-ads-page.mjs or the old service guide', !/google-ads-page\.mjs|service-guide/.test(src));
@@ -100,6 +100,20 @@ async function shell(browser, [slug, name, accent]) {
   ok(`${name} h1 is the service name`, info.h1 === name, info.h1);
   ok(`${name} hero shows the check date`, /Cập nhật theo tài liệu .+? ngày \d{2}\/\d{2}\/\d{4}/.test(info.hero));
   ok(`${name} old service guide is gone`, !info.old);
+  const hero = await page.evaluate(() => ({
+    badge: document.querySelector('.tp-scene .tp-badge')?.textContent || '',
+    calls: document.querySelectorAll('.tp-scene .tp-call').length,
+    screen: document.querySelectorAll('.tp-scene .tp-main [data-mock]').length,
+    eyebrow: document.querySelector('.ga-hero .kicker')?.textContent || '',
+    intro: document.querySelector('.tp-intro h2')?.textContent || '',
+    facts: document.querySelectorAll('.tp-intro dl > div').length,
+    keys: document.querySelectorAll('#cot-loi .tp-key').length,
+    lists: document.querySelectorAll('#cot-loi .op-fit li').length
+  }));
+  ok(`${name} hero có hình riêng của chủ đề, 3 chú thích và nhãn nhóm`, hero.screen > 0 && hero.calls === 3 && hero.badge.includes('Website & Landing Page'), JSON.stringify(hero));
+  ok(`${name} dòng nhỏ trên tiêu đề nói rõ thuộc nhóm nào`, hero.eyebrow.toUpperCase().includes('Website & Landing Page'.toUpperCase()), hero.eyebrow);
+  ok(`${name} có khung "là gì / học gì" với 3 ý`, /\?$/.test(hero.intro.trim()) && hero.facts === 3, hero.intro);
+  ok(`${name} chương cốt lõi có 6 điểm và danh sách bàn giao / không hứa`, hero.keys === 6 && hero.lists >= 8, `${hero.keys} thẻ, ${hero.lists} dòng`);
   ok(`${name} breadcrumb goes through Website & Landing Page`, info.crumb.includes('/dich-vu/website-landing-page/ Website & Landing Page'), info.crumb);
   ok(`${name} shell loads without console errors`, errors.length === 0, errors.join(' | '));
   await page.close();
@@ -120,7 +134,7 @@ async function layout(browser, [slug, name]) {
 }
 
 /* ---------------- chapter frame ------------------------------------------ */
-const VISUAL = '.workbench, .stage, .v-funnel, .sc-road, .checklist, .sc-faq, form, .bp, .files, [data-mock], .how-io';
+const VISUAL = '.tp-keys, .workbench, .stage, .v-funnel, .sc-road, .checklist, .sc-faq, form, .bp, .files, [data-mock], .how-io';
 
 async function frame(browser, [slug, name, , label, host]) {
   const {page} = await open(browser, BASE + slug + '/');
@@ -138,7 +152,7 @@ async function frame(browser, [slug, name, , label, host]) {
       }).map(c => c.id)
     };
   }, {VISUAL, label, host: host.source});
-  ok(`${name} mục lục đủ 8 chương theo thứ tự`, r.toc.join() === CHAPTERS.join() && r.ids.join() === CHAPTERS.join(), r.ids.join());
+  ok(`${name} mục lục đủ 9 chương theo thứ tự`, r.toc.join() === CHAPTERS.join() && r.ids.join() === CHAPTERS.join(), r.ids.join());
   ok(`${name} chương nào cũng có số lớn đúng thứ tự`, r.nums.every(Boolean));
   ok(`${name} chương nào cũng có hình / công cụ`, !r.bare.length, r.bare.join(', '));
   ok(`${name} chương nào cũng có dòng "${label}" dẫn tới nguồn`, !r.cite.length, r.cite.join(', '));
